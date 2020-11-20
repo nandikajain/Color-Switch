@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="500.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="162.0" minWidth="10.0" prefWidth="30.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="162.0" minWidth="10.0" prefWidth="90.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="407.0" minWidth="10.0" prefWidth="283.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="128.0" minWidth="10.0" prefWidth="90.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="128.0" minWidth="10.0" prefWidth="30.0" />
+  </columnConstraints>
+  <rowConstraints>
+      <RowConstraints maxHeight="140.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="206.0" minHeight="10.0" prefHeight="141.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="90.0" minHeight="0.0" prefHeight="11.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="188.0" minHeight="0.0" prefHeight="41.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="352.0" minHeight="10.0" prefHeight="87.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="356.0" minHeight="0.0" prefHeight="55.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="363.0" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="321.0" minHeight="10.0" prefHeight="14.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="296.0" minHeight="10.0" prefHeight="94.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="296.0" minHeight="10.0" prefHeight="193.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="COLOR SWITCH" textAlignment="CENTER" wrappingWidth="284.21630859375" GridPane.columnIndex="2" GridPane.rowIndex="1">
+         <font>
+            <Font name="Blissful Thinking" size="56.0" />
+         </font>
+      </Text>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#393939" height="45.0" stroke="BLACK" strokeType="INSIDE" width="500.0" GridPane.rowIndex="3" />
+      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="SCORE" textAlignment="CENTER" wrappingWidth="285.21630859375" GridPane.columnIndex="2" GridPane.rowIndex="3">
+         <font>
+            <Font name="Blissful Thinking" size="43.0" />
+         </font>
+      </Text>
+      <TextField alignment="CENTER" prefHeight="67.0" prefWidth="278.0" promptText="69" style="-fx-background-color: #272727; -fx-border-color: #272727;" GridPane.columnIndex="2" GridPane.rowIndex="4">
+         <font>
+            <Font name="Blissful Thinking" size="43.0" />
+         </font>
+      </TextField>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d3903d" height="45.0" stroke="BLACK" strokeType="INSIDE" width="500.0" GridPane.rowIndex="5" />
+      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="BEST SCORE" textAlignment="CENTER" wrappingWidth="285.21630859375" GridPane.columnIndex="2" GridPane.rowIndex="5">
+         <font>
+            <Font name="Blissful Thinking" size="43.0" />
+         </font>
+      </Text>
+      <TextField alignment="CENTER" prefHeight="48.0" prefWidth="348.0" promptText="69" style="-fx-background-color: #272727; -fx-border-color: #272727;" GridPane.columnIndex="2" GridPane.rowIndex="6">
+         <font>
+            <Font name="Blissful Thinking" size="43.0" />
+         </font>
+      </TextField>
+      <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="84.0" prefWidth="85.0" style="-fx-background-radius: 100; -fx-background-color: #fff;" text="MENU" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <font>
+            <Font name="Blissful Thinking" size="17.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="52.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
+         <image>
+            <Image url="@../static/3stars.jpg" />
+         </image>
+      </ImageView>
+      <TextField alignment="TOP_CENTER" prefHeight="166.0" prefWidth="86.0" promptText="420" style="-fx-background-color: #272727;" GridPane.columnIndex="3" GridPane.rowIndex="1">
+         <font>
+            <Font name="Blissful Thinking" size="28.0" />
+         </font>
+      </TextField>
+      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="79.0" prefWidth="273.0" style="-fx-background-color: #32dbf0;" text="PLAY AGAIN" textAlignment="CENTER" textFill="#ff0181" GridPane.columnIndex="2" GridPane.rowIndex="9">
+         <font>
+            <Font name="Blissful Thinking" size="45.0" />
+         </font>
+      </Button>
+      <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="27.0" prefWidth="288.0" style="-fx-background-color: #fae100;" text="PLAY THE COINS!" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="8">
+         <font>
+            <Font name="Blissful Thinking" size="34.0" />
+         </font>
+      </Button>
+   </children>
+</GridPane>
