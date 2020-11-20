@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="515.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="169.0" minWidth="10.0" prefWidth="126.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="337.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="196.0" minWidth="10.0" prefWidth="126.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="70.0" minHeight="10.0" prefHeight="23.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="127.0" minHeight="10.0" prefHeight="125.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="71.0" minHeight="10.0" prefHeight="66.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="75.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="64.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="132.0" minHeight="10.0" prefHeight="132.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="70.0" minHeight="10.0" prefHeight="23.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="93.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="75.0" minHeight="10.0" prefHeight="74.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+    <children>
+        <Button contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" prefHeight="92.0" prefWidth="315.0" style="-fx-background-color: #272727; -fx-border-color: #ff0181; -fx-border-width: 4;" text="New Game" textAlignment="CENTER" textFill="#fae100" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <font>
+                <Font name="Blissful Thinking" size="47.0" />
+            </font>
+            <effect>
+                <Blend />
+            </effect></Button>
+        <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="85.0" prefWidth="310.0" style="-fx-background-color: #272727; -fx-border-color: #32dbf0; -fx-border-width: 4;" text="Saved Games" textFill="#900dff" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <font>
+                <Font name="Blissful Thinking" size="39.0" />
+            </font>
+        </Button>
+        <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="88.0" prefWidth="385.0" style="-fx-background-color: #272727; -fx-border-color: #fae100; -fx-border-width: 4;" text="Exit" textFill="#ff0181" GridPane.columnIndex="1" GridPane.rowIndex="7">
+            <font>
+                <Font name="Blissful Thinking" size="41.0" />
+            </font></Button>
+        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="COLOR SWITCH" textAlignment="CENTER" wrappingWidth="308.21630859375" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <font>
+                <Font name="Blissful Thinking" size="79.0" />
+            </font>
+        </Text>
+    </children>
+</GridPane>
