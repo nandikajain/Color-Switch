@@ -4,7 +4,25 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+
 public class SavedGamesMenu extends Application {
+
+    SavedGamesMenu(ArrayList<Game> savedGameList){
+
+    }
+
+    private void displaySavedGames(){
+
+    }
+
+    private void startSelectedGame(Game chosenGame){
+
+    }
+
+    private void exitScreen(){
+
+    }
 
     public static void main(String[] args) {
         launch(args);

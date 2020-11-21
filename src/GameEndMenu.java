@@ -6,6 +6,30 @@ import javafx.stage.Stage;
 
 public class GameEndMenu extends Application {
 
+    GameEndMenu(int noOfStars, Game curGame){
+
+    }
+
+    private void displayGameStats(Game curGame){
+
+    }
+
+    private void gameContinue(Game curGame){
+
+    }
+
+    public boolean checkEligible(){
+        return false;
+    }
+
+    public void restartGame(){//basically start new game
+
+    }
+
+    public void exitGame(){
+
+    }
+
     public static void main(String[] args) {
         launch(args);
     }

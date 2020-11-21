@@ -20,9 +20,38 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.util.Duration;
 
+import java.util.ArrayList;
+
 //Will have to make 1) Main Java file 2) fxml file linked to scene builder 3) Controller file for event listeners for each page
 
 public class MainMenu extends Application {
+
+    int totalStars;
+    ArrayList<Game> savedGames;
+
+    MainMenu(){
+
+    }
+
+    private void startNewGame(){
+
+    }
+
+    private void exit(){
+
+    }
+
+    private void viewSavedGames(){
+
+    }
+
+    public int getTotalStars() {
+        return totalStars;
+    }
+
+    public void setTotalStars(int totalStars) {
+        this.totalStars = totalStars;
+    }
 
     public static void main(String[] args) {
         launch(args);
