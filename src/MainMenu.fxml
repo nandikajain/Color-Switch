@@ -3,20 +3,44 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="500.0" style="-fx-background-color: #000;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="500.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="150.0" layoutY="653.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="file:./assets/main_menu_cs.png" />
-         </image>
-      </ImageView>
-      <Text fill="WHITE" layoutX="159.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" COLOR SWITCH" textAlignment="CENTER" wrappingWidth="166.4010009765625">
+      <Text fill="WHITE" layoutX="167.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" COLOR SWITCH" textAlignment="CENTER" wrappingWidth="166.4010009765625">
          <font>
             <Font size="43.0" />
          </font>
       </Text>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="150.0" layoutY="546.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:./assets/color-switch-saved-games.jpeg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff21d300" height="60.0" layoutX="131.0" layoutY="392.0" stroke="#ff0181" strokeType="INSIDE" strokeWidth="5.0" width="250.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="60.0" layoutX="131.0" layoutY="458.0" stroke="#32dbf0" strokeType="INSIDE" strokeWidth="5.0" width="250.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="60.0" layoutX="131.0" layoutY="325.0" stroke="#fae100" strokeType="INSIDE" strokeWidth="5.0" width="250.0" />
+      <Text fill="#e81a1a" layoutX="172.0" layoutY="368.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Game">
+         <font>
+            <Font name="System Bold" size="33.0" />
+         </font>
+      </Text>
+      <Text fill="#df0cad" layoutX="221.0" layoutY="501.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exit">
+         <font>
+            <Font name="System Bold" size="33.0" />
+         </font>
+      </Text>
+      <Text fill="#fae100" layoutX="153.0" layoutY="435.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Saved Games">
+         <font>
+            <Font name="System Bold" size="33.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="69.0" fitWidth="66.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true" x="215.0">
+         <image>
+            <Image url="file:./assets/play-button.jpeg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

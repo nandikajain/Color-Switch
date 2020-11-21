@@ -28,11 +28,11 @@ public class MainMenu extends Application {
 
     int totalStars;
     ArrayList<Game> savedGames;
-
-    MainMenu(){
-
-    }
-
+//
+//    MainMenu(){
+//
+//    }
+//
     private void startNewGame(){
 
     }
@@ -59,64 +59,61 @@ public class MainMenu extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-      //primaryStage.getIcons().add(new Image("/assets/logo.png")); -> DONT KNOW WHY THIS IS GIVING AN ERROR
+      primaryStage.getIcons().add(new Image("file:./assets/logo.png"));
+      primaryStage.setTitle("Color Switch");
       AnchorPane mainMenuPane= FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
-//      Text t=FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
-//        primaryStage.setTitle("Color Switch");
-//        Image image= FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
-//  mainMenuPane.getChildren().add(1, t);
-        Group group = new Group();
-        Arc arc1 = new Arc();
-        arc1.setCenterX(250);
-        arc1.setCenterY(300);
-        arc1.setRadiusX(60);
-        arc1.setRadiusY(60);
-        arc1.setStartAngle(0);
-        arc1.setLength(90);
-        arc1.setFill(Color.TRANSPARENT);
-        arc1.setStroke(Color.YELLOW);
-        arc1.setStrokeWidth(10);
-        arc1.setType(ArcType.OPEN);
-        Arc arc2 = new Arc();
-        arc2.setCenterX(250);
-        arc2.setCenterY(300);
-        arc2.setRadiusX(60);
-        arc2.setRadiusY(60);
-        arc2.setStartAngle(90);
-        arc2.setLength(90);
-        arc2.setFill(Color.TRANSPARENT);
-        arc2.setStroke(Color.RED);
-        arc2.setStrokeWidth(10);
-        arc2.setType(ArcType.OPEN);
-        Arc arc3 = new Arc();
-        arc3.setCenterX(250);
-        arc3.setCenterY(300);
-        arc3.setRadiusX(60);
-        arc3.setRadiusY(60);
-        arc3.setStartAngle(180);
-        arc3.setLength(90);
-        arc3.setFill(Color.TRANSPARENT);
-        arc3.setStroke(Color.PURPLE);
-        arc3.setStrokeWidth(10);
-        arc3.setType(ArcType.OPEN);
-        Arc arc4 = new Arc();
-        arc4.setCenterX(250);
-        arc4.setCenterY(300);
-        arc4.setRadiusX(60);
-        arc4.setRadiusY(60);
-        arc4.setStartAngle(270);
-        arc4.setLength(90);
-        arc4.setFill(Color.TRANSPARENT);
-        arc4.setStroke(Color.CYAN);
-        arc4.setStrokeWidth(10);
-        arc4.setType(ArcType.OPEN);
-        group.getChildren().addAll(arc1);
-        group.getChildren().addAll(arc2);
-        group.getChildren().addAll(arc3);
-        group.getChildren().addAll(arc4);
+      Group group = new Group();
+      Arc arc1 = new Arc();
+      arc1.setCenterX(250);
+      arc1.setCenterY(210);
+      arc1.setRadiusX(60);
+      arc1.setRadiusY(60);
+      arc1.setStartAngle(0);
+      arc1.setLength(90);
+      arc1.setFill(Color.TRANSPARENT);
+      arc1.setStroke(Color.YELLOW);
+      arc1.setStrokeWidth(10);
+      arc1.setType(ArcType.OPEN);
+      Arc arc2 = new Arc();
+      arc2.setCenterX(250);
+      arc2.setCenterY(210);
+      arc2.setRadiusX(60);
+      arc2.setRadiusY(60);
+      arc2.setStartAngle(90);
+      arc2.setLength(90);
+      arc2.setFill(Color.TRANSPARENT);
+      arc2.setStroke(Color.RED);
+      arc2.setStrokeWidth(10);
+      arc2.setType(ArcType.OPEN);
+      Arc arc3 = new Arc();
+      arc3.setCenterX(250);
+      arc3.setCenterY(210);
+      arc3.setRadiusX(60);
+      arc3.setRadiusY(60);
+      arc3.setStartAngle(180);
+      arc3.setLength(90);
+      arc3.setFill(Color.TRANSPARENT);
+      arc3.setStroke(Color.PURPLE);
+      arc3.setStrokeWidth(10);
+      arc3.setType(ArcType.OPEN);
+      Arc arc4 = new Arc();
+      arc4.setCenterX(250);
+      arc4.setCenterY(210);
+      arc4.setRadiusX(60);
+      arc4.setRadiusY(60);
+      arc4.setStartAngle(270);
+      arc4.setLength(90);
+      arc4.setFill(Color.TRANSPARENT);
+      arc4.setStroke(Color.CYAN);
+      arc4.setStrokeWidth(10);
+      arc4.setType(ArcType.OPEN);
+      group.getChildren().addAll(arc1);
+      group.getChildren().addAll(arc2);
+      group.getChildren().addAll(arc3);
+      group.getChildren().addAll(arc4);
       Arc arc1b = new Arc();
       arc1b.setCenterX(250);
-      arc1b.setCenterY(300);
+      arc1b.setCenterY(210);
       arc1b.setRadiusX(75);
       arc1b.setRadiusY(75);
       arc1b.setStartAngle(0);
@@ -127,7 +124,7 @@ public class MainMenu extends Application {
       arc1b.setType(ArcType.OPEN);
       Arc arc2b = new Arc();
       arc2b.setCenterX(250);
-      arc2b.setCenterY(300);
+      arc2b.setCenterY(210);
       arc2b.setRadiusX(75);
       arc2b.setRadiusY(75);
       arc2b.setStartAngle(90);
@@ -138,7 +135,7 @@ public class MainMenu extends Application {
       arc2b.setType(ArcType.OPEN);
       Arc arc3b = new Arc();
       arc3b.setCenterX(250);
-      arc3b.setCenterY(300);
+      arc3b.setCenterY(210);
       arc3b.setRadiusX(75);
       arc3b.setRadiusY(75);
       arc3b.setStartAngle(180);
@@ -149,7 +146,7 @@ public class MainMenu extends Application {
       arc3b.setType(ArcType.OPEN);
       Arc arc4b = new Arc();
       arc4b.setCenterX(250);
-      arc4b.setCenterY(300);
+      arc4b.setCenterY(210);
       arc4b.setRadiusX(75);
       arc4b.setRadiusY(75);
       arc4b.setStartAngle(270);
@@ -162,18 +159,15 @@ public class MainMenu extends Application {
       group.getChildren().addAll(arc2b);
       group.getChildren().addAll(arc3b);
       group.getChildren().addAll(arc4b);
+      RotateTransition rotate = new RotateTransition();
+      rotate.setAxis(Rotate.Z_AXIS);      rotate.setDuration(Duration.millis(3000));
+      rotate.setNode(group);
+      rotate.play();
+      rotate.setByAngle(360);
+      rotate.setCycleCount(50000);
 
-        mainMenuPane.getChildren().setAll(group);
-
-        primaryStage.setScene(new Scene(mainMenuPane,500, 750));
-        primaryStage.show();
-
-//      Group root = new Group();
-//
-//      Rectangle rect = new Rectangle(190, 395, 20, 5);
-//      rect.setFill(Color.BLUE);
-//      Rotate rot = new Rotate(0, 200, 200);
-//      rect.getTransforms().add(rot);
-//      root.getChildren().add(rect);
+      mainMenuPane.getChildren().add(group);
+      primaryStage.setScene(new Scene(mainMenuPane,500, 650));
+      primaryStage.show();
     }
 }

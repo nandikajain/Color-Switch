@@ -6,9 +6,9 @@ import javafx.stage.Stage;
 
 public class GameEndMenu extends Application {
 
-    GameEndMenu(int noOfStars, Game curGame){
-
-    }
+//    GameEndMenu(int noOfStars, Game curGame){
+//
+//    }
 
     private void displayGameStats(Game curGame){
 
