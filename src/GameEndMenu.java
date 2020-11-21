@@ -11,7 +11,7 @@ public class GameEndMenu extends Application {
 //    }
 
     private void displayGameStats(Game curGame){
-
+    
     }
 
     private void gameContinue(Game curGame){

@@ -61,7 +61,10 @@ public class MainMenu extends Application {
     public void start(Stage primaryStage) throws Exception {
       primaryStage.getIcons().add(new Image("file:./assets/logo.png"));
       primaryStage.setTitle("Color Switch");
-      AnchorPane mainMenuPane= FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
+      AnchorPane mainMenuPane = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
+
+
+      //__________________________________ARCS
       Group group = new Group();
       Arc arc1 = new Arc();
       arc1.setCenterX(250);
@@ -159,12 +162,16 @@ public class MainMenu extends Application {
       group.getChildren().addAll(arc2b);
       group.getChildren().addAll(arc3b);
       group.getChildren().addAll(arc4b);
+      //___________________________________ARCS END
+
       RotateTransition rotate = new RotateTransition();
-      rotate.setAxis(Rotate.Z_AXIS);      rotate.setDuration(Duration.millis(3000));
-      rotate.setNode(group);
-      rotate.play();
+      rotate.setAxis(Rotate.Z_AXIS);
       rotate.setByAngle(360);
       rotate.setCycleCount(50000);
+      rotate.setDuration(Duration.millis(3000));
+      rotate.setNode(group);
+      rotate.play();
+
 
       mainMenuPane.getChildren().add(group);
       primaryStage.setScene(new Scene(mainMenuPane,500, 650));
