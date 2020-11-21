@@ -66,7 +66,7 @@
       </Button>
       <ImageView fitHeight="52.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
          <image>
-            <Image url="@../static/3stars.jpg" />
+            <Image url="file:./assets/3stars.jpg" />
          </image>
       </ImageView>
       <TextField alignment="TOP_CENTER" prefHeight="166.0" prefWidth="86.0" promptText="420" style="-fx-background-color: #272727;" GridPane.columnIndex="3" GridPane.rowIndex="1">
