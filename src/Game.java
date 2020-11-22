@@ -1,4 +1,5 @@
 import javafx.animation.AnimationTimer;
+import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -139,8 +140,10 @@ public class Game extends Application implements Screen{
         rotate.setByAngle(360);
         rotate.setCycleCount(50000);
         rotate.setDuration(Duration.millis(3000));
+        rotate.setInterpolator(Interpolator.LINEAR);
         rotate.setNode(group);
         rotate.play();
+
 
         Group group2= new Group();
         //Change values here in order to get line obstacles with different parameters
@@ -240,8 +243,6 @@ public class Game extends Application implements Screen{
         playfield = new Pane();
         playfield.setPrefSize(500,650);
        gamePane.getChildren().addAll(playfield);
-       // gamePane.setCenter(layerPane);
-
         primaryStage.setScene(new Scene(gamePane, 500, 650));
         primaryStage.show();
         addBall();
@@ -265,9 +266,9 @@ public class Game extends Application implements Screen{
                     ball.applyForce();
                     ball.move();
                 }
-                ball.checkBounds();
+                ball.checkBottom();
                 ball.display();
-                if(mouseClick && System.currentTimeMillis()-time>150) {
+                if(mouseClick && System.currentTimeMillis()-time>70) {
                     mouseClick = false;
                     clickedOnce = false;
                 }
@@ -278,11 +279,7 @@ public class Game extends Application implements Screen{
 
     public void addBall(){
         Pane layer = playfield;
-        double x = 250;
         double y = 100;
-        common.PVector location = new common.PVector(x,y);
-        common.PVector velocity = new common.PVector(0,0);
-        common.PVector acceleration = new common.PVector(0,0);
-        ball = new Ball(layer, location, velocity, acceleration);
+        ball = new Ball(layer, y);
     }
 }

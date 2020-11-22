@@ -1,5 +1,6 @@
 package obstacles;
 
+import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -69,6 +70,7 @@ public class SquareObstacle extends Application {
         rotate.setByAngle(360);
         rotate.setCycleCount(50000);
         rotate.setDuration(Duration.millis(3000));
+        rotate.setInterpolator(Interpolator.LINEAR);
         rotate.setNode(group);
         rotate.play();
 

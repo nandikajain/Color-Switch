@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="500.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameEndMenu">
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="500.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameEndMenu">
   <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="162.0" minWidth="10.0" prefWidth="30.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="162.0" minWidth="10.0" prefWidth="90.0" />
@@ -23,14 +23,14 @@
   <rowConstraints>
       <RowConstraints maxHeight="140.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="206.0" minHeight="10.0" prefHeight="141.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="90.0" minHeight="0.0" prefHeight="11.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="188.0" minHeight="0.0" prefHeight="41.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="352.0" minHeight="10.0" prefHeight="87.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="356.0" minHeight="0.0" prefHeight="55.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="363.0" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="321.0" minHeight="10.0" prefHeight="14.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="296.0" minHeight="10.0" prefHeight="94.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="296.0" minHeight="10.0" prefHeight="193.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="90.0" minHeight="0.0" prefHeight="19.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="188.0" minHeight="0.0" prefHeight="24.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="352.0" minHeight="10.0" prefHeight="83.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="356.0" minHeight="0.0" prefHeight="48.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="363.0" minHeight="10.0" prefHeight="58.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="321.0" minHeight="4.0" prefHeight="21.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="296.0" minHeight="10.0" prefHeight="101.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="296.0" minHeight="10.0" prefHeight="134.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
       <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="COLOR SWITCH" textAlignment="CENTER" wrappingWidth="284.21630859375" GridPane.columnIndex="2" GridPane.rowIndex="1">
@@ -79,12 +79,12 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label alignment="CENTER" prefHeight="38.0" prefWidth="278.0" text="69" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="4">
+      <Label alignment="CENTER" prefHeight="62.0" prefWidth="278.0" text="22" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="4">
          <font>
             <Font name="Blissful Thinking" size="50.0" />
          </font>
       </Label>
-      <Label alignment="TOP_CENTER" prefHeight="128.0" prefWidth="86.0" text="69420" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="1">
+      <Label alignment="TOP_CENTER" prefHeight="128.0" prefWidth="86.0" text="9000" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="1">
          <font>
             <Font name="Blissful Thinking" size="28.0" />
          </font>

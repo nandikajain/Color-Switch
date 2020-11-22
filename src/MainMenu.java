@@ -1,7 +1,4 @@
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.RotateTransition;
-import javafx.animation.Timeline;
+import javafx.animation.*;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.scene.Group;
@@ -220,7 +217,9 @@ public class MainMenu extends Application {
       rotate.setCycleCount(50000);
       rotate.setDuration(Duration.millis(3000));
       rotate.setNode(group);
+      rotate.setInterpolator(Interpolator.LINEAR);
       rotate.play();
+
       RotateTransition rotate2 = new RotateTransition();
       rotate2.setAxis(Rotate.Z_AXIS);
       rotate2.setByAngle(360);
@@ -228,6 +227,7 @@ public class MainMenu extends Application {
       rotate2.setAutoReverse(true);
       rotate2.setDuration(Duration.millis(3000));
       rotate2.setNode(group2);
+      rotate.setInterpolator(Interpolator.LINEAR);
       rotate2.play();
 
 

@@ -40,7 +40,7 @@ public class GameEndMenu extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("GameEndMenu.fxml"));
         primaryStage.setTitle("Color Switch");
-        primaryStage.setScene(new Scene(root, 500, 750));
+        primaryStage.setScene(new Scene(root, 500, 650));
         primaryStage.show();
     }
 

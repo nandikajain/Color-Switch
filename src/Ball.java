@@ -47,12 +47,15 @@ import javafx.scene.shape.Circle;
 import common.PVector;
 
 public class Ball extends Region{
-    PVector location;
-    PVector velocity;
-    PVector userVelocity;
-    PVector acceleration;
+    //PVector location;
+    //PVector velocity;
+    //PVector userVelocity;
+    //PVector acceleration;
 
-    Node view;
+    double positionY;
+    double velocity;
+    double userVelocity;
+    double acceleration;
 
     double width = 20;
     double height = width;
@@ -62,15 +65,16 @@ public class Ball extends Region{
 
     double maxSpeed = 100;
 
+    Node view;
     Pane layer = null;
 
-    public Ball(Pane layer, PVector location, PVector velocity, PVector acceleration){
+    public Ball(Pane layer, double positionY){
         this.layer = layer;
-        this.location = location;
-        this.velocity = velocity;
-        this.acceleration = acceleration;
+        this.positionY = positionY;
+        this.velocity = 0;
+        this.acceleration = 0;
 
-        this.userVelocity = new PVector(0,-12);
+        this.userVelocity = -12;
 
         Circle circle = new Circle(radius);
         circle.setCenterX(radius);
@@ -85,33 +89,33 @@ public class Ball extends Region{
     }
 
     public void applyForce() {
-        PVector gravity = new PVector(0,0.3);
-        acceleration.add(gravity);
+        double gravity = 0.3;
+        acceleration+=gravity;
     }
 
 
     public void move() {
-        velocity.add(acceleration);
-        velocity.limit(maxSpeed);
-        location.add(velocity);
-        acceleration.mult(0);
+        velocity+=acceleration;
+        //velocity.limit(maxSpeed);
+        positionY+=velocity;
+        acceleration=0;
     }
 
     public void userMove() {
-        velocity.mult(0);
-        acceleration.mult(0);
-        location.add(userVelocity);
+        velocity=0;
+        acceleration=0;
+        positionY+=userVelocity;
     }
 
-    public void checkBounds(){
-        if (location.y > layer.getHeight() - radius) {
-            velocity.y *= 0;
-            location.y = layer.getHeight() - radius;
+    public void checkBottom(){
+        if (positionY > layer.getHeight() - 80 - radius) {
+            velocity *= 0;
+            positionY = layer.getHeight() - 80 - radius;
         }
     }
 
     public void display(){
-        relocate(location.x - centerX, location.y - centerY);
+        relocate(240, positionY - centerY);
     }
 
 }
