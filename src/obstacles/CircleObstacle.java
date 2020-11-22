@@ -26,7 +26,7 @@ public class CircleObstacle extends Application {
         Group group = new Group();
         //Change values here in order to get circle obstacles with different parameters
         double centerX=250;
-        double centerY=210;
+        double centerY=200;
         double radius=60;
 
         //Circle Obstacle Creation
