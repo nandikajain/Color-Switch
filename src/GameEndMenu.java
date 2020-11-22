@@ -1,7 +1,9 @@
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class GameEndMenu extends Application {
@@ -41,4 +43,10 @@ public class GameEndMenu extends Application {
         primaryStage.setScene(new Scene(root, 500, 750));
         primaryStage.show();
     }
+
+    @FXML
+    public void playAgainClicked(MouseEvent mouseEvent) {
+        System.out.println("Play Button Clicked");
+    }
+
 }
