@@ -8,9 +8,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="500.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="500.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainMenuController">
    <children>
-      <Text fill="WHITE" layoutX="167.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" COLOR SWITCH" textAlignment="CENTER" wrappingWidth="180.4010009765625">
+      <Text fill="WHITE" layoutX="160.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" COLOR SWITCH" textAlignment="CENTER" wrappingWidth="180.4010009765625">
          <font>
             <Font name="Blissful Thinking" size="45.0" />
          </font>

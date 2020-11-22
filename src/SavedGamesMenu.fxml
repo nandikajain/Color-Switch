@@ -16,9 +16,9 @@
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#393939" height="35.0" layoutY="165.0" stroke="TRANSPARENT" strokeType="INSIDE" width="500.0" />
-      <Text fill="WHITE" layoutX="140.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SAVED GAMES" wrappingWidth="316.06768798828125">
+      <Text fill="WHITE" layoutX="106.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SAVED GAMES" textAlignment="CENTER" wrappingWidth="316.06768798828125">
          <font>
-            <Font name="Calibri" size="40.0" />
+            <Font name="Blissful Thinking" size="38.0" />
          </font>
       </Text>
       <ImageView fitHeight="35.0" fitWidth="74.0" layoutX="373.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
@@ -26,38 +26,38 @@
             <Image url="file:./assets/3stars.jpg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d508f00" height="81.0" layoutX="42.0" layoutY="236.0" stroke="#ffe521" strokeType="INSIDE" strokeWidth="5.0" width="415.0" />
-      <Text fill="#adadad" layoutX="393.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="69" wrappingWidth="40.80340576171875">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d508f00" height="81.0" layoutX="42.0" layoutY="236.0" stroke="#ffe521" strokeType="INSIDE" strokeWidth="5.0" width="418.0" />
+      <Text fill="WHITE" layoutX="390.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="68" textAlignment="CENTER" wrappingWidth="40.80340576171875">
          <font>
-            <Font name="System Bold" size="22.0" />
+            <Font name="Blissful Thinking" size="24.0" />
          </font>
       </Text>
-      <Text fill="#adadad" layoutX="86.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GAME 0">
+      <Text fill="WHITE" layoutX="73.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GAME 0">
          <font>
-            <Font name="System Bold" size="34.0" />
+            <Font name="Blissful Thinking" size="30.0" />
          </font>
       </Text>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d508f00" height="81.0" layoutX="43.0" layoutY="335.0" stroke="#ffe521" strokeType="INSIDE" strokeWidth="5.0" width="415.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d508f00" height="81.0" layoutX="41.0" layoutY="436.0" stroke="#ffe521" strokeType="INSIDE" strokeWidth="5.0" width="415.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d508f00" height="81.0" layoutX="41.0" layoutY="536.0" stroke="#ffe521" strokeType="INSIDE" strokeWidth="5.0" width="415.0" />
-      <Text fill="#adadad" layoutX="76.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GAME 1">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d508f00" height="81.0" layoutX="43.0" layoutY="335.0" stroke="#ffe521" strokeType="INSIDE" strokeWidth="5.0" width="418.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d508f00" height="81.0" layoutX="43.0" layoutY="437.0" stroke="#ffe521" strokeType="INSIDE" strokeWidth="5.0" width="418.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d508f00" height="81.0" layoutX="41.0" layoutY="536.0" stroke="#ffe521" strokeType="INSIDE" strokeWidth="5.0" width="418.0" />
+      <Text fill="WHITE" layoutX="73.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GAME 1">
          <font>
-            <Font name="System Bold" size="34.0" />
+            <Font name="Blissful Thinking" size="30.0" />
          </font>
       </Text>
-      <Text fill="#adadad" layoutX="76.0" layoutY="490.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GAME 5">
+      <Text fill="WHITE" layoutX="76.0" layoutY="490.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GAME 5">
          <font>
-            <Font name="System Bold" size="34.0" />
+            <Font name="Blissful Thinking" size="30.0" />
          </font>
       </Text>
-      <Text fill="#adadad" layoutX="76.0" layoutY="590.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GAME 7">
+      <Text fill="WHITE" layoutX="76.0" layoutY="590.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GAME 7">
          <font>
-            <Font name="System Bold" size="34.0" />
+            <Font name="Blissful Thinking" size="30.0" />
          </font>
       </Text>
-      <Text fill="#adadad" layoutX="399.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5" wrappingWidth="40.80340576171875">
+      <Text fill="WHITE" layoutX="390.0" layoutY="403.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5" textAlignment="CENTER" wrappingWidth="40.80340576171875">
          <font>
-            <Font name="System Bold" size="22.0" />
+            <Font name="Blissful Thinking" size="24.0" />
          </font>
       </Text>
       <ImageView fitHeight="35.0" fitWidth="74.0" layoutX="373.0" layoutY="344.0" pickOnBounds="true" preserveRatio="true">
@@ -75,20 +75,20 @@
             <Image url="file:./assets/3stars.jpg" />
          </image>
       </ImageView>
-      <Text fill="#adadad" layoutX="399.0" layoutY="500.0" strokeType="OUTSIDE" strokeWidth="0.0" text="7" wrappingWidth="40.80340576171875">
+      <Text fill="WHITE" layoutX="390.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0" text="7" textAlignment="CENTER" wrappingWidth="40.80340576171875">
          <font>
-            <Font name="System Bold" size="22.0" />
+            <Font name="Blissful Thinking" size="24.0" />
          </font>
       </Text>
-      <Text fill="#adadad" layoutX="393.0" layoutY="600.0" strokeType="OUTSIDE" strokeWidth="0.0" text="11" wrappingWidth="40.80340576171875">
+      <Text fill="WHITE" layoutX="390.0" layoutY="604.0" strokeType="OUTSIDE" strokeWidth="0.0" text="11" textAlignment="CENTER" wrappingWidth="40.80340576171875">
          <font>
-            <Font name="System Bold" size="22.0" />
+            <Font name="Blissful Thinking" size="24.0" />
          </font>
       </Text>
-      <Circle fill="WHITE" layoutX="65.0" layoutY="100.0" radius="38.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Text layoutX="45.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MENU">
+      <Circle fill="#999999" layoutX="65.0" layoutY="100.0" radius="38.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Text fill="#272727" layoutX="40.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MENU" textAlignment="CENTER">
          <font>
-            <Font size="14.0" />
+            <Font name="Blissful Thinking" size="22.0" />
          </font>
       </Text>
    </children>
