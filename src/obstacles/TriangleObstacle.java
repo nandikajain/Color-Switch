@@ -1,4 +1,5 @@
 package obstacles;
+
 import javafx.animation.RotateTransition;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -11,7 +12,7 @@ import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class StarObstacle extends Application {
+public class TriangleObstacle extends Application {
     public static void main(String[] args) {
         launch(args);
     }
@@ -22,43 +23,43 @@ public class StarObstacle extends Application {
         AnchorPane root = new AnchorPane();
         Group group= new Group();
         //Change values here in order to get star obstacles with different parameters
-        double centerX=250;
-        double centerY=200;
-        double length=100;
-        //Star Obstacle Creation
+        //coordinates of the bottom left corner are given and the length of the side
+        //colors are also passed, have to make sure that one of the side includes the color of the ball
+        //Colors => CYAN, PURPLE, YELLOW, RED
+        Color c1= Color.RED;
+        Color c2=Color.PURPLE;
+        Color c3= Color.YELLOW;
+        double Px=180;
+        double Py=250;
+        double length=150;
+
+        //Triangle Obstacle Creation
 
         Line line1 = new Line();
-        line1.setStartX(centerX);
-        line1.setStartY(centerY);
-        line1.setEndX(centerX);
-        line1.setEndY(centerY-length);
-        line1.setStroke(Color.CYAN);
-        line1.setStrokeWidth(15);
+        line1.setStartX(Px);
+        line1.setStartY(Py);
+        line1.setEndX(Px+length);
+        line1.setEndY(Py);
+        line1.setStroke(c1);
+        line1.setStrokeWidth(10);
         group.getChildren().addAll(line1);
         Line line2 = new Line();
-        line2.setStartX(centerX);
-        line2.setStartY(centerY);
-        line2.setEndX(centerX- length);
-        line2.setEndY(centerY);
-        line2.setStroke(Color.PURPLE);
-        line2.setStrokeWidth(15);
+        line2.setStartX(Px+length);
+        line2.setStartY(Py);
+        // ((Math.sqrt(3))/2)*length
+        line2.setEndX(Px + (length/2));
+        line2.setEndY(Py - (((Math.sqrt(3))/2)*length));
+        line2.setStroke(c2);
+        line2.setStrokeWidth(10);
         group.getChildren().addAll(line2);
         Line line3 = new Line();
-        line3.setStartX(centerX);
-        line3.setStartY(centerY);
-        line3.setEndX(centerX);
-        line3.setEndY(centerY+length);
-        line3.setStroke(Color.YELLOW);
-        line3.setStrokeWidth(15);
+        line3.setStartX(Px+ (length/2));
+        line3.setStartY(Py - (((Math.sqrt(3))/2)*length));
+        line3.setEndX(Px);
+        line3.setEndY(Py);
+        line3.setStroke(c3);
+        line3.setStrokeWidth(10);
         group.getChildren().addAll(line3);
-        Line line4 = new Line();
-        line4.setStartX(centerX);
-        line4.setStartY(centerY);
-        line4.setEndX(centerX+length);
-        line4.setEndY(centerY);
-        line4.setStroke(Color.RED);
-        line4.setStrokeWidth(15);
-        group.getChildren().addAll(line4);
         root.getChildren().add(group);
         //rotation
         RotateTransition rotate = new RotateTransition();
