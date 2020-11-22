@@ -66,6 +66,8 @@ public class MainMenu extends Application {
 
       //__________________________________ARCS
       Group group = new Group();
+      Group group2 = new Group();
+
       Arc arc1 = new Arc();
       arc1.setCenterX(250);
       arc1.setCenterY(210);
@@ -158,10 +160,58 @@ public class MainMenu extends Application {
       arc4b.setStroke(Color.PURPLE);
       arc4b.setStrokeWidth(10);
       arc4b.setType(ArcType.OPEN);
-      group.getChildren().addAll(arc1b);
-      group.getChildren().addAll(arc2b);
-      group.getChildren().addAll(arc3b);
-      group.getChildren().addAll(arc4b);
+      group2.getChildren().addAll(arc1b);
+      group2.getChildren().addAll(arc2b);
+      group2.getChildren().addAll(arc3b);
+      group2.getChildren().addAll(arc4b);
+      Arc arc1c = new Arc();
+      arc1c.setCenterX(250);
+      arc1c.setCenterY(210);
+      arc1c.setRadiusX(90);
+      arc1c.setRadiusY(90);
+      arc1c.setStartAngle(0);
+      arc1c.setLength(90);
+      arc1c.setFill(Color.TRANSPARENT);
+      arc1c.setStroke(Color.YELLOW);
+      arc1c.setStrokeWidth(10);
+      arc1c.setType(ArcType.OPEN);
+      Arc arc2c = new Arc();
+      arc2c.setCenterX(250);
+      arc2c.setCenterY(210);
+      arc2c.setRadiusX(90);
+      arc2c.setRadiusY(90);
+      arc2c.setStartAngle(90);
+      arc2c.setLength(90);
+      arc2c.setFill(Color.TRANSPARENT);
+      arc2c.setStroke(Color.RED);
+      arc2c.setStrokeWidth(10);
+      arc2c.setType(ArcType.OPEN);
+      Arc arc3c = new Arc();
+      arc3c.setCenterX(250);
+      arc3c.setCenterY(210);
+      arc3c.setRadiusX(90);
+      arc3c.setRadiusY(90);
+      arc3c.setStartAngle(180);
+      arc3c.setLength(90);
+      arc3c.setFill(Color.TRANSPARENT);
+      arc3c.setStroke(Color.PURPLE);
+      arc3c.setStrokeWidth(10);
+      arc3c.setType(ArcType.OPEN);
+      Arc arc4c = new Arc();
+      arc4c.setCenterX(250);
+      arc4c.setCenterY(210);
+      arc4c.setRadiusX(90);
+      arc4c.setRadiusY(90);
+      arc4c.setStartAngle(270);
+      arc4c.setLength(90);
+      arc4c.setFill(Color.TRANSPARENT);
+      arc4c.setStroke(Color.CYAN);
+      arc4c.setStrokeWidth(10);
+      arc4c.setType(ArcType.OPEN);
+      group.getChildren().addAll(arc1c);
+      group.getChildren().addAll(arc2c);
+      group.getChildren().addAll(arc3c);
+      group.getChildren().addAll(arc4c);
       //___________________________________ARCS END
 
       RotateTransition rotate = new RotateTransition();
@@ -171,9 +221,19 @@ public class MainMenu extends Application {
       rotate.setDuration(Duration.millis(3000));
       rotate.setNode(group);
       rotate.play();
+      RotateTransition rotate2 = new RotateTransition();
+      rotate2.setAxis(Rotate.Z_AXIS);
+      rotate2.setByAngle(360);
+      rotate2.setCycleCount(50000);
+      rotate2.setAutoReverse(true);
+      rotate2.setDuration(Duration.millis(3000));
+      rotate2.setNode(group2);
+      rotate2.play();
 
 
       mainMenuPane.getChildren().add(group);
+      mainMenuPane.getChildren().add(group2);
+
       primaryStage.setScene(new Scene(mainMenuPane,500, 650));
       primaryStage.show();
     }

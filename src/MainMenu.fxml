@@ -10,9 +10,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="500.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainMenuController">
    <children>
-      <Text fill="WHITE" layoutX="167.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" COLOR SWITCH" textAlignment="CENTER" wrappingWidth="166.4010009765625">
+      <Text fill="WHITE" layoutX="167.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" COLOR SWITCH" textAlignment="CENTER" wrappingWidth="180.4010009765625">
          <font>
-            <Font name="Blissful Thinking" size="49.0" />
+            <Font name="Blissful Thinking" size="45.0" />
          </font>
       </Text>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="150.0" layoutY="546.0" pickOnBounds="true" preserveRatio="true">
