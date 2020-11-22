@@ -13,6 +13,8 @@ public class SavedGamesMenu extends Application {
 //
 //    }
 
+    SavedGamesMenu(){}
+
     private void displaySavedGames(){
 
     }
@@ -25,11 +27,6 @@ public class SavedGamesMenu extends Application {
 
     }
 
-    public static void main(String[] args) {
-        launch(args);
-    }
-
-    @Override
     public void start(Stage primaryStage) throws Exception{
         primaryStage.getIcons().add(new Image("file:./assets/logo.png"));
         Parent root = FXMLLoader.load(getClass().getResource("SavedGamesMenu.fxml"));
