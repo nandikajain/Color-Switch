@@ -1,3 +1,4 @@
+import javafx.animation.AnimationTimer;
 import javafx.animation.RotateTransition;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -6,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.ArcType;
@@ -19,7 +21,12 @@ import java.util.ArrayList;
 import java.util.TimerTask;
 
 public class Game extends Application implements Screen{
-
+    Pane playfield;
+    AnimationTimer gameLoop;
+    Scene scene;
+    Ball ball;
+    boolean mouseClick = false;
+    boolean clickedOnce = false;
     private int noOfStars;
     private Ball gameBall;
     private ArrayList<Obstacle> obstacleList;
@@ -35,9 +42,9 @@ public class Game extends Application implements Screen{
 
     }
 
-    private void startGame(){
-
-    }
+//    private void startGame(){
+//
+//    }
 
     private void setupGame(){
 
@@ -230,10 +237,52 @@ public class Game extends Application implements Screen{
                 }, 0, 1000);
 
         gamePane.getChildren().add(group2);
-
+        playfield = new Pane();
+        playfield.setPrefSize(500,650);
+       gamePane.getChildren().addAll(playfield);
+       // gamePane.setCenter(layerPane);
 
         primaryStage.setScene(new Scene(gamePane, 500, 650));
         primaryStage.show();
+        addBall();
+        startGame();
 
+    }
+    public void startGame() throws Exception{
+        gameLoop = new AnimationTimer() {
+            long time = System.currentTimeMillis();
+            @Override
+            public void handle(long l) {
+                playfield.setOnMouseClicked(e -> mouseClick = true);
+                if(mouseClick){
+                    if(!clickedOnce) {
+                        time = System.currentTimeMillis();
+                        clickedOnce = true;
+                    }
+                    ball.userMove();
+                }
+                else{
+                    ball.applyForce();
+                    ball.move();
+                }
+                ball.checkBounds();
+                ball.display();
+                if(mouseClick && System.currentTimeMillis()-time>150) {
+                    mouseClick = false;
+                    clickedOnce = false;
+                }
+            }
+        };
+        gameLoop.start();
+    }
+
+    public void addBall(){
+        Pane layer = playfield;
+        double x = 250;
+        double y = 100;
+        common.PVector location = new common.PVector(x,y);
+        common.PVector velocity = new common.PVector(0,0);
+        common.PVector acceleration = new common.PVector(0,0);
+        ball = new Ball(layer, location, velocity, acceleration);
     }
 }
