@@ -60,7 +60,7 @@
       </Button>
       <ImageView fitHeight="52.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
          <image>
-            <Image url="@File:/assets/3stars.jpg" />
+            <Image url="file:./assets/3stars.jpg" />
          </image>
       </ImageView>
       <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#playAgainClicked" prefHeight="79.0" prefWidth="280.0" style="-fx-background-color: #272727; -fx-border-color: #32dbf0; -fx-border-width: 4;" text="PLAY AGAIN" textAlignment="CENTER" textFill="#ff0181" GridPane.columnIndex="2" GridPane.rowIndex="9">
