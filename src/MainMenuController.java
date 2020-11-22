@@ -28,15 +28,13 @@ public class MainMenuController {
 
     }
 
-    /*
+
     @FXML
     public void onPlayButtonClick(MouseEvent mouseEvent) throws Exception {
-        Stage stage = (Stage) savedGamesButton.getScene().getWindow();
-        Game game = new Game();
-        game.start(stage);
+
     }
 
-     */
+
 
     @FXML
     public void onSavedGamesClick(ActionEvent actionEvent) throws Exception {
