@@ -44,13 +44,7 @@ import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
-import common.PVector;
-
 public class Ball extends Region{
-    //PVector location;
-    //PVector velocity;
-    //PVector userVelocity;
-    //PVector acceleration;
 
     double positionY;
     double velocity;
@@ -96,7 +90,6 @@ public class Ball extends Region{
 
     public void move() {
         velocity+=acceleration;
-        //velocity.limit(maxSpeed);
         positionY+=velocity;
         acceleration=0;
     }
