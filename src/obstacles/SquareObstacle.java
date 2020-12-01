@@ -1,69 +1,40 @@
 package obstacles;
-
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
-import javafx.application.Application;
 import javafx.scene.Group;
-import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.transform.Rotate;
-import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafx.scene.paint.Color;
 
-public class SquareObstacle extends Application {
-    public static void main(String[] args) {
-        launch(args);
+//Change values here in order to get star obstacles with different parameters
+public class SquareObstacle {
+    double centerX;
+    double centerY;
+    double length;
+    boolean isRotate;
+    public SquareObstacle(double cX, double cY, double l, boolean rot) {
+        centerX = cX;
+        centerY = cY;
+        length = l;
+        isRotate = rot;
     }
-
-    @Override
-    public void start(Stage primaryStage) throws Exception{
-        primaryStage.getIcons().add(new Image("file:./assets/logo.png"));
-        AnchorPane root = new AnchorPane();
+    public Group returnSquareObstacle() {
         Group group= new Group();
-        //Change values here in order to get star obstacles with different parameters
-        //coordinates of the top left corner are given and the length of the side
-        double Px=180;
-        double Py=150;
-        double length=100;
-
         //Square Obstacle Creation
-
-        Line line1 = new Line();
-        line1.setStartX(Px);
-        line1.setStartY(Py);
-        line1.setEndX(Px+length);
-        line1.setEndY(Py);
-        line1.setStroke(Color.CYAN);
-        line1.setStrokeWidth(10);
+        double temp = length/2;
+        LineComponent l1= new LineComponent(centerX- temp, centerY - temp, centerX + temp, centerY - temp, Color.CYAN, 15);
+        Line line1 = l1.returnLineComponent();
+        LineComponent l2= new LineComponent(centerX+ temp, centerY - temp, centerX+ temp, centerY + temp, Color.PURPLE, 15);
+        Line line2 = l2.returnLineComponent();
+        LineComponent l3= new LineComponent(centerX+ temp, centerY + temp, centerX- temp, centerY + temp, Color.YELLOW, 15);
+        Line line3 = l3.returnLineComponent();
+        LineComponent l4= new LineComponent(centerX- temp, centerY + temp, centerX - temp, centerY - temp,Color.RED, 15);
+        Line line4 = l4.returnLineComponent();
         group.getChildren().addAll(line1);
-        Line line2 = new Line();
-        line2.setStartX(Px);
-        line2.setStartY(Py);
-        line2.setEndX(Px);
-        line2.setEndY(Py+length);
-        line2.setStroke(Color.PURPLE);
-        line2.setStrokeWidth(10);
         group.getChildren().addAll(line2);
-        Line line3 = new Line();
-        line3.setStartX(Px);
-        line3.setStartY(Py+length);
-        line3.setEndX(Px+length);
-        line3.setEndY(Py+length);
-        line3.setStroke(Color.YELLOW);
-        line3.setStrokeWidth(10);
         group.getChildren().addAll(line3);
-        Line line4 = new Line();
-        line4.setStartX(Px+length);
-        line4.setStartY(Py);
-        line4.setEndX(Px+length);
-        line4.setEndY(Py+length);
-        line4.setStroke(Color.RED);
-        line4.setStrokeWidth(10);
         group.getChildren().addAll(line4);
-        root.getChildren().add(group);
         //rotation
         RotateTransition rotate = new RotateTransition();
         rotate.setAxis(Rotate.Z_AXIS);
@@ -72,11 +43,11 @@ public class SquareObstacle extends Application {
         rotate.setDuration(Duration.millis(3000));
         rotate.setInterpolator(Interpolator.LINEAR);
         rotate.setNode(group);
+        rotate.setAutoReverse(isRotate);
         rotate.play();
 
-        primaryStage.setTitle("Color Switch");
-        primaryStage.setScene(new Scene(root, 500, 650));
-        primaryStage.show();
+        return group;
 
     }
+
 }
