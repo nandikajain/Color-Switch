@@ -6,6 +6,7 @@ import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import obstacles.CircleObstacle;
+import obstacles.ThreeEqualCircles;
 
 import java.util.ArrayList;
 
@@ -46,21 +47,14 @@ public class MainMenu extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-      primaryStage.getIcons().add(new Image("file:./assets/logo.png"));
-      primaryStage.setTitle("Color Switch");
-      AnchorPane mainMenuPane = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
+        primaryStage.getIcons().add(new Image("file:./assets/logo.png"));
+        primaryStage.setTitle("Color Switch");
+        AnchorPane mainMenuPane = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
       //Obstacle Creation
-      CircleObstacle c1 = new CircleObstacle(250, 210, 60, false);
-      Group group1 = c1.returnCircleObstacle();
-      CircleObstacle c2 = new CircleObstacle(250, 210, 75, true);
-      Group group2 = c2.returnCircleObstacle();
-      CircleObstacle c3 = new CircleObstacle(250, 210, 90, false);
-      Group group3 = c3.returnCircleObstacle();
-      mainMenuPane.getChildren().add(group1);
-      mainMenuPane.getChildren().add(group2);
-      mainMenuPane.getChildren().add(group3);
-
-      primaryStage.setScene(new Scene(mainMenuPane,500, 650));
-      primaryStage.show();
+        ThreeEqualCircles c1= new ThreeEqualCircles(250, 210, 60,71, 82);
+        Group group = c1.returnThreeEqualCircles();
+        mainMenuPane.getChildren().add(group);
+        primaryStage.setScene(new Scene(mainMenuPane,500, 650));
+        primaryStage.show();
     }
 }

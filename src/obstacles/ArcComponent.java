@@ -15,7 +15,7 @@ public class ArcComponent {
         double length;
         Color c;
         double strokeWidth;
-        ArcComponent(double X, double Y, double rX, double rY, double start_angle, double l, Color C, double width)
+        public ArcComponent(double X, double Y, double rX, double rY, double start_angle, double l, Color C, double width)
         {
             centerX = X;
             centerY = Y;
@@ -26,7 +26,7 @@ public class ArcComponent {
             c = C;
             strokeWidth= width;
         }
-        Arc returnArc()
+        public Arc returnArc()
         {
             Arc arc1 = new Arc();
             arc1.setCenterX(centerX);

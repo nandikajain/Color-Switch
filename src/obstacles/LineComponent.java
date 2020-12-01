@@ -10,7 +10,7 @@ public class LineComponent {
     double endX;
     Color c;
     double width;
-    LineComponent(double sX, double sY, double eX, double eY, Color C, double w)
+    public LineComponent(double sX, double sY, double eX, double eY, Color C, double w)
     {
         startX = sX;
         startY = sY;
@@ -19,7 +19,7 @@ public class LineComponent {
         c = C;
         width = w;
     }
-    Line returnLineComponent()
+    public Line returnLineComponent()
     {
         Line line = new Line();
         line.setStartX(startX);

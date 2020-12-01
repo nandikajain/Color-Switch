@@ -28,9 +28,24 @@ public class TestObstacles extends Application {
 //        Group group= l1.returnLineObstacle();
 
 //       ### Square Obstacle
-        SquareObstacle sq1= new SquareObstacle(250, 300, 150, true);
-        Group group = sq1.returnSquareObstacle();
+//        SquareObstacle sq1= new SquareObstacle(250, 300, 150, true);
+//        Group group = sq1.returnSquareObstacle();
 
+//        ###ThreeEqualCircles
+        ThreeEqualCircles tc1= new ThreeEqualCircles(250, 300, 60, 71, 82);
+        Group group= tc1.returnThreeEqualCircles();
+
+//        ###TwoEqualCircles
+//        TwoEqualCircles tc2= new TwoEqualCircles(250, 300, 60, 75);
+//        Group group= tc2.returnTwoEqualCircles();
+
+//        ###Rhombus Obstacle
+//        RhombusObstacle r= new RhombusObstacle(250,300, 150, false);
+//        Group group = r.returnRhombusObstacle();
+
+//       ### Two Adjacent Circles
+//        TwoAdjacentCircles circles = new TwoAdjacentCircles(250, 310, 60, 100, true, true);
+//        Group group = circles.returnTwoAdjacentCircles();
 
         root.getChildren().add(group);
         primaryStage.setTitle("Color Switch");
