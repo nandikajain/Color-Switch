@@ -3,6 +3,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -38,6 +39,8 @@ public class GameEndMenu extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        primaryStage.getIcons().add(new Image("file:./assets/logo.png"));
+
         Parent root = FXMLLoader.load(getClass().getResource("GameEndMenu.fxml"));
         primaryStage.setTitle("Color Switch");
         primaryStage.setScene(new Scene(root, 500, 650));

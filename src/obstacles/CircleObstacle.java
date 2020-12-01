@@ -2,84 +2,42 @@ package obstacles;
 
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
-import javafx.application.Application;
 import javafx.scene.Group;
-import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
-import javafx.scene.shape.ArcType;
-import javafx.scene.shape.Line;
 import javafx.scene.transform.Rotate;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class CircleObstacle extends Application {
-    public static void main(String[] args) {
-        launch(args);
+public class CircleObstacle {
+    //returning the group
+    double centerX;
+    double centerY;
+    double radius;
+    boolean isRotate;
+    //Change values here in order to get circle obstacles with different parameters
+    public CircleObstacle(double X, double Y, double r, boolean rot )
+    {
+        centerX=X;
+        centerY=Y;
+        radius=r;
+        isRotate=rot;
     }
-
-    @Override
-    public void start(Stage primaryStage) throws Exception{
-        primaryStage.getIcons().add(new Image("file:./assets/logo.png"));
-        AnchorPane root = new AnchorPane();
+    public Group returnCircleObstacle()
+    {
         Group group = new Group();
-        //Change values here in order to get circle obstacles with different parameters
-        double centerX=250;
-        double centerY=200;
-        double radius=60;
-
         //Circle Obstacle Creation
-        Arc arc1 = new Arc();
-        arc1.setCenterX(centerX);
-        arc1.setCenterY(centerY);
-        arc1.setRadiusX(radius);
-        arc1.setRadiusY(radius);
-        arc1.setStartAngle(0);
-        arc1.setLength(90);
-        arc1.setFill(Color.TRANSPARENT);
-        arc1.setStroke(Color.YELLOW);
-        arc1.setStrokeWidth(10);
-        arc1.setType(ArcType.OPEN);
-        Arc arc2 = new Arc();
-        arc2.setCenterX(centerX);
-        arc2.setCenterY(centerY);
-        arc2.setRadiusX(radius);
-        arc2.setRadiusY(radius);
-        arc2.setStartAngle(90);
-        arc2.setLength(90);
-        arc2.setFill(Color.TRANSPARENT);
-        arc2.setStroke(Color.RED);
-        arc2.setStrokeWidth(10);
-        arc2.setType(ArcType.OPEN);
-        Arc arc3 = new Arc();
-        arc3.setCenterX(centerX);
-        arc3.setCenterY(centerY);
-        arc3.setRadiusX(radius);
-        arc3.setRadiusY(radius);
-        arc3.setStartAngle(180);
-        arc3.setLength(90);
-        arc3.setFill(Color.TRANSPARENT);
-        arc3.setStroke(Color.PURPLE);
-        arc3.setStrokeWidth(10);
-        arc3.setType(ArcType.OPEN);
-        Arc arc4 = new Arc();
-        arc4.setCenterX(centerX);
-        arc4.setCenterY(centerY);
-        arc4.setRadiusX(radius);
-        arc4.setRadiusY(radius);
-        arc4.setStartAngle(270);
-        arc4.setLength(90);
-        arc4.setFill(Color.TRANSPARENT);
-        arc4.setStroke(Color.CYAN);
-        arc4.setStrokeWidth(10);
-        arc4.setType(ArcType.OPEN);
+        ArcComponent a1= new ArcComponent(centerX, centerY, radius, radius, 0, 90, Color.YELLOW, 10);
+        ArcComponent a2= new ArcComponent(centerX, centerY, radius, radius, 90, 90, Color.RED, 10);
+        ArcComponent a3= new ArcComponent(centerX, centerY, radius, radius, 180, 90, Color.PURPLE, 10);
+        ArcComponent a4= new ArcComponent(centerX, centerY, radius, radius, 270, 90, Color.CYAN, 10);
+        Arc arc1 = a1.returnArc();
+        Arc arc2 = a2.returnArc();
+        Arc arc3 = a3.returnArc();
+        Arc arc4 = a4.returnArc();
         group.getChildren().addAll(arc1);
         group.getChildren().addAll(arc2);
         group.getChildren().addAll(arc3);
         group.getChildren().addAll(arc4);
-        root.getChildren().add(group);
         //rotation
         RotateTransition rotate = new RotateTransition();
         rotate.setAxis(Rotate.Z_AXIS);
@@ -88,11 +46,9 @@ public class CircleObstacle extends Application {
         rotate.setDuration(Duration.millis(3000));
         rotate.setInterpolator(Interpolator.LINEAR);
         rotate.setNode(group);
+        rotate.setAutoReverse(isRotate);
         rotate.play();
 
-        primaryStage.setTitle("Color Switch");
-        primaryStage.setScene(new Scene(root, 500, 650));
-        primaryStage.show();
-
+        return group;
     }
 }
