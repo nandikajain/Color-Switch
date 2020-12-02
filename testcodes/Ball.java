@@ -30,7 +30,7 @@ public class Ball extends Region{
         this.velocity = velocity;
         this.acceleration = acceleration;
 
-        this.userVelocity = new PVector(0,-12);
+        this.userVelocity = new PVector(0,-5);
 
         Circle circle = new Circle(radius);
         circle.setCenterX(radius);
@@ -74,4 +74,7 @@ public class Ball extends Region{
         relocate(location.x - centerX, location.y - centerY);
     }
 
+    public double getLocation() {
+        return location.y-centerY;
+    }
 }

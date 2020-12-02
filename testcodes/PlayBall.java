@@ -14,6 +14,7 @@ public class PlayBall extends Application {
     AnimationTimer gameLoop;
     Scene scene;
     Ball ball;
+    Obs obstacle;
     boolean mouseClick = false;
     boolean clickedOnce = false;
 
@@ -33,6 +34,7 @@ public class PlayBall extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
         addBall();
+        addObs();
         startGame();
     }
 
@@ -48,6 +50,9 @@ public class PlayBall extends Application {
                         clickedOnce = true;
                     }
                     ball.userMove();
+                    if(ball.getLocation()<300) {
+                        obstacle.userMove();
+                    }
                 }
                 else{
                     ball.applyForce();
@@ -55,7 +60,8 @@ public class PlayBall extends Application {
                 }
                 ball.checkBounds();
                 ball.display();
-                if(mouseClick && System.currentTimeMillis()-time>150) {
+                obstacle.display();
+                if(mouseClick && System.currentTimeMillis()-time>70) {
                     mouseClick = false;
                     clickedOnce = false;
                 }
@@ -72,5 +78,14 @@ public class PlayBall extends Application {
         PVector velocity = new PVector(0,0);
         PVector acceleration = new PVector(0,0);
         ball = new Ball(layer, location, velocity, acceleration);
+    }
+
+    public void addObs(){
+        Pane layer = playfield;
+        double x = 400;
+        double y = 0;
+        PVector location = new PVector(x,y);
+        PVector velocity = new PVector(0,0);
+        obstacle = new Obs(layer,location,velocity);
     }
 }
