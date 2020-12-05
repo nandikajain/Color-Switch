@@ -44,4 +44,8 @@ public class Obs extends Region{
         relocate(location.x - centerX, location.y - centerY);
     }
 
+    public double getLocation(){
+        return location.y + 2*centerY;
+    }
+
 }

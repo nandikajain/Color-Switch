@@ -53,6 +53,10 @@ public class PlayBall extends Application {
                     if(ball.getLocation()<300) {
                         obstacle.userMove();
                     }
+                    //Collision logic, yeh pretty smooth hai
+                    if(ball.getLocationCollision()-obstacle.getLocation()<5 && ball.getLocationCollision()-obstacle.getLocation()>-5){
+                        System.out.println("Collided "+ball.getLocationCollision()+" "+obstacle.getLocation());
+                    }
                 }
                 else{
                     ball.applyForce();

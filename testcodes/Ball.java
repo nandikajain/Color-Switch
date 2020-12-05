@@ -67,6 +67,8 @@ public class Ball extends Region{
         if (location.y > layer.getHeight() - radius) {
             velocity.y *= 0;
             location.y = layer.getHeight() - radius;
+            //return true;
+            //System.out.println("Collision");
         }
     }
 
@@ -76,5 +78,9 @@ public class Ball extends Region{
 
     public double getLocation() {
         return location.y-centerY;
+    }
+
+    public double getLocationCollision(){
+        return location.y;
     }
 }
