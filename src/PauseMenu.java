@@ -23,11 +23,10 @@ import javafx.util.Duration;
 
 public class PauseMenu extends Application {
 
-    /*
+
     PauseMenu(Game curGame){
 
     }
-     */
 
     private void endGame(){
 
@@ -45,9 +44,9 @@ public class PauseMenu extends Application {
 
     }
 
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         launch(args);
-    }
+    }*/
 
     @Override
     public void start(Stage primaryStage) throws Exception {

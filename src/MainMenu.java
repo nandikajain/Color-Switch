@@ -14,13 +14,17 @@ import java.util.ArrayList;
 
 public class MainMenu extends Application {
 
-    int totalStars;
+    static int totalStars;
     ArrayList<Game> savedGames;
-//
-//    MainMenu(){
-//
-//    }
-//
+
+    MainMenu(){
+
+    }
+
+    /*public static MainMenu getMenuInstance(){
+        return this;
+    }*/
+
     private void startNewGame(){
 
     }
@@ -41,9 +45,9 @@ public class MainMenu extends Application {
         this.totalStars = totalStars;
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         launch(args);
-    }
+    }*/
 
     @Override
     public void start(Stage primaryStage) throws Exception {

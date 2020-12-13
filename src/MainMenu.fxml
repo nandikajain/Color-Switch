@@ -20,7 +20,7 @@
             <Image url="file:./assets/color-switch-saved-games.jpeg" />
          </image>
       </ImageView>
-      <ImageView fx:id="playButton" fitHeight="69.0" fitWidth="66.0" layoutY="176.0" onDragDetected="#onPlayButtonClick" onMouseClicked="#onPlayClicked" pickOnBounds="true" preserveRatio="true" x="215.0">
+      <ImageView fx:id="playButton" fitHeight="69.0" fitWidth="66.0" layoutY="176.0" onMouseClicked="#onPlayButtonClicked" pickOnBounds="true" preserveRatio="true" x="215.0">
          <image>
             <Image url="file:./assets/play-button.jpeg" />
          </image>

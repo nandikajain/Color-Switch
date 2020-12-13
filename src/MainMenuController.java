@@ -24,17 +24,11 @@ public class MainMenuController {
     }
 
     @FXML
-    public void onPlayClicked(MouseEvent mouseEvent) {
-
+    public void onPlayButtonClicked(MouseEvent mouseEvent) throws Exception {
+        Stage stage = (Stage) playButton.getScene().getWindow();
+        Game game = new Game();
+        game.start(stage);
     }
-
-
-    @FXML
-    public void onPlayButtonClick(MouseEvent mouseEvent) throws Exception {
-
-    }
-
-
 
     @FXML
     public void onSavedGamesClick(ActionEvent actionEvent) throws Exception {

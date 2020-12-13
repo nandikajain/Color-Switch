@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -85,11 +86,17 @@
             <Font name="Blissful Thinking" size="24.0" />
          </font>
       </Text>
-      <Circle fill="#999999" layoutX="65.0" layoutY="100.0" radius="38.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Text fill="#272727" layoutX="40.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MENU" textAlignment="CENTER">
+      <Circle fx:id="MenuButton" fill="#999999" layoutX="65.0" layoutY="100.0" onMouseClicked="#onMenuButtonClick" radius="38.0" stroke="TRANSPARENT" strokeType="INSIDE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Circle>
+      <Text fill="#272727" layoutX="40.0" layoutY="106.0" onMouseClicked="#onMenuButtonClick" strokeType="OUTSIDE" strokeWidth="0.0" text="MENU" textAlignment="CENTER">
          <font>
             <Font name="Blissful Thinking" size="22.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Text>
    </children>
 </AnchorPane>

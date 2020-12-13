@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
@@ -14,11 +13,17 @@
 <!--            <Image url="file:./assets/game-hand.jpeg" />-->
 <!--         </image>-->
 <!--      </ImageView>-->
-      <Circle fill="WHITE" layoutX="458.0" layoutY="43.0" radius="28.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Text layoutX="439.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PAUSE">
+      <Circle fx:id="gamePauseButton" fill="WHITE" layoutX="458.0" layoutY="43.0" onMouseClicked="#gamePauseButtonClicked" radius="28.0" stroke="TRANSPARENT" strokeType="INSIDE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Circle>
+      <Text layoutX="439.0" layoutY="47.0" onMouseClicked="#gamePauseButtonClicked" strokeType="OUTSIDE" strokeWidth="0.0" text="PAUSE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Text>
       <Text fill="WHITE" layoutX="21.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
          <font>
