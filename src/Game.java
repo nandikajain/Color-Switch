@@ -17,7 +17,7 @@ public class Game extends Application implements Screen{
     AnimationTimer gameLoop;
     Scene scene;
     Ball ball;
-    Group group;
+    Group group, group1;
     boolean mouseClick = false;
     boolean clickedOnce = false;
     private int noOfStars;
@@ -25,7 +25,7 @@ public class Game extends Application implements Screen{
     public ArrayList<Obstacle> obstacles;
     public ArrayList<Star> starList;
     public ArrayList<ColorSwitcher> colorSwitchers;
-    Obstacle c1;
+    Obstacle c1, c2;
 
     private Timer clock;
 
@@ -73,9 +73,22 @@ public class Game extends Application implements Screen{
         primaryStage.setTitle("Color Switch");
 
         //Circle Obstacle Creation
-        c1 = new CircleObstacle(250, 340, 80, false);
-        group = c1.generateObstacle();
+        c2 = new CircleObstacle(250, 550, 80, false);
+//        c1= new StarObstacle(250,340,100,false);
+
+//        c1= new SquareObstacle(250,340,100,false);
+//        c1= new RhombusObstacle(250,240,100,false);
+       // c1= new LineObstacle(200);
+//        c1= new TwoAdjacentCircles(200,340,100,115);
+     //   c1= new TwoEqualCircles(200,340,100,115);
+
+      //  c1= new ThreeEqualCircles(240, 350, 100, 112, 124);
+        c1= new TwoAdjacentStars(120, 200, 100);
+        group= c1.generateObstacle();
+        group1= c2.generateObstacle();
         gamePane.getChildren().add(group);
+        gamePane.getChildren().add(group1);
+
 
 
         playfield = new Pane();
@@ -104,6 +117,8 @@ public class Game extends Application implements Screen{
                         //move the contents of arraylist down
                         c1.userMove();
                         c1.display();
+                        c2.userMove();
+                        c2.display();
 
                     }
                 }

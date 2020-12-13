@@ -27,8 +27,7 @@ public class Ball extends Region{
         this.velocity = 0;
         this.acceleration = 0;
         this.ballColor= color;
-
-        this.userVelocity = -12;
+        this.userVelocity = -5;
 
         Circle circle = new Circle(radius);
         circle.setCenterX(radius);

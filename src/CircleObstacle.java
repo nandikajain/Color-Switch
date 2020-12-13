@@ -61,10 +61,10 @@ public class CircleObstacle extends Obstacle {
     @Override
     public void display()
     {
-        arc1.setLayoutY(arc1.getLayoutY()+7);
-        arc2.setLayoutY(arc2.getLayoutY()+7);
-        arc3.setLayoutY(arc3.getLayoutY()+7);
-        arc4.setLayoutY(arc4.getLayoutY()+ 7);
+        arc1.setLayoutY(arc1.getLayoutY()+5);
+        arc2.setLayoutY(arc2.getLayoutY()+5);
+        arc3.setLayoutY(arc3.getLayoutY()+5);
+        arc4.setLayoutY(arc4.getLayoutY()+ 5);
     }
     public double getCenterY() {
         return centerY;
