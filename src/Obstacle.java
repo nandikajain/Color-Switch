@@ -1,43 +1,24 @@
-public class Obstacle {
-    int positionX;
-    int positionY;
-    int periodicSpeed;
-    boolean movementDirection;
-    double obstacleState;
+import javafx.scene.Group;
 
-    public Obstacle(){
+public abstract class Obstacle {
+    double positionY;
+    double velocity;
+    double userVelocity;
+    double acceleration;
+    double width = 20;
+    double height = width;
+
+    public Obstacle()
+    {
 
     }
-
-    public void shapeSetup(){
-
+    public abstract Group generateObstacle();
+    public abstract double getStarPositionY();
+    public void userMove() {
+        velocity=0;
+        acceleration=0;
+        positionY+=userVelocity;
     }
+    public abstract void display();
 
-    public int getPositionX() {
-        return positionX;
-    }
-
-    public int getPositionY() {
-        return positionY;
-    }
-
-    public void setPositionX(int positionX) {
-        this.positionX = positionX;
-    }
-
-    public void setPositionY(int positionY) {
-        this.positionY = positionY;
-    }
-
-    public void setPeriodicSpeed(int periodicSpeed) {
-        this.periodicSpeed = periodicSpeed;
-    }
-
-    public void setMovementDirection(boolean movementDirection) {
-        this.movementDirection = movementDirection;
-    }
-
-    public void setObstacleState(double obstacleState) {
-        this.obstacleState = obstacleState;
-    }
 }

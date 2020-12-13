@@ -9,11 +9,11 @@
 
 <AnchorPane prefHeight="650.0" prefWidth="500.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameController">
    <children>
-      <ImageView fitHeight="60.0" fitWidth="38.0" layoutX="240.0" layoutY="570.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="file:./assets/game-hand.jpeg" />
-         </image>
-      </ImageView>
+<!--      <ImageView fitHeight="60.0" fitWidth="38.0" layoutX="240.0" layoutY="570.0" pickOnBounds="true" preserveRatio="true">-->
+<!--         <image>-->
+<!--            <Image url="file:./assets/game-hand.jpeg" />-->
+<!--         </image>-->
+<!--      </ImageView>-->
       <Circle fill="WHITE" layoutX="458.0" layoutY="43.0" radius="28.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Text layoutX="439.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PAUSE">
          <font>
@@ -25,21 +25,21 @@
             <Font name="System Bold" size="45.0" />
          </font>
       </Text>
-      <ImageView fitHeight="40.0" fitWidth="38.0" layoutX="230.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="file:./assets/game-star.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="36.0" fitWidth="26.0" layoutX="237.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="file:./assets/game-color-switcher.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="150.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="40.0" fitWidth="38.0" layoutX="230.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="file:./assets/game-star.jpg" />
-         </image>
-      </ImageView>
+<!--      <ImageView fitHeight="40.0" fitWidth="38.0" layoutX="230.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">-->
+<!--         <image>-->
+<!--            <Image url="file:./assets/game-star.jpg" />-->
+<!--         </image>-->
+<!--      </ImageView>-->
+<!--      <ImageView fitHeight="36.0" fitWidth="26.0" layoutX="237.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">-->
+<!--         <image>-->
+<!--            <Image url="file:./assets/game-color-switcher.jpg" />-->
+<!--         </image>-->
+<!--      </ImageView>-->
+<!--      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="150.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true" />-->
+<!--      <ImageView fitHeight="40.0" fitWidth="38.0" layoutX="230.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">-->
+<!--         <image>-->
+<!--            <Image url="file:./assets/game-star.jpg" />-->
+<!--         </image>-->
+<!--      </ImageView>-->
    </children>
 </AnchorPane>

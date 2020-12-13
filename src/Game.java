@@ -1,12 +1,12 @@
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import obstacles.CircleObstacle;
 import java.util.Timer;
 import java.util.ArrayList;
 import javafx.scene.paint.Color;
@@ -17,12 +17,15 @@ public class Game extends Application implements Screen{
     AnimationTimer gameLoop;
     Scene scene;
     Ball ball;
+    Group group;
     boolean mouseClick = false;
     boolean clickedOnce = false;
     private int noOfStars;
     private Ball gameBall;
-    private ArrayList<Obstacle> obstacleList;
-    private ArrayList<Star> starList;
+    public ArrayList<Obstacle> obstacles;
+    public ArrayList<Star> starList;
+    public ArrayList<ColorSwitcher> colorSwitchers;
+    Obstacle c1;
 
     private Timer clock;
 
@@ -31,12 +34,10 @@ public class Game extends Application implements Screen{
     }
 
     public Game(){
-
+        obstacles = new ArrayList<Obstacle>();
+        starList = new ArrayList<Star>();
+        colorSwitchers= new ArrayList<ColorSwitcher>();
     }
-
-//    private void startGame(){
-//
-//    }
 
     private void setupGame(){
 
@@ -72,15 +73,11 @@ public class Game extends Application implements Screen{
         primaryStage.setTitle("Color Switch");
 
         //Circle Obstacle Creation
-        CircleObstacle c1 = new CircleObstacle(250, 340, 80, false);
-//        Group group = c1.returnCircleObstacle();
-       // gamePane.getChildren().add(group);
+        c1 = new CircleObstacle(250, 340, 80, false);
+        group = c1.generateObstacle();
+        gamePane.getChildren().add(group);
 
-        //Line Obstacle Creation
-//        LineObstacle l1= new LineObstacle(120);
-//        Group group2= l1.returnLineObstacle();
 
-      //  gamePane.getChildren().add(group2);
         playfield = new Pane();
         playfield.setPrefSize(500,650);
        gamePane.getChildren().addAll(playfield);
@@ -102,6 +99,13 @@ public class Game extends Application implements Screen{
                         clickedOnce = true;
                     }
                     ball.userMove();
+                    if(ball.getLocation()<300)
+                    {
+                        //move the contents of arraylist down
+                        c1.userMove();
+                        c1.display();
+
+                    }
                 }
                 else{
                     ball.applyForce();

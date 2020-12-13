@@ -1,5 +1,3 @@
-package obstacles;
-
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.scene.Group;
@@ -8,12 +6,14 @@ import javafx.scene.shape.Arc;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
+
 public class CircleObstacle extends Obstacle {
     //returning the group
     double centerX;
     double centerY;
     double radius;
     boolean isRotate;
+    Arc arc1,arc2,arc3,arc4;
 
     //Change values here in order to get circle obstacles with different parameters
     public CircleObstacle(double X, double Y, double r, boolean rot )
@@ -32,10 +32,10 @@ public class CircleObstacle extends Obstacle {
         ArcComponent a2= new ArcComponent(centerX, centerY, radius, radius, 90, 90, Color.RED, 10);
         ArcComponent a3= new ArcComponent(centerX, centerY, radius, radius, 180, 90, Color.PURPLE, 10);
         ArcComponent a4= new ArcComponent(centerX, centerY, radius, radius, 270, 90, Color.CYAN, 10);
-        Arc arc1 = a1.returnArc();
-        Arc arc2 = a2.returnArc();
-        Arc arc3 = a3.returnArc();
-        Arc arc4 = a4.returnArc();
+        arc1 = a1.returnArc();
+        arc2 = a2.returnArc();
+        arc3 = a3.returnArc();
+        arc4 = a4.returnArc();
         group.getChildren().addAll(arc1);
         group.getChildren().addAll(arc2);
         group.getChildren().addAll(arc3);
@@ -57,6 +57,14 @@ public class CircleObstacle extends Obstacle {
     public double getStarPositionY()
     {
         return centerY;
+    }
+    @Override
+    public void display()
+    {
+        arc1.setLayoutY(arc1.getLayoutY()+7);
+        arc2.setLayoutY(arc2.getLayoutY()+7);
+        arc3.setLayoutY(arc3.getLayoutY()+7);
+        arc4.setLayoutY(arc4.getLayoutY()+ 7);
     }
     public double getCenterY() {
         return centerY;

@@ -1,5 +1,3 @@
-package obstacles;
-
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 

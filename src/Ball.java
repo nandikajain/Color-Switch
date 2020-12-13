@@ -16,7 +16,6 @@ public class Ball extends Region{
     double centerX = width / 2.0;
     double centerY = height / 2.0;
     double radius = width / 2.0;
-
     double maxSpeed = 100;
 
     Node view;
@@ -71,6 +70,10 @@ public class Ball extends Region{
     public void display(){
         relocate(240, positionY - centerY);
     }
+    public double getLocation(){
+        return positionY-centerY;
+    }
+
     public Color getBallColor() {
         return ballColor;
     }
