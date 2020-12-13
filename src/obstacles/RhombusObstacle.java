@@ -8,7 +8,7 @@ import javafx.scene.shape.Line;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
-public class RhombusObstacle {
+public class RhombusObstacle extends Obstacle{
         double centerX;
         double centerY;
         double length;
@@ -19,7 +19,8 @@ public class RhombusObstacle {
                 length = l;
                 isRotate = rot;
         }
-        public Group returnRhombusObstacle() {
+        @Override
+        public Group generateObstacle() {
                 Group group= new Group();
                 double temp1= (Math.sqrt(3) / (double) 2) * (double) length;
                 double temp2= length/2;
@@ -47,5 +48,41 @@ public class RhombusObstacle {
                 rotate.play();
                 return group;
         }
+        @Override
+        public double getStarPositionY(){
+                return centerY;
+        }
+        public double getCenterX() {
+                return centerX;
+        }
 
-    }
+        public void setCenterX(double centerX) {
+                this.centerX = centerX;
+        }
+
+        public double getCenterY() {
+                return centerY;
+        }
+
+        public void setCenterY(double centerY) {
+                this.centerY = centerY;
+        }
+
+        public double getLength() {
+                return length;
+        }
+
+        public void setLength(double length) {
+                this.length = length;
+        }
+
+        public boolean isRotate() {
+                return isRotate;
+        }
+
+        public void setRotate(boolean rotate) {
+                isRotate = rotate;
+        }
+
+
+}

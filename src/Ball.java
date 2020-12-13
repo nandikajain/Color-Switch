@@ -1,43 +1,3 @@
-//public class Ball {
-//    private int curBallColor; // 0-Red 1-Yellow 2-LightBlue 3-Purple?
-//    private int positionY;
-//    private int distance;
-//    private boolean hasCollided;
-//    private int speed;
-//
-//    public Ball(int initPos, int initColor, int speed){
-//
-//    }
-//
-//    public void moveUp(){
-//
-//    }
-//
-//    public int getCurBallColor() {
-//        return curBallColor;
-//    }
-//
-//    public void setCurBallColor(int curBallColor) {
-//        this.curBallColor = curBallColor;
-//    }
-//
-//    public int getPositionY() {
-//        return positionY;
-//    }
-//
-//    public void setSpeed(int speed) {
-//        this.speed = speed;
-//    }
-//
-//    public boolean getHasCollided(){
-//        return this.hasCollided;
-//    }
-//
-//    public void setHasCollided(boolean hasCollided) {
-//        this.hasCollided = hasCollided;
-//    }
-//}
-
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
@@ -50,7 +10,7 @@ public class Ball extends Region{
     double velocity;
     double userVelocity;
     double acceleration;
-
+    Color ballColor;
     double width = 20;
     double height = width;
     double centerX = width / 2.0;
@@ -62,11 +22,12 @@ public class Ball extends Region{
     Node view;
     Pane layer = null;
 
-    public Ball(Pane layer, double positionY){
+    public Ball(Pane layer, double positionY, Color color){
         this.layer = layer;
         this.positionY = positionY;
         this.velocity = 0;
         this.acceleration = 0;
+        this.ballColor= color;
 
         this.userVelocity = -12;
 
@@ -74,7 +35,7 @@ public class Ball extends Region{
         circle.setCenterX(radius);
         circle.setCenterY(radius);
 
-        circle.setFill(Color.RED);
+        circle.setFill(ballColor);
 
         this.view = circle;
         getChildren().add(view);
@@ -109,6 +70,13 @@ public class Ball extends Region{
 
     public void display(){
         relocate(240, positionY - centerY);
+    }
+    public Color getBallColor() {
+        return ballColor;
+    }
+
+    public void setBallColor(Color ballColor) {
+        this.ballColor = ballColor;
     }
 
 }

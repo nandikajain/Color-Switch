@@ -8,18 +8,20 @@ import javafx.util.Duration;
 import javafx.scene.paint.Color;
 
 //Change values here in order to get star obstacles with different parameters
-public class SquareObstacle {
+public class SquareObstacle extends Obstacle {
     double centerX;
     double centerY;
     double length;
     boolean isRotate;
+
     public SquareObstacle(double cX, double cY, double l, boolean rot) {
         centerX = cX;
         centerY = cY;
         length = l;
         isRotate = rot;
     }
-    public Group returnSquareObstacle() {
+    @Override
+    public Group generateObstacle() {
         Group group= new Group();
         //Square Obstacle Creation
         double temp = length/2;
@@ -49,5 +51,44 @@ public class SquareObstacle {
         return group;
 
     }
+    @Override
+    public double getStarPositionY()
+    {
+        return centerY;
+    }
+
+    public double getCenterX() {
+        return centerX;
+    }
+
+    public void setCenterX(double centerX) {
+        this.centerX = centerX;
+    }
+
+    public double getCenterY() {
+        return centerY;
+    }
+
+    public void setCenterY(double centerY) {
+        this.centerY = centerY;
+    }
+
+    public double getLength() {
+        return length;
+    }
+
+    public void setLength(double length) {
+        this.length = length;
+    }
+
+    public boolean isRotate() {
+        return isRotate;
+    }
+
+    public void setRotate(boolean rotate) {
+        isRotate = rotate;
+    }
+
+
 
 }

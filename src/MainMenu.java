@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import obstacles.CircleObstacle;
 import obstacles.ThreeEqualCircles;
+//import obstacles.ThreeEqualCircles;
 
 import java.util.ArrayList;
 
@@ -52,7 +53,7 @@ public class MainMenu extends Application {
         AnchorPane mainMenuPane = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
       //Obstacle Creation
         ThreeEqualCircles c1= new ThreeEqualCircles(250, 210, 60,71, 82);
-        Group group = c1.returnThreeEqualCircles();
+        Group group = c1.generateObstacle();
         mainMenuPane.getChildren().add(group);
         primaryStage.setScene(new Scene(mainMenuPane,500, 650));
         primaryStage.show();

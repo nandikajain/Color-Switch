@@ -1,16 +1,16 @@
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import obstacles.CircleObstacle;
-import obstacles.LineObstacle;
 import java.util.Timer;
 import java.util.ArrayList;
+import javafx.scene.paint.Color;
+
 
 public class Game extends Application implements Screen{
     Pane playfield;
@@ -73,14 +73,14 @@ public class Game extends Application implements Screen{
 
         //Circle Obstacle Creation
         CircleObstacle c1 = new CircleObstacle(250, 340, 80, false);
-        Group group = c1.returnCircleObstacle();
-        gamePane.getChildren().add(group);
+//        Group group = c1.returnCircleObstacle();
+       // gamePane.getChildren().add(group);
 
         //Line Obstacle Creation
-        LineObstacle l1= new LineObstacle(120);
-        Group group2= l1.returnLineObstacle();
+//        LineObstacle l1= new LineObstacle(120);
+//        Group group2= l1.returnLineObstacle();
 
-        gamePane.getChildren().add(group2);
+      //  gamePane.getChildren().add(group2);
         playfield = new Pane();
         playfield.setPrefSize(500,650);
        gamePane.getChildren().addAll(playfield);
@@ -121,6 +121,6 @@ public class Game extends Application implements Screen{
     public void addBall(){
         Pane layer = playfield;
         double y = 100;
-        ball = new Ball(layer, y);
+        ball = new Ball(layer, y, Color.RED);
     }
 }

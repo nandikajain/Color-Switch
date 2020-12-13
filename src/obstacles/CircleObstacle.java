@@ -8,12 +8,13 @@ import javafx.scene.shape.Arc;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
-public class CircleObstacle {
+public class CircleObstacle extends Obstacle {
     //returning the group
     double centerX;
     double centerY;
     double radius;
     boolean isRotate;
+
     //Change values here in order to get circle obstacles with different parameters
     public CircleObstacle(double X, double Y, double r, boolean rot )
     {
@@ -22,7 +23,8 @@ public class CircleObstacle {
         radius=r;
         isRotate=rot;
     }
-    public Group returnCircleObstacle()
+    @Override
+    public Group generateObstacle()
     {
         Group group = new Group();
         //Circle Obstacle Creation
@@ -51,4 +53,35 @@ public class CircleObstacle {
 
         return group;
     }
+    @Override
+    public double getStarPositionY()
+    {
+        return centerY;
+    }
+    public double getCenterY() {
+        return centerY;
+    }
+    public void setCenterY(double centerY) {
+        this.centerY = centerY;
+    }
+    public double getRadius() {
+        return radius;
+    }
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
+    public boolean isRotate() {
+        return isRotate;
+    }
+    public void setRotate(boolean rotate) {
+        isRotate = rotate;
+    }
+    public double getCenterX() {
+        return centerX;
+    }
+    public void setCenterX(double centerX) {
+        this.centerX = centerX;
+    }
+
+
 }
