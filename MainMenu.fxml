@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="500.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainMenuController">
+   <children>
+      <Text fill="WHITE" layoutX="160.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" COLOR SWITCH" textAlignment="CENTER" wrappingWidth="180.4010009765625">
+         <font>
+            <Font name="Blissful Thinking" size="45.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="150.0" layoutY="546.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:./assets/color-switch-saved-games.jpeg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="playButton" fitHeight="69.0" fitWidth="66.0" layoutY="176.0" onMouseClicked="#onPlayButtonClicked" pickOnBounds="true" preserveRatio="true" x="215.0">
+         <image>
+            <Image url="file:./assets/play-button.jpeg" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Button fx:id="savedGamesButton" layoutX="148.0" layoutY="328.0" mnemonicParsing="false" onAction="#onSavedGamesClick" onMouseClicked="#onSavedGamesClicked" prefHeight="82.0" prefWidth="219.0" style="-fx-background-color: #272727; -fx-border-color: #ff0181; -fx-border-width: 4;" text="Saved Games" textFill="#fae100">
+         <font>
+            <Font name="Blissful Thinking" size="28.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="151.0" layoutY="436.0" mnemonicParsing="false" onMouseClicked="#onExitClicked" prefHeight="69.0" prefWidth="213.0" style="-fx-background-color: #272727; -fx-border-width: 4; -fx-border-color: #900dff;" text="Exit" textFill="#32dbf0">
+         <font>
+            <Font name="Blissful Thinking" size="37.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>

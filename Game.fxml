@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="650.0" prefWidth="500.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameController">
+   <children>
+<!--      <ImageView fitHeight="60.0" fitWidth="38.0" layoutX="240.0" layoutY="570.0" pickOnBounds="true" preserveRatio="true">-->
+<!--         <image>-->
+<!--            <Image url="file:./assets/game-hand.jpeg" />-->
+<!--         </image>-->
+<!--      </ImageView>-->
+      <Circle fx:id="gamePauseButton" fill="WHITE" layoutX="458.0" layoutY="43.0" onMouseClicked="#gamePauseButtonClicked" radius="28.0" stroke="TRANSPARENT" strokeType="INSIDE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Circle>
+      <Text layoutX="439.0" layoutY="47.0" onMouseClicked="#gamePauseButtonClicked" strokeType="OUTSIDE" strokeWidth="0.0" text="PAUSE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Text>
+<!--      <Text fx:id="gameScore" fill="WHITE" layoutX="21.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">-->
+<!--         <font>-->
+<!--            <Font name="System Bold" size="45.0" />-->
+<!--         </font>-->
+<!--      </Text>-->
+<!--      <ImageView fitHeight="40.0" fitWidth="38.0" layoutX="230.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">-->
+<!--         <image>-->
+<!--            <Image url="file:./assets/game-star.jpg" />-->
+<!--         </image>-->
+<!--      </ImageView>-->
+<!--      <ImageView fitHeight="36.0" fitWidth="26.0" layoutX="237.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">-->
+<!--         <image>-->
+<!--            <Image url="file:./assets/game-color-switcher.jpg" />-->
+<!--         </image>-->
+<!--      </ImageView>-->
+<!--      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="150.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true" />-->
+<!--      <ImageView fitHeight="40.0" fitWidth="38.0" layoutX="230.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">-->
+<!--         <image>-->
+<!--            <Image url="file:./assets/game-star.jpg" />-->
+<!--         </image>-->
+<!--      </ImageView>-->
+   </children>
+</AnchorPane>
