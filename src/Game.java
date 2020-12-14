@@ -4,9 +4,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
+import java.io.FileInputStream;
 import java.util.Timer;
 import java.util.ArrayList;
 import javafx.scene.paint.Color;
@@ -72,28 +75,31 @@ public class Game extends Application implements Screen{
         AnchorPane gamePane = FXMLLoader.load(getClass().getResource("Game.fxml"));
         primaryStage.setTitle("Color Switch");
 
-        //Circle Obstacle Creation
-        c2 = new CircleObstacle(250, 550, 80, false);
-//        c1= new StarObstacle(250,340,100,false);
+        obstacles.add(new CircleObstacle(250, 340, 60, false));
+        obstacles.add(new TwoAdjacentStars(175, 100, 75));
+        for(int i=0; i<obstacles.size(); i++)
+        {
+            Group g = obstacles.get(i).generateObstacle();
+            gamePane.getChildren().add(g);
 
-//        c1= new SquareObstacle(250,340,100,false);
-//        c1= new RhombusObstacle(250,240,100,false);
-       // c1= new LineObstacle(200);
-//        c1= new TwoAdjacentCircles(200,340,100,115);
-     //   c1= new TwoEqualCircles(200,340,100,115);
+            Image image = new Image("file:./assets/game-star.jpg");
+            ImageView imageView = new ImageView(image);
+            imageView.setX(240);
+            imageView.setY(obstacles.get(i).getStarPositionY() -10);
+            imageView.setFitHeight(20);
+            imageView.setFitWidth(18);
+            imageView.setPreserveRatio(true);
 
-      //  c1= new ThreeEqualCircles(240, 350, 100, 112, 124);
-        c1= new TwoAdjacentStars(120, 200, 100);
-        group= c1.generateObstacle();
-        group1= c2.generateObstacle();
-        gamePane.getChildren().add(group);
-        gamePane.getChildren().add(group1);
-
-
+            Star s= new Star(obstacles.get(i).getStarPositionY(), imageView);
+            starList.add(s);
+            Group img = new Group(imageView);
+            //   imageView.setImage(null);
+            gamePane.getChildren().add(img);
+        }
 
         playfield = new Pane();
         playfield.setPrefSize(500,650);
-       gamePane.getChildren().addAll(playfield);
+        gamePane.getChildren().addAll(playfield);
         primaryStage.setScene(new Scene(gamePane, 500, 650));
         primaryStage.show();
         addBall();
@@ -115,11 +121,16 @@ public class Game extends Application implements Screen{
                     if(ball.getLocation()<300)
                     {
                         //move the contents of arraylist down
-                        c1.userMove();
-                        c1.display();
-                        c2.userMove();
-                        c2.display();
-
+                        for(int i=0; i<obstacles.size(); i++)
+                        {
+                            obstacles.get(i).userMove();
+                            obstacles.get(i).display();
+                        }
+                        for(int i=0; i<starList.size(); i++)
+                        {
+                            starList.get(i).userMove();
+                            starList.get(i).display();
+                        }
                     }
                 }
                 else{

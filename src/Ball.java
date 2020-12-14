@@ -60,9 +60,9 @@ public class Ball extends Region{
     }
 
     public void checkBottom(){
-        if (positionY > layer.getHeight() - 80 - radius) {
+        if (positionY > layer.getHeight() - radius) {
             velocity *= 0;
-            positionY = layer.getHeight() - 80 - radius;
+            positionY = layer.getHeight() -  radius;
         }
     }
 
