@@ -1,5 +1,6 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -7,11 +8,18 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.awt.*;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class MainMenuController {
+public class MainMenuController implements Initializable {
 
     public ImageView playButton;
     public Button savedGamesButton;
+    public Button exitButton;
+    private static final String sg_IDLE_BUTTON_STYLE = "-fx-background-color: #272727; -fx-border-color: #ff0181; -fx-border-width: 4;";
+    private static final String sg_HOVERED_BUTTON_STYLE = "-fx-background-color: #ff0181; -fx-border-color: #ff0181; -fx-border-width: 8;";
+    private static final String e_IDLE_BUTTON_STYLE = "-fx-background-color: #272727; -fx-border-width: 4; -fx-border-color: #900dff;";
+    private static final String e_HOVERED_BUTTON_STYLE = "-fx-background-color: #900dff; -fx-border-width: 8; -fx-border-color: #900dff;";
 
     @FXML
     public void onExitClicked(){
@@ -35,5 +43,15 @@ public class MainMenuController {
         Stage stage = (Stage) savedGamesButton.getScene().getWindow();
         SavedGamesMenu savedGamesMenu = new SavedGamesMenu();
         savedGamesMenu.start(stage);
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        savedGamesButton.setStyle(sg_IDLE_BUTTON_STYLE);
+        savedGamesButton.setOnMouseEntered(e -> savedGamesButton.setStyle(sg_HOVERED_BUTTON_STYLE));
+        savedGamesButton.setOnMouseExited(e -> savedGamesButton.setStyle(sg_IDLE_BUTTON_STYLE));
+        exitButton.setStyle(e_IDLE_BUTTON_STYLE);
+        exitButton.setOnMouseEntered(e -> exitButton.setStyle(e_HOVERED_BUTTON_STYLE));
+        exitButton.setOnMouseExited(e -> exitButton.setStyle(e_IDLE_BUTTON_STYLE));
     }
 }
