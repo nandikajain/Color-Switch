@@ -30,20 +30,9 @@
 <!--            <Font name="System Bold" size="45.0" />-->
 <!--         </font>-->
 <!--      </Text>-->
-<!--      <ImageView fitHeight="40.0" fitWidth="38.0" layoutX="230.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">-->
-<!--         <image>-->
-<!--            <Image url="file:./assets/game-star.jpg" />-->
-<!--         </image>-->
-<!--      </ImageView>-->
 <!--      <ImageView fitHeight="36.0" fitWidth="26.0" layoutX="237.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">-->
 <!--         <image>-->
 <!--            <Image url="file:./assets/game-color-switcher.jpg" />-->
-<!--         </image>-->
-<!--      </ImageView>-->
-<!--      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="150.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true" />-->
-<!--      <ImageView fitHeight="40.0" fitWidth="38.0" layoutX="230.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">-->
-<!--         <image>-->
-<!--            <Image url="file:./assets/game-star.jpg" />-->
 <!--         </image>-->
 <!--      </ImageView>-->
    </children>

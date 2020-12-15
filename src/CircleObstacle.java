@@ -59,6 +59,10 @@ public class CircleObstacle extends Obstacle {
         return centerY;
     }
     @Override
+    public double getColorSwitcherPositionY(){
+        return centerY - radius - 40;
+    }
+    @Override
     public void display()
     {
         arc1.setLayoutY(arc1.getLayoutY()+5);

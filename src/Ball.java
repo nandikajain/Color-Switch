@@ -6,6 +6,7 @@ import javafx.scene.shape.Circle;
 
 public class Ball extends Region{
 
+    Circle circle;
     double positionY;
     double velocity;
     double userVelocity;
@@ -29,7 +30,7 @@ public class Ball extends Region{
         this.ballColor= color;
         this.userVelocity = -5;
 
-        Circle circle = new Circle(radius);
+        circle = new Circle(radius);
         circle.setCenterX(radius);
         circle.setCenterY(radius);
 
@@ -81,7 +82,7 @@ public class Ball extends Region{
     }
 
     public void setBallColor(Color ballColor) {
-        this.ballColor = ballColor;
+        circle.setFill(ballColor);
     }
 
 }

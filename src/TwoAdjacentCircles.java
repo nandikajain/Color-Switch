@@ -86,6 +86,12 @@ public class TwoAdjacentCircles extends Obstacle {
         else
             return centerY-radiusB;
     }
+    public double getColorSwitcherPositionY(){
+        if(radiusB<radiusA)
+            return centerY - radiusA - 30;
+        else
+            return centerY - radiusB - 30;
+    }
     @Override
     public void display()
     {

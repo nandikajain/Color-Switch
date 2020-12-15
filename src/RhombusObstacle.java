@@ -51,6 +51,9 @@ public class RhombusObstacle extends Obstacle {
         public double getStarPositionY(){
                 return centerY;
         }
+        public double getColorSwitcherPositionY(){
+                return centerY - length-50;
+        }
         @Override
         public void display()
         {

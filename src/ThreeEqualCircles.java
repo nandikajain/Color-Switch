@@ -113,6 +113,9 @@ public class ThreeEqualCircles extends Obstacle {
     {
         return centerY;
     }
+    public double getColorSwitcherPositionY(){
+        return centerY - r1 - 50;
+    }
     @Override
     public void display()
     {

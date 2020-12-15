@@ -91,6 +91,9 @@ public class LineObstacle extends Obstacle {
     {
         return centerY-20;
     }
+    public double getColorSwitcherPositionY(){
+        return centerY - 40;
+    }
     @Override
     public void display()
     {

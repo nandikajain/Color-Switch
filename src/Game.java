@@ -25,7 +25,6 @@ public class Game extends Application implements Screen{
     boolean mouseClick = false;
     boolean clickedOnce = false;
     private int noOfStars;
-    private Ball gameBall;
     public ArrayList<Obstacle> obstacles;
     public ArrayList<Star> starList;
     public ArrayList<ColorSwitcher> colorSwitchers;
@@ -80,8 +79,6 @@ public class Game extends Application implements Screen{
         gameScore.setY(53);
         gameScore.setFont((new Font(45)));
 
-
-
         obstacles.add(new CircleObstacle(250, 340, 60, false));
         obstacles.add(new TwoAdjacentStars(175, 100, 75));
         for(int i=0; i<obstacles.size(); i++)
@@ -101,6 +98,20 @@ public class Game extends Application implements Screen{
             starList.add(s);
             Group img = new Group(imageView);
             gamePane.getChildren().add(img);
+
+            Image image2= new Image("file:./assets/game-color-switcher.jpg");
+            ImageView imageView1 = new ImageView(image2);
+            imageView1.setX(240);
+            imageView1.setY(obstacles.get(i).getColorSwitcherPositionY() -10);
+            imageView1.setFitHeight(20);
+            imageView1.setFitWidth(18);
+            imageView1.setPreserveRatio(true);
+
+            ColorSwitcher cs= new ColorSwitcher(obstacles.get(i).getColorSwitcherPositionY(), imageView1);
+            colorSwitchers.add(cs);
+            Group img2= new Group(imageView1);
+            gamePane.getChildren().add(img2);
+
         }
 
         playfield = new Pane();
@@ -111,6 +122,11 @@ public class Game extends Application implements Screen{
         addBall();
         startGame();
 
+    }
+    public void addBall(){
+        Pane layer = playfield;
+        double y = 100;
+        ball = new Ball(layer, y, Color.RED);
     }
     public void startGame() throws Exception{
         gameLoop = new AnimationTimer() {
@@ -123,29 +139,15 @@ public class Game extends Application implements Screen{
                         time = System.currentTimeMillis();
                         clickedOnce = true;
                     }
+
                     ball.userMove();
-                    for(int j=0; j<starList.size(); j++)
-                    {
-                        System.out.println(j+ " "+ starList.get(j).getLocation()+ " ball "+ ball.getLocationCollision()) ;
-                        if(starList.get(j).getLocation()>=ball.getLocationCollision() && !starList.get(j).isHasCollected())
-                        {
-                            starList.get(j).getStarImg().setImage(null);
-                            starList.get(j).setHasCollected(true);
-                        }
-                    }
+                    collectStars();
+                    switchColor();
+
                     if(ball.getLocation()<300)
                     {
+                        moveContentsDown();
                         //move the contents of arraylist down
-                        for(int i=0; i<obstacles.size(); i++)
-                        {
-                            obstacles.get(i).userMove();
-                            obstacles.get(i).display();
-                        }
-                        for(int i=0; i<starList.size(); i++)
-                        {
-                            starList.get(i).userMove();
-                            starList.get(i).display();
-                        }
                     }
                 }
                 else{
@@ -162,10 +164,43 @@ public class Game extends Application implements Screen{
         };
         gameLoop.start();
     }
-
-    public void addBall(){
-        Pane layer = playfield;
-        double y = 100;
-        ball = new Ball(layer, y, Color.RED);
+    private void collectStars()
+    {
+        for(int j=0; j<starList.size(); j++)
+        {
+            if(starList.get(j).getLocation()>=ball.getLocationCollision() && !starList.get(j).isHasCollected())
+            {
+                starList.get(j).getStarImg().setImage(null);
+                starList.get(j).setHasCollected(true);
+            }
+        }
     }
+    private void moveContentsDown()
+    {
+        for(int i=0; i<obstacles.size(); i++)
+        {
+            obstacles.get(i).userMove();
+            obstacles.get(i).display();
+            starList.get(i).userMove();
+            starList.get(i).display();
+            colorSwitchers.get(i).userMove();
+            colorSwitchers.get(i).display();
+        }
+    }
+    private void switchColor()
+    {
+        for(int j=0; j<colorSwitchers.size(); j++)
+        {
+            if(colorSwitchers.get(j).getLocation()>=ball.getLocationCollision() && !colorSwitchers.get(j).isHasCollected())
+            {
+                colorSwitchers.get(j).getStarImg().setImage(null);
+                colorSwitchers.get(j).setHasCollected(true);
+                colorSwitchers.get(j).changeColor(ball);
+            }
+        }
+
+    }
+
+
+
 }

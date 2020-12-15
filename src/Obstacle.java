@@ -14,6 +14,7 @@ public abstract class Obstacle {
     }
     public abstract Group generateObstacle();
     public abstract double getStarPositionY();
+    public abstract double getColorSwitcherPositionY();
     public void userMove() {
         velocity=0;
         acceleration=0;

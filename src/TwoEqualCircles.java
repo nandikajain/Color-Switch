@@ -82,6 +82,9 @@ public class TwoEqualCircles extends Obstacle {
     @Override
     public double getStarPositionY()
     {return  centerY;}
+    public double getColorSwitcherPositionY(){
+        return centerY - r1 - 40;
+    }
 
     public double getCenterX() {
         return centerX;

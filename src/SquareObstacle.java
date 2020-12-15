@@ -56,6 +56,9 @@ public class SquareObstacle extends Obstacle {
     {
         return centerY;
     }
+    public double getColorSwitcherPositionY(){
+        return centerY - length-30;
+    }
     @Override
     public void display()
     {
