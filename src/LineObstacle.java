@@ -1,16 +1,21 @@
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.Shape;
+
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class LineObstacle extends Obstacle {
     double centerY;
+    ArrayList<Shape> shapes;
     Line line1, line2, line3, line4, line5;
 
     //Change values here in order to get line obstacles with different parameters
     public LineObstacle(double cY)
         {
+            shapes= new ArrayList<Shape>();
             centerY = cY;
         }
 
@@ -33,6 +38,11 @@ public class LineObstacle extends Obstacle {
         LineComponent l5 = new LineComponent(400, centerY, 500, centerY, Color.CYAN, 15);
         line5 = l5.returnLineComponent();
         group.getChildren().addAll(line5);
+        shapes.add(line1);
+        shapes.add(line2);
+        shapes.add(line3);
+        shapes.add(line4);
+        shapes.add(line5);
 
         //Color.CYAN,Color.PURPLE,Color.YELLOW,Color.RED;
         new Timer().schedule(
@@ -91,8 +101,13 @@ public class LineObstacle extends Obstacle {
     {
         return centerY-20;
     }
+    @Override
     public double getColorSwitcherPositionY(){
         return centerY - 40;
+    }
+    @Override
+    public ArrayList<Shape> getShapesList(){
+        return shapes;
     }
     @Override
     public void display()

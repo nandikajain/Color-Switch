@@ -3,8 +3,11 @@ import javafx.animation.RotateTransition;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
+import javafx.scene.shape.Shape;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
+
+import java.util.ArrayList;
 
 
 public class CircleObstacle extends Obstacle {
@@ -13,11 +16,13 @@ public class CircleObstacle extends Obstacle {
     double centerY;
     double radius;
     boolean isRotate;
+    ArrayList<Shape> shapes;
     Arc arc1,arc2,arc3,arc4;
 
     //Change values here in order to get circle obstacles with different parameters
     public CircleObstacle(double X, double Y, double r, boolean rot )
     {
+        shapes= new ArrayList<Shape>();
         centerX=X;
         centerY=Y;
         radius=r;
@@ -40,6 +45,10 @@ public class CircleObstacle extends Obstacle {
         group.getChildren().addAll(arc2);
         group.getChildren().addAll(arc3);
         group.getChildren().addAll(arc4);
+        shapes.add(arc1);
+        shapes.add(arc2);
+        shapes.add(arc3);
+        shapes.add(arc4);
         //rotation
         RotateTransition rotate = new RotateTransition();
         rotate.setAxis(Rotate.Z_AXIS);
@@ -62,6 +71,11 @@ public class CircleObstacle extends Obstacle {
     public double getColorSwitcherPositionY(){
         return centerY - radius - 40;
     }
+    @Override
+    public ArrayList<Shape> getShapesList(){
+        return shapes;
+    }
+
     @Override
     public void display()
     {

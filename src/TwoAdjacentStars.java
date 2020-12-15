@@ -3,17 +3,22 @@ import javafx.animation.RotateTransition;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.Shape;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
+
+import java.util.ArrayList;
 
 public class TwoAdjacentStars extends Obstacle {
     double centerXa;
     double centerY;
     double length;
     double centerXb;
+    ArrayList<Shape> shapes;
     Line line1, line2, line3, line4, line1a, line1b, line1c, line1d;
     public TwoAdjacentStars(double Xa, double cY,  double len)
     {
+        shapes= new ArrayList<Shape>();
         centerXa= Xa;
         centerXb= Xa+ 2*len;
         centerY= cY;
@@ -39,6 +44,10 @@ public class TwoAdjacentStars extends Obstacle {
         LineComponent l4a = new LineComponent(centerXa, centerY, centerXa+length, centerY,Color.RED, 17 );
         line1d = l4a.returnLineComponent();
         g1.getChildren().addAll(line1d);
+        shapes.add(line1a);
+        shapes.add(line1b);
+        shapes.add(line1c);
+        shapes.add(line1d);
         //rotation
         RotateTransition rot= new RotateTransition();
         rot.setAxis(Rotate.Z_AXIS);
@@ -64,6 +73,10 @@ public class TwoAdjacentStars extends Obstacle {
         LineComponent l4 = new LineComponent(centerXb, centerY, centerXb+length, centerY,Color.PURPLE, 17 );
         line4 = l4.returnLineComponent();
         g2.getChildren().addAll(line4);
+        shapes.add(line1);
+        shapes.add(line2);
+        shapes.add(line3);
+        shapes.add(line4);
         //rotation
         RotateTransition rotate = new RotateTransition();
         rotate.setAxis(Rotate.Z_AXIS);
@@ -82,8 +95,13 @@ public class TwoAdjacentStars extends Obstacle {
     @Override
     public double getStarPositionY()
     { return centerY-length;}
+    @Override
     public double getColorSwitcherPositionY(){
         return centerY - length - 40;
+    }
+    @Override
+    public ArrayList<Shape> getShapesList(){
+        return shapes;
     }
     @Override
     public void display()

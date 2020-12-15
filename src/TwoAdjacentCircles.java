@@ -3,8 +3,11 @@ import javafx.animation.RotateTransition;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
+import javafx.scene.shape.Shape;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
+
+import java.util.ArrayList;
 
 public class TwoAdjacentCircles extends Obstacle {
     //center is the pt of tangency of the 2 circles and 10 is the stroke width
@@ -12,9 +15,11 @@ public class TwoAdjacentCircles extends Obstacle {
     double centerY;
     double radiusA;
     double radiusB;
+    ArrayList<Shape> shapes;
     Arc arc1b, arc2b, arc3b, arc4b, arc1,arc2, arc3, arc4;
     public TwoAdjacentCircles(double centerXa, double centerYa, double rA, double rB)
     {
+        shapes = new ArrayList<Shape>();
         centerX = centerXa;
         centerY = centerYa;
         radiusA = rA;
@@ -38,6 +43,10 @@ public class TwoAdjacentCircles extends Obstacle {
         g1.getChildren().addAll(arc2b);
         g1.getChildren().addAll(arc3b);
         g1.getChildren().addAll(arc4b);
+        shapes.add(arc1b);
+        shapes.add(arc2b);
+        shapes.add(arc3b);
+        shapes.add(arc4b);
         //rotation
         RotateTransition rot = new RotateTransition();
         rot.setAxis(Rotate.Z_AXIS);
@@ -64,6 +73,10 @@ public class TwoAdjacentCircles extends Obstacle {
         g2.getChildren().addAll(arc2);
         g2.getChildren().addAll(arc3);
         g2.getChildren().addAll(arc4);
+        shapes.add(arc1);
+        shapes.add(arc2);
+        shapes.add(arc3);
+        shapes.add(arc4);
         //rotation
         RotateTransition rotate = new RotateTransition();
         rotate.setAxis(Rotate.Z_AXIS);
@@ -86,11 +99,16 @@ public class TwoAdjacentCircles extends Obstacle {
         else
             return centerY-radiusB;
     }
+    @Override
     public double getColorSwitcherPositionY(){
         if(radiusB<radiusA)
             return centerY - radiusA - 30;
         else
             return centerY - radiusB - 30;
+    }
+    @Override
+    public ArrayList<Shape> getShapesList(){
+        return shapes;
     }
     @Override
     public void display()
@@ -104,6 +122,4 @@ public class TwoAdjacentCircles extends Obstacle {
         arc3b.setLayoutY(arc3b.getLayoutY()+5);
         arc4b.setLayoutY(arc4b.getLayoutY()+ 5);
     }
-
-
 }

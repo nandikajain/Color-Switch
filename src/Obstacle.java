@@ -1,4 +1,7 @@
 import javafx.scene.Group;
+import javafx.scene.shape.Shape;
+
+import java.util.ArrayList;
 
 public abstract class Obstacle {
     double positionY;
@@ -21,5 +24,6 @@ public abstract class Obstacle {
         positionY+=userVelocity;
     }
     public abstract void display();
+    public abstract ArrayList<Shape> getShapesList();
 
 }

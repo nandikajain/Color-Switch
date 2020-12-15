@@ -3,8 +3,11 @@ import javafx.animation.RotateTransition;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
+import javafx.scene.shape.Shape;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
+
+import java.util.ArrayList;
 
 
 public class TwoEqualCircles extends Obstacle {
@@ -12,10 +15,12 @@ public class TwoEqualCircles extends Obstacle {
     double centerY;
     double r1;
     double r2;
+    ArrayList<Shape>shapes;
     Arc arc1, arc2, arc3, arc4, arc1b, arc2b,arc3b, arc4b;
 
     public TwoEqualCircles(double cX, double cY, double radius1, double radius2)
     {
+        shapes= new ArrayList<Shape>();
         centerX=cX;
         centerY= cY;
         r1= radius1;
@@ -39,6 +44,10 @@ public class TwoEqualCircles extends Obstacle {
         g1.getChildren().addAll(arc2b);
         g1.getChildren().addAll(arc3b);
         g1.getChildren().addAll(arc4b);
+        shapes.add(arc1b);
+        shapes.add(arc2b);
+        shapes.add(arc3b);
+        shapes.add(arc4b);
         //rotation
         RotateTransition rot = new RotateTransition();
         rot.setAxis(Rotate.Z_AXIS);
@@ -65,6 +74,11 @@ public class TwoEqualCircles extends Obstacle {
         g2.getChildren().addAll(arc2);
         g2.getChildren().addAll(arc3);
         g2.getChildren().addAll(arc4);
+        shapes.add(arc1);
+        shapes.add(arc2);
+        shapes.add(arc3);
+        shapes.add(arc4);
+
         //rotation
         RotateTransition rotate = new RotateTransition();
         rotate.setAxis(Rotate.Z_AXIS);
@@ -82,8 +96,13 @@ public class TwoEqualCircles extends Obstacle {
     @Override
     public double getStarPositionY()
     {return  centerY;}
+    @Override
     public double getColorSwitcherPositionY(){
         return centerY - r1 - 40;
+    }
+    @Override
+    public ArrayList<Shape> getShapesList(){
+        return shapes;
     }
 
     public double getCenterX() {

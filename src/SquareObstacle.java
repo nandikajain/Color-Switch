@@ -3,8 +3,11 @@ import javafx.animation.RotateTransition;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.Shape;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
+
+import java.util.ArrayList;
 
 //Change values here in order to get star obstacles with different parameters
 public class SquareObstacle extends Obstacle {
@@ -12,9 +15,11 @@ public class SquareObstacle extends Obstacle {
     double centerY;
     double length;
     boolean isRotate;
+    ArrayList<Shape> shapes;
     Line line1,line2, line3, line4;
 
     public SquareObstacle(double cX, double cY, double l, boolean rot) {
+        shapes = new ArrayList<Shape>();
         centerX = cX;
         centerY = cY;
         length = l;
@@ -37,6 +42,10 @@ public class SquareObstacle extends Obstacle {
         group.getChildren().addAll(line2);
         group.getChildren().addAll(line3);
         group.getChildren().addAll(line4);
+        shapes.add(line1);
+        shapes.add(line2);
+        shapes.add(line3);
+        shapes.add(line4);
         //rotation
         RotateTransition rotate = new RotateTransition();
         rotate.setAxis(Rotate.Z_AXIS);
@@ -56,8 +65,13 @@ public class SquareObstacle extends Obstacle {
     {
         return centerY;
     }
+    @Override
     public double getColorSwitcherPositionY(){
         return centerY - length-30;
+    }
+    @Override
+    public ArrayList<Shape> getShapesList(){
+        return shapes;
     }
     @Override
     public void display()

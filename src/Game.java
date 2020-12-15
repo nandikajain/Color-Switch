@@ -7,6 +7,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Path;
+import javafx.scene.shape.Shape;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -130,7 +132,7 @@ public class Game extends Application implements Screen{
     }
     public void addBall(){
         Pane layer = playfield;
-        double y = 100;
+        double y = 650;
         ball = new Ball(layer, y, Color.RED);
     }
     public void startGame() throws Exception{
@@ -146,6 +148,11 @@ public class Game extends Application implements Screen{
                     }
 
                     ball.userMove();
+                    boolean status=checkCollision();
+                    if(status)
+                    {
+                        System.out.println("Collided");
+                    }
                     collectStars();
                     switchColor();
 
@@ -158,8 +165,18 @@ public class Game extends Application implements Screen{
                 else{
                     ball.applyForce();
                     ball.move();
+                    boolean status1 = checkCollision();
+                    if (status1) {
+                        System.out.println("Collided");
+                    }
                 }
                 ball.checkBottom();
+                boolean status2= ball.isBottom();
+                if(status2)
+                {
+                    System.out.println("Collided");
+                }
+
                 ball.display();
                 if(mouseClick && System.currentTimeMillis()-time>70) {
                     mouseClick = false;
@@ -209,7 +226,24 @@ public class Game extends Application implements Screen{
         }
 
     }
+    private boolean checkCollision()
+    {
+        for(int i=0; i<obstacles.size(); i++)
+        {
+            ArrayList<Shape> list;
+            Obstacle obs = obstacles.get(i);
+            list= obs.getShapesList();
+            for(int j=0; j<list.size(); j++)
+            {
+                if((Shape.intersect(list.get(j), ball.getCircle())).getBoundsInLocal().getWidth()!=-1)
+                {
+                    if(ball.getBallColor()!= list.get(j).getStroke())
+                        return true;
+                }
 
-
+            }
+        }
+        return false;
+    }
 
 }

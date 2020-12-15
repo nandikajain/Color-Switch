@@ -3,16 +3,21 @@ import javafx.animation.RotateTransition;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.Shape;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
+
+import java.util.ArrayList;
 
 public class RhombusObstacle extends Obstacle {
         double centerX;
         double centerY;
         double length;
         boolean isRotate;
+        ArrayList<Shape>shapes;
         Line line1, line2, line3, line4;
         public RhombusObstacle(double cX, double cY, double l, boolean rot) {
+                shapes= new ArrayList<Shape>();
                 centerX = cX;
                 centerY = cY;
                 length = l;
@@ -31,6 +36,10 @@ public class RhombusObstacle extends Obstacle {
                 line2 = l2.returnLineComponent();
                 line3 = l3.returnLineComponent();
                 line4 = l4.returnLineComponent();
+                shapes.add(line1);
+                shapes.add(line2);
+                shapes.add(line3);
+                shapes.add(line4);
                 group.getChildren().addAll(line1);
                 group.getChildren().addAll(line2);
                 group.getChildren().addAll(line3);
@@ -51,8 +60,13 @@ public class RhombusObstacle extends Obstacle {
         public double getStarPositionY(){
                 return centerY;
         }
+        @Override
         public double getColorSwitcherPositionY(){
                 return centerY - length-50;
+        }
+        @Override
+        public ArrayList<Shape> getShapesList(){
+                return shapes;
         }
         @Override
         public void display()

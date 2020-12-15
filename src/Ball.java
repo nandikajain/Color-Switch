@@ -66,6 +66,15 @@ public class Ball extends Region{
             positionY = layer.getHeight() -  radius;
         }
     }
+    public boolean isBottom()
+    {
+        if (positionY > layer.getHeight() - radius){
+            return true;
+        }
+        return false;
+
+    }
+
 
     public void display(){
         relocate(240, positionY - centerY);
@@ -76,9 +85,10 @@ public class Ball extends Region{
     public double getLocationCollision(){
         return positionY;
     }
+    public Circle getCircle(){return  circle;}
 
     public Color getBallColor() {
-        return ballColor;
+        return (Color) circle.getFill();
     }
 
     public void setBallColor(Color ballColor) {
