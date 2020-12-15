@@ -14,6 +14,8 @@ import java.util.Timer;
 import java.util.ArrayList;
 import javafx.scene.paint.Color;
 
+import static java.lang.Integer.valueOf;
+
 
 public class Game extends Application implements Screen{
     Pane playfield;
@@ -21,7 +23,6 @@ public class Game extends Application implements Screen{
     Scene scene;
     Ball ball;
     Text gameScore;
-    Group group;
     boolean mouseClick = false;
     boolean clickedOnce = false;
     private int noOfStars;
@@ -39,6 +40,7 @@ public class Game extends Application implements Screen{
         obstacles = new ArrayList<Obstacle>();
         starList = new ArrayList<Star>();
         colorSwitchers= new ArrayList<ColorSwitcher>();
+        noOfStars=0;
     }
 
     private void setupGame(){
@@ -76,8 +78,11 @@ public class Game extends Application implements Screen{
         gameScore = new Text();
         gameScore.setText("0");
         gameScore.setX(21);
+        gameScore.setStroke(Color.WHITE);
+        gameScore.setFill(Color.WHITE);
         gameScore.setY(53);
-        gameScore.setFont((new Font(45)));
+        gameScore.setFont((new Font(50)));
+        gamePane.getChildren().add(gameScore);
 
         obstacles.add(new CircleObstacle(250, 340, 60, false));
         obstacles.add(new TwoAdjacentStars(175, 100, 75));
@@ -172,6 +177,10 @@ public class Game extends Application implements Screen{
             {
                 starList.get(j).getStarImg().setImage(null);
                 starList.get(j).setHasCollected(true);
+                noOfStars++;
+                int score= valueOf(gameScore.getText());
+                score++;
+                gameScore.setText(""+score);
             }
         }
     }
