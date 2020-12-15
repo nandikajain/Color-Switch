@@ -72,6 +72,9 @@ public class Ball extends Region{
     public double getLocation(){
         return positionY-centerY;
     }
+    public double getLocationCollision(){
+        return positionY;
+    }
 
     public Color getBallColor() {
         return ballColor;

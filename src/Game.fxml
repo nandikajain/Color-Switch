@@ -25,11 +25,11 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Text>
-      <Text fill="WHITE" layoutX="21.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-         <font>
-            <Font name="System Bold" size="45.0" />
-         </font>
-      </Text>
+<!--      <Text fx:id="gameScore" fill="WHITE" layoutX="21.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">-->
+<!--         <font>-->
+<!--            <Font name="System Bold" size="45.0" />-->
+<!--         </font>-->
+<!--      </Text>-->
 <!--      <ImageView fitHeight="40.0" fitWidth="38.0" layoutX="230.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">-->
 <!--         <image>-->
 <!--            <Image url="file:./assets/game-star.jpg" />-->

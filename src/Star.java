@@ -1,4 +1,5 @@
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 
 public class Star {
     double positionY;
@@ -7,12 +8,26 @@ public class Star {
     double acceleration;
     double width = 20;
     double height = width;
+    double centerX = width / 2.0;
+    double centerY = height / 2.0;
+    double radius = width / 2.0;
+    double maxSpeed = 100;
     boolean hasCollected;
     ImageView starImg;
+
+    public boolean isHasCollected() {
+        return hasCollected;
+    }
+
+    public void setHasCollected(boolean hasCollected) {
+        this.hasCollected = hasCollected;
+    }
 
     public Star(double initPosition, ImageView img){
         positionY =initPosition;
         starImg = img;
+        hasCollected= false;
+        userVelocity=5;
     }
 
     public void userMove() {
@@ -33,12 +48,12 @@ public class Star {
         this.starImg = starImg;
     }
 
+    public double getLocation(){
+        return positionY;
+    }
 
     public double getPositionY() {
         return positionY;
     }
 
-    public void setPositionY(double positionY) {
-        this.positionY = positionY;
-    }
 }

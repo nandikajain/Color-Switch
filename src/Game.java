@@ -7,9 +7,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
-import java.io.FileInputStream;
 import java.util.Timer;
 import java.util.ArrayList;
 import javafx.scene.paint.Color;
@@ -20,7 +20,8 @@ public class Game extends Application implements Screen{
     AnimationTimer gameLoop;
     Scene scene;
     Ball ball;
-    Group group, group1;
+    Text gameScore;
+    Group group;
     boolean mouseClick = false;
     boolean clickedOnce = false;
     private int noOfStars;
@@ -28,7 +29,6 @@ public class Game extends Application implements Screen{
     public ArrayList<Obstacle> obstacles;
     public ArrayList<Star> starList;
     public ArrayList<ColorSwitcher> colorSwitchers;
-    Obstacle c1, c2;
 
     private Timer clock;
 
@@ -74,6 +74,13 @@ public class Game extends Application implements Screen{
         primaryStage.getIcons().add(new Image("file:./assets/logo.png"));
         AnchorPane gamePane = FXMLLoader.load(getClass().getResource("Game.fxml"));
         primaryStage.setTitle("Color Switch");
+        gameScore = new Text();
+        gameScore.setText("0");
+        gameScore.setX(21);
+        gameScore.setY(53);
+        gameScore.setFont((new Font(45)));
+
+
 
         obstacles.add(new CircleObstacle(250, 340, 60, false));
         obstacles.add(new TwoAdjacentStars(175, 100, 75));
@@ -93,7 +100,6 @@ public class Game extends Application implements Screen{
             Star s= new Star(obstacles.get(i).getStarPositionY(), imageView);
             starList.add(s);
             Group img = new Group(imageView);
-            //   imageView.setImage(null);
             gamePane.getChildren().add(img);
         }
 
@@ -118,6 +124,15 @@ public class Game extends Application implements Screen{
                         clickedOnce = true;
                     }
                     ball.userMove();
+                    for(int j=0; j<starList.size(); j++)
+                    {
+                        System.out.println(j+ " "+ starList.get(j).getLocation()+ " ball "+ ball.getLocationCollision()) ;
+                        if(starList.get(j).getLocation()>=ball.getLocationCollision() && !starList.get(j).isHasCollected())
+                        {
+                            starList.get(j).getStarImg().setImage(null);
+                            starList.get(j).setHasCollected(true);
+                        }
+                    }
                     if(ball.getLocation()<300)
                     {
                         //move the contents of arraylist down

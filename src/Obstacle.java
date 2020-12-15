@@ -10,7 +10,7 @@ public abstract class Obstacle {
 
     public Obstacle()
     {
-
+        userVelocity=5;
     }
     public abstract Group generateObstacle();
     public abstract double getStarPositionY();
