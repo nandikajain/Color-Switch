@@ -97,7 +97,9 @@ public class Game extends Application implements Screen{
         obstacles.add(new LineObstacle(-770));
         obstacles.add(new ThreeEqualCircles(250,-1050,70,82, 94 ));
         obstacles.add(new RhombusObstacle(250,-1400,120, false));
-        obstacles.add(new TwoAdjacentCircles(190, -1700, 60,80));
+        obstacles.add(new TwoAdjacentCircles(175, -1700, 75,80));
+        obstacles.add(new StarObstacle(330, -1950, 90, false));
+        obstacles.add(new CircleObstacle(250, -2200, 60, false));
 
         for(int i=0; i<obstacles.size(); i++)
         {

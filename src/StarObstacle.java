@@ -62,11 +62,11 @@ public class StarObstacle extends Obstacle {
     @Override
     public double getStarPositionY()
     {
-        return centerY;
+        return centerY - length-10;
     }
     @Override
     public double getColorSwitcherPositionY(){
-        return centerY - length - 30;
+        return centerY - length - 75;
     }
     @Override
     public ArrayList<Shape> getShapesList(){

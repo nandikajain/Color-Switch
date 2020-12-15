@@ -52,7 +52,7 @@ public class TwoAdjacentCircles extends Obstacle {
         rot.setAxis(Rotate.Z_AXIS);
         rot.setByAngle(360);
         rot.setCycleCount(50000);
-        rot.setDuration(Duration.millis(3000));
+        rot.setDuration(Duration.millis(11000));
         rot.setInterpolator(Interpolator.LINEAR);
         rot.setNode(g1);
         rot.setAutoReverse(false);
@@ -82,7 +82,7 @@ public class TwoAdjacentCircles extends Obstacle {
         rotate.setAxis(Rotate.Z_AXIS);
         rotate.setByAngle(360);
         rotate.setCycleCount(50000);
-        rotate.setDuration(Duration.millis(3000));
+        rotate.setDuration(Duration.millis(11000));
         rotate.setInterpolator(Interpolator.LINEAR);
         rotate.setNode(g2);
         rotate.setAutoReverse(false);
