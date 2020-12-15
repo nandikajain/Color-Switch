@@ -1,13 +1,16 @@
+import javafx.scene.media.MediaPlayer;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.Media;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 
 //import obstacles.ThreeEqualCircles;
 
+import java.io.File;
 import java.util.ArrayList;
 
 //Will have to make 1) Main Java file 2) fxml file linked to scene builder 3) Controller file for event listeners for each page
@@ -16,6 +19,10 @@ public class MainMenu extends Application {
 
     static int totalStars;
     ArrayList<Game> savedGames;
+
+    String backgroundSoundFile = "sounds/letithappen.wav";
+    Media backgroundSound;
+    MediaPlayer backgroundSoundPlayer;
 
     MainMenu(){
 
@@ -59,6 +66,9 @@ public class MainMenu extends Application {
         Group group = c1.generateObstacle();
         mainMenuPane.getChildren().add(group);
         primaryStage.setScene(new Scene(mainMenuPane,500, 650));
+        backgroundSound = new Media(new File(backgroundSoundFile).toURI().toString());
+        backgroundSoundPlayer = new MediaPlayer(backgroundSound);
+        backgroundSoundPlayer.play();
         primaryStage.show();
     }
 }
