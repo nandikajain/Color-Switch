@@ -52,7 +52,7 @@ public class TwoAdjacentStars extends Obstacle {
         RotateTransition rot= new RotateTransition();
         rot.setAxis(Rotate.Z_AXIS);
         rot.setByAngle(360);
-        rot.setCycleCount(50000);
+        rot.setCycleCount(10000);
         rot.setDuration(Duration.millis(3000));
         rot.setInterpolator(Interpolator.LINEAR);
         rot.setNode(g1);
@@ -81,7 +81,7 @@ public class TwoAdjacentStars extends Obstacle {
         RotateTransition rotate = new RotateTransition();
         rotate.setAxis(Rotate.Z_AXIS);
         rotate.setByAngle(360);
-        rotate.setCycleCount(50000);
+        rotate.setCycleCount(10000);
         rotate.setDuration(Duration.millis(3000));
         rotate.setInterpolator(Interpolator.LINEAR);
         rotate.setNode(g2);

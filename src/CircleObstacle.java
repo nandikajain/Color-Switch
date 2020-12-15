@@ -69,7 +69,7 @@ public class CircleObstacle extends Obstacle {
     }
     @Override
     public double getColorSwitcherPositionY(){
-        return centerY - radius - 40;
+        return centerY - radius - 50;
     }
     @Override
     public ArrayList<Shape> getShapesList(){

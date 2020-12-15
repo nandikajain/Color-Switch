@@ -31,11 +31,9 @@ public class Ball extends Region{
         this.userVelocity = -5;
 
         circle = new Circle(radius);
-        circle.setCenterX(radius);
-        circle.setCenterY(radius);
-
+        circle.setCenterX(centerX);
+        circle.setCenterY(centerY);
         circle.setFill(ballColor);
-
         this.view = circle;
         getChildren().add(view);
         layer.getChildren().add(this);
@@ -61,20 +59,18 @@ public class Ball extends Region{
     }
 
     public void checkBottom(){
-        if (positionY > layer.getHeight() - radius) {
+        if (positionY >= layer.getHeight() - radius ) {
             velocity *= 0;
-            positionY = layer.getHeight() -  radius;
+            positionY = layer.getHeight() - radius;
         }
     }
     public boolean isBottom()
     {
-        if (positionY > layer.getHeight() - radius){
+        if (positionY >= layer.getHeight() -radius){
             return true;
         }
         return false;
-
     }
-
 
     public void display(){
         relocate(240, positionY - centerY);
@@ -86,13 +82,15 @@ public class Ball extends Region{
         return positionY;
     }
     public Circle getCircle(){return  circle;}
-
     public Color getBallColor() {
         return (Color) circle.getFill();
     }
-
     public void setBallColor(Color ballColor) {
         circle.setFill(ballColor);
+    }
+    public void setup(){
+        circle.setCenterX(centerX);
+        circle.setCenterY(centerY);
     }
 
 }

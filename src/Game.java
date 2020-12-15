@@ -1,10 +1,12 @@
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Path;
@@ -87,7 +89,9 @@ public class Game extends Application implements Screen{
         gamePane.getChildren().add(gameScore);
 
         obstacles.add(new CircleObstacle(250, 340, 60, false));
-        obstacles.add(new TwoAdjacentStars(175, 100, 75));
+        obstacles.add(new TwoAdjacentStars(175, 90, 75));
+        obstacles.add(new SquareObstacle(250,-195,120, false));
+        obstacles.add(new TwoEqualCircles(250,-475,70,82));
         for(int i=0; i<obstacles.size(); i++)
         {
             Group g = obstacles.get(i).generateObstacle();
@@ -127,12 +131,22 @@ public class Game extends Application implements Screen{
         primaryStage.setScene(new Scene(gamePane, 500, 650));
         primaryStage.show();
         addBall();
-        startGame();
+//        gamePane.addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+//            @Override
+//            public void handle(MouseEvent mouseEvent) {
+//                try {
+//                    ball.setup();
+                   startGame();
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
 
     }
     public void addBall(){
         Pane layer = playfield;
-        double y = 650;
+        double y = 500;
         ball = new Ball(layer, y, Color.RED);
     }
     public void startGame() throws Exception{
@@ -146,7 +160,6 @@ public class Game extends Application implements Screen{
                         time = System.currentTimeMillis();
                         clickedOnce = true;
                     }
-
                     ball.userMove();
                     boolean status=checkCollision();
                     if(status)
