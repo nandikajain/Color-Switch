@@ -87,7 +87,7 @@ public class TwoEqualCircles extends Obstacle {
         rotate.setDuration(Duration.millis(3000));
         rotate.setInterpolator(Interpolator.LINEAR);
         rotate.setNode(g2);
-        rotate.setAutoReverse(true);
+        rotate.setAutoReverse(false);
         rotate.play();
 
         group.getChildren().addAll(g2);
@@ -98,7 +98,7 @@ public class TwoEqualCircles extends Obstacle {
     {return  centerY;}
     @Override
     public double getColorSwitcherPositionY(){
-        return centerY - r1 - 40;
+        return centerY - r1 - 65;
     }
     @Override
     public ArrayList<Shape> getShapesList(){

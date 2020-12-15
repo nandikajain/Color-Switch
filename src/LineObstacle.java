@@ -99,11 +99,11 @@ public class LineObstacle extends Obstacle {
     @Override
     public double getStarPositionY()
     {
-        return centerY-20;
+        return centerY-40;
     }
     @Override
     public double getColorSwitcherPositionY(){
-        return centerY - 40;
+        return centerY - 100;
     }
     @Override
     public ArrayList<Shape> getShapesList(){

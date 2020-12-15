@@ -135,7 +135,7 @@ public class ThreeEqualCircles extends Obstacle {
     }
     @Override
     public double getColorSwitcherPositionY(){
-        return centerY - r1 - 50;
+        return centerY - r3 - 80;
     }
     @Override
     public ArrayList<Shape> getShapesList(){

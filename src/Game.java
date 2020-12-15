@@ -24,6 +24,7 @@ import static java.lang.Integer.valueOf;
 public class Game extends Application implements Screen{
     Pane playfield;
     AnimationTimer gameLoop;
+    boolean gameMoving;
     Scene scene;
     Ball ball;
     Text gameScore;
@@ -45,6 +46,7 @@ public class Game extends Application implements Screen{
         starList = new ArrayList<Star>();
         colorSwitchers= new ArrayList<ColorSwitcher>();
         noOfStars=0;
+        gameMoving= false;
     }
 
     private void setupGame(){
@@ -90,8 +92,13 @@ public class Game extends Application implements Screen{
 
         obstacles.add(new CircleObstacle(250, 340, 60, false));
         obstacles.add(new TwoAdjacentStars(175, 90, 75));
-        obstacles.add(new SquareObstacle(250,-195,120, false));
-        obstacles.add(new TwoEqualCircles(250,-475,70,82));
+        obstacles.add(new SquareObstacle(250,-235,120, false));
+        obstacles.add(new TwoEqualCircles(250,-545,70,82));
+        obstacles.add(new LineObstacle(-770));
+        obstacles.add(new ThreeEqualCircles(250,-1050,70,82, 94 ));
+        obstacles.add(new RhombusObstacle(250,-1400,120, false));
+        obstacles.add(new TwoAdjacentCircles(190, -1700, 60,80));
+
         for(int i=0; i<obstacles.size(); i++)
         {
             Group g = obstacles.get(i).generateObstacle();
@@ -131,17 +138,8 @@ public class Game extends Application implements Screen{
         primaryStage.setScene(new Scene(gamePane, 500, 650));
         primaryStage.show();
         addBall();
-//        gamePane.addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
-//            @Override
-//            public void handle(MouseEvent mouseEvent) {
-//                try {
-//                    ball.setup();
-                   startGame();
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
+        startGame();
+
 
     }
     public void addBall(){
@@ -171,6 +169,7 @@ public class Game extends Application implements Screen{
 
                     if(ball.getLocation()<300)
                     {
+                        gameMoving= true;
                         moveContentsDown();
                         //move the contents of arraylist down
                     }
@@ -182,12 +181,16 @@ public class Game extends Application implements Screen{
                     if (status1) {
                         System.out.println("Collided");
                     }
-                }
-                ball.checkBottom();
-                boolean status2= ball.isBottom();
-                if(status2)
-                {
-                    System.out.println("Collided");
+                    ball.checkBottom();
+                    if(gameMoving)
+                    {
+                        boolean status2= ball.isBottom();
+                        if(status2)
+                        {
+                            System.out.println("Collided");
+                        }
+                    }
+
                 }
 
                 ball.display();

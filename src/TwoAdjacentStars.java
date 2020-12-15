@@ -97,7 +97,7 @@ public class TwoAdjacentStars extends Obstacle {
     { return centerY-length;}
     @Override
     public double getColorSwitcherPositionY(){
-        return centerY - length - 40;
+        return centerY - length - 80;
     }
     @Override
     public ArrayList<Shape> getShapesList(){
