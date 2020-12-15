@@ -6,6 +6,7 @@ import javafx.scene.shape.Circle;
 
 public class Ball extends Region{
 
+    Circle circle;
     double positionY;
     double velocity;
     double userVelocity;
@@ -29,12 +30,10 @@ public class Ball extends Region{
         this.ballColor= color;
         this.userVelocity = -5;
 
-        Circle circle = new Circle(radius);
-        circle.setCenterX(radius);
-        circle.setCenterY(radius);
-
+        circle = new Circle(radius);
+        circle.setCenterX(250);
+        circle.setCenterY(positionY);
         circle.setFill(ballColor);
-
         this.view = circle;
         getChildren().add(view);
         layer.getChildren().add(this);
@@ -60,10 +59,17 @@ public class Ball extends Region{
     }
 
     public void checkBottom(){
-        if (positionY > layer.getHeight() - radius) {
+        if (positionY >= layer.getHeight() - radius ) {
             velocity *= 0;
-            positionY = layer.getHeight() -  radius;
+            positionY = layer.getHeight() - radius;
         }
+    }
+    public boolean isBottom()
+    {
+        if (positionY >= layer.getHeight() -radius){
+            return true;
+        }
+        return false;
     }
 
     public void display(){
@@ -75,13 +81,16 @@ public class Ball extends Region{
     public double getLocationCollision(){
         return positionY;
     }
-
+    public Circle getCircle(){return  circle;}
     public Color getBallColor() {
-        return ballColor;
+        return (Color) circle.getFill();
     }
-
     public void setBallColor(Color ballColor) {
-        this.ballColor = ballColor;
+        circle.setFill(ballColor);
+    }
+    public void setup(){
+        circle.setCenterX(centerX);
+        circle.setCenterY(centerY);
     }
 
 }
