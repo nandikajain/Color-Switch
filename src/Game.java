@@ -200,6 +200,13 @@ public class Game extends Application implements Screen, Serializable {
                         if(e.getCode()==KeyCode.SPACE){
                             mouseClick = true;
                         }
+                        else if(e.getCode()==KeyCode.P){
+                            try{
+                                pauseGame();
+                            } catch(Exception exception){
+                                exception.printStackTrace();
+                            }
+                        }
                     });
                     playfield.setOnMouseClicked(e -> {
                         try{
