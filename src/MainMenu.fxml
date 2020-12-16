@@ -44,5 +44,10 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <Button fx:id="muteButton" layoutX="23.0" layoutY="595.0" mnemonicParsing="false" onMouseClicked="#onMuteSoundClicked" style="-fx-background-color: #272727; -fx-border-color: #ff0181; -fx-border-width: 4;" text="MUTE" textAlignment="CENTER" textFill="#ff0181">
+         <font>
+            <Font name="Blissful Thinking" size="17.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

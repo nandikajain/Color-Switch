@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
 import java.awt.*;
@@ -15,11 +16,12 @@ public class MainMenuController implements Initializable {
 
     public ImageView playButton;
     public Button savedGamesButton;
+    public Button muteButton;
     public Button exitButton;
     private static final String sg_IDLE_BUTTON_STYLE = "-fx-background-color: #272727; -fx-border-color: #ff0181; -fx-border-width: 4;";
-    private static final String sg_HOVERED_BUTTON_STYLE = "-fx-background-color: #ff0181; -fx-border-color: #ff0181; -fx-border-width: 8;";
+    private static final String sg_HOVERED_BUTTON_STYLE = "-fx-background-color: #ff0181; -fx-border-color: #ff0181; -fx-border-width: 4;";
     private static final String e_IDLE_BUTTON_STYLE = "-fx-background-color: #272727; -fx-border-width: 4; -fx-border-color: #900dff;";
-    private static final String e_HOVERED_BUTTON_STYLE = "-fx-background-color: #900dff; -fx-border-width: 8; -fx-border-color: #900dff;";
+    private static final String e_HOVERED_BUTTON_STYLE = "-fx-background-color: #900dff; -fx-border-width: 4; -fx-border-color: #900dff;";
 
     @FXML
     public void onExitClicked(){
@@ -27,9 +29,7 @@ public class MainMenuController implements Initializable {
     }
 
     @FXML
-    public void onSavedGamesClicked(MouseEvent mouseEvent) {
-
-    }
+    public void onSavedGamesClicked(MouseEvent mouseEvent){}
 
     @FXML
     public void onPlayButtonClicked(MouseEvent mouseEvent) throws Exception {
@@ -53,5 +53,19 @@ public class MainMenuController implements Initializable {
         exitButton.setStyle(e_IDLE_BUTTON_STYLE);
         exitButton.setOnMouseEntered(e -> exitButton.setStyle(e_HOVERED_BUTTON_STYLE));
         exitButton.setOnMouseExited(e -> exitButton.setStyle(e_IDLE_BUTTON_STYLE));
+    }
+
+    public void onMuteSoundClicked(MouseEvent mouseEvent) {
+        boolean paused = MainMenu.getInstance().backgroundSoundPause();
+        if(paused){
+            muteButton.setText("UNMUTE");
+            muteButton.setStyle("-fx-background-color: #ff0181; -fx-border-color: #ff0181; -fx-border-width: 4;");
+            muteButton.setTextFill(Paint.valueOf("#272727"));
+        }
+        else{
+            muteButton.setText("MUTE");
+            muteButton.setStyle("-fx-background-color: #272727; -fx-border-color: #ff0181; -fx-border-width: 4;");
+            muteButton.setTextFill(Paint.valueOf("#ff0181"));
+        }
     }
 }

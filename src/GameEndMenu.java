@@ -9,9 +9,9 @@ import javafx.stage.Stage;
 
 public class GameEndMenu extends Application {
 
-//    GameEndMenu(int noOfStars, Game curGame){
-//
-//    }
+    GameEndMenu(int noOfStars, Game curGame){
+
+    }
 
     private void displayGameStats(Game curGame){
     
@@ -33,9 +33,9 @@ public class GameEndMenu extends Application {
 
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         launch(args);
-    }
+    }*/
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -47,9 +47,6 @@ public class GameEndMenu extends Application {
         primaryStage.show();
     }
 
-    @FXML
-    public void playAgainClicked(MouseEvent mouseEvent) {
-        System.out.println("Play Button Clicked");
-    }
+
 
 }

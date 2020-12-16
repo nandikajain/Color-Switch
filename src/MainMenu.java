@@ -20,12 +20,16 @@ public class MainMenu extends Application {
     static int totalStars;
     ArrayList<Game> savedGames;
 
+    private static MainMenu mainMenu;
+
     String backgroundSoundFile = "sounds/letithappen.wav";
     Media backgroundSound;
     MediaPlayer backgroundSoundPlayer;
 
-    MainMenu(){
+    boolean backgroundSoundPause;
 
+    MainMenu(){
+        mainMenu = this;
     }
 
     /*public static MainMenu getMenuInstance(){
@@ -69,6 +73,24 @@ public class MainMenu extends Application {
         backgroundSound = new Media(new File(backgroundSoundFile).toURI().toString());
         backgroundSoundPlayer = new MediaPlayer(backgroundSound);
         backgroundSoundPlayer.play();
+        backgroundSoundPause = false;
         primaryStage.show();
+    }
+
+    public boolean backgroundSoundPause(){
+        if(!backgroundSoundPause) {
+            backgroundSoundPlayer.pause();
+            backgroundSoundPause = true;
+            return true;
+        }
+        else{
+            backgroundSoundPlayer.play();
+            backgroundSoundPause = false;
+            return false;
+        }
+    }
+
+    public static MainMenu getInstance(){
+        return mainMenu;
     }
 }

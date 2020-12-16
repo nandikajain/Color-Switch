@@ -57,24 +57,6 @@ public class PauseMenu extends Application {
         primaryStage.show();
     }
 
-    @FXML
-    void onMenuClicked(MouseEvent event) {
 
-    }
-
-    @FXML
-    void onRestartClicked(MouseEvent event) {
-
-    }
-
-    @FXML
-    void onResumeClicked(MouseEvent event) {
-
-    }
-
-    @FXML
-    void onSaveGameClicked(MouseEvent event) {
-
-    }
 
 }
