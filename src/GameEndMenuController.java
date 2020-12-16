@@ -19,16 +19,6 @@ public class GameEndMenuController implements Initializable {
     private static final String p_IDLE_BUTTON_STYLE = "-fx-background-color: #272727; -fx-border-color: #32dbf0; -fx-border-width: 4;";
     private static final String p_HOVERED_BUTTON_STYLE = "-fx-background-color: #32dbf0; -fx-border-color: #32dbf0; -fx-border-width: 4;";
 
-    public Label curGameScore;
-    public Label totalCoins;
-    public Label allTimeBestScore;
-
-    /*public static void setLabels(int curScore, int total, int allTime){
-        curGameScore.setText(String.valueOf(curScore));
-        totalCoins.setText(String.valueOf(total));
-        allTimeBestScore.setText(String.valueOf(allTime));
-    }*/
-
     @FXML
     public void playAgainClicked(ActionEvent mouseEvent) throws Exception {
         System.out.println("Play Button Clicked");

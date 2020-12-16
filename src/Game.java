@@ -225,7 +225,7 @@ public class Game extends Application implements Screen, Serializable {
                         boolean status = checkCollision();
                         if (status) {
                             try {
-                                //endGame();
+                                endGame();
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -245,7 +245,7 @@ public class Game extends Application implements Screen, Serializable {
                         boolean status1 = checkCollision();
                         if (status1) {
                             try {
-                               // endGame();
+                                endGame();
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -256,7 +256,7 @@ public class Game extends Application implements Screen, Serializable {
                             boolean status2 = ball.isBottom();
                             if (status2) {
                                 try {
-                             //       endGame();
+                                    endGame();
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }

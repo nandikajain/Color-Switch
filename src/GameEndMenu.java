@@ -3,10 +3,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class GameEndMenu extends Application {
+import java.awt.*;
 
+public class GameEndMenu extends Application {
+    Text curScore;
     private static GameEndMenu gameEndMenu = null;
     Game prevGame;
     int finalStars;
@@ -63,9 +68,16 @@ public class GameEndMenu extends Application {
         primaryStage.setScene(new Scene(anchorPaneMenu, 500, 650));
         displayGameStats();
         checkEligible();
+        curScore = new Text();
+        curScore.setText(""+ finalStars);
+        curScore.setX(240);
+        curScore.setStroke(javafx.scene.paint.Color.WHITE);
+        curScore.setFill(Color.WHITE);
+        curScore.setLayoutY(260);
+        curScore.setFont(Font.font ("Blissful Thinking", 45));
+        anchorPaneMenu.getChildren().add(curScore);
         primaryStage.show();
     }
-
-
-
 }
+
+
