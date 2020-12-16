@@ -84,6 +84,7 @@ public class Game extends Application implements Screen, Serializable {
 
     private void endGame() throws Exception {
         gamePause = true;
+        gameLoop.stop();
         pausedScene = scene;
         GameEndMenu gameEndMenu = new GameEndMenu(noOfStars,this);
         gameEndMenu.start(stage);
