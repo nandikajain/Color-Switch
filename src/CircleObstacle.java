@@ -83,6 +83,7 @@ public class CircleObstacle extends Obstacle {
         arc2.setLayoutY(arc2.getLayoutY()+5);
         arc3.setLayoutY(arc3.getLayoutY()+5);
         arc4.setLayoutY(arc4.getLayoutY()+ 5);
+        centerY+=5;
     }
     @Override
     public double getCenterY() {

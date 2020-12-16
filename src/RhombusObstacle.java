@@ -75,6 +75,7 @@ public class RhombusObstacle extends Obstacle {
             line2.setLayoutY(line2.getLayoutY()+5);
             line3.setLayoutY(line3.getLayoutY()+5);
             line4.setLayoutY(line4.getLayoutY()+ 5);
+            centerY+=5;
         }
         public double getCenterX() {
                 return centerX;

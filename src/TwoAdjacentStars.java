@@ -114,6 +114,7 @@ public class TwoAdjacentStars extends Obstacle {
         line1b.setLayoutY(line1b.getLayoutY()+5);
         line1c.setLayoutY(line1c.getLayoutY()+5);
         line1d.setLayoutY(line1d.getLayoutY()+ 5);
+        centerY+=5;
     }
 
     public double getCenterXa() {

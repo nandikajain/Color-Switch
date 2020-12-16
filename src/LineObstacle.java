@@ -117,6 +117,7 @@ public class LineObstacle extends Obstacle {
         line3.setLayoutY(line3.getLayoutY()+5);
         line4.setLayoutY(line4.getLayoutY()+ 5);
         line5.setLayoutY(line5.getLayoutY()+ 5);
+        centerY+=5;
 
     }
     @Override

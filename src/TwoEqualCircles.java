@@ -148,6 +148,7 @@ public class TwoEqualCircles extends Obstacle {
         arc2b.setLayoutY(arc2b.getLayoutY()+5);
         arc3b.setLayoutY(arc3b.getLayoutY()+5);
         arc4b.setLayoutY(arc4b.getLayoutY()+ 5);
+        centerY+=5;
     }
 
 

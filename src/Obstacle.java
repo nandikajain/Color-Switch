@@ -27,5 +27,8 @@ public abstract class Obstacle implements Serializable {
     public abstract void display();
     public abstract ArrayList<Shape> getShapesList();
     public abstract double getCenterY();
+    public double getPositionY()
+    {return  positionY;}
+
 
 }

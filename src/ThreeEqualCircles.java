@@ -156,6 +156,7 @@ public class ThreeEqualCircles extends Obstacle {
         arc2q.setLayoutY(arc2q.getLayoutY()+5);
         arc3q.setLayoutY(arc3q.getLayoutY()+5);
         arc4q.setLayoutY(arc4q.getLayoutY()+ 5);
+        centerY+=5;
     }
 
     public double getCenterX() {
