@@ -1,7 +1,9 @@
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 
-public class Star {
+import java.io.Serializable;
+
+public class Star implements Serializable {
     double positionY;
     double velocity;
     double userVelocity;
@@ -13,7 +15,7 @@ public class Star {
     double radius = width / 2.0;
     double maxSpeed = 100;
     boolean hasCollected;
-    ImageView starImg;
+    transient ImageView starImg;
 
     public boolean isHasCollected() {
         return hasCollected;

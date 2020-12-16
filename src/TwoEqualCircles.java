@@ -7,10 +7,11 @@ import javafx.scene.shape.Shape;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
-public class TwoEqualCircles extends Obstacle {
+public class TwoEqualCircles extends Obstacle implements Serializable {
     double centerX;
     double centerY;
     double r1;

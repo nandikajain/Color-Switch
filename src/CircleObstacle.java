@@ -7,10 +7,11 @@ import javafx.scene.shape.Shape;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
-public class CircleObstacle extends Obstacle {
+public class CircleObstacle extends Obstacle implements Serializable {
     //returning the group
     double centerX;
     double centerY;

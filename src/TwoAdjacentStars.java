@@ -7,9 +7,10 @@ import javafx.scene.shape.Shape;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class TwoAdjacentStars extends Obstacle {
+public class TwoAdjacentStars extends Obstacle implements Serializable {
     double centerXa;
     double centerY;
     double length;

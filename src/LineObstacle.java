@@ -3,11 +3,12 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Shape;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class LineObstacle extends Obstacle {
+public class LineObstacle extends Obstacle implements Serializable {
     double centerY;
     ArrayList<Shape> shapes;
     Line line1, line2, line3, line4, line5;

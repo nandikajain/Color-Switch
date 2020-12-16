@@ -7,10 +7,11 @@ import javafx.scene.shape.Shape;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 //Change values here in order to get star obstacles with different parameters
-public class SquareObstacle extends Obstacle {
+public class SquareObstacle extends Obstacle implements Serializable {
     double centerX;
     double centerY;
     double length;

@@ -7,9 +7,10 @@ import javafx.scene.shape.Shape;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class TwoAdjacentCircles extends Obstacle {
+public class TwoAdjacentCircles extends Obstacle implements Serializable {
     //center is the pt of tangency of the 2 circles and 10 is the stroke width
     double centerX;
 

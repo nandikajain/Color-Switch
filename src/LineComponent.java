@@ -1,12 +1,14 @@
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
-public class LineComponent {
+import java.io.Serializable;
+
+public class LineComponent implements Serializable {
     double startX;
     double startY;
     double endY;
     double endX;
-    Color c;
+    transient Color c;
     double width;
     public LineComponent(double sX, double sY, double eX, double eY, Color C, double w)
     {

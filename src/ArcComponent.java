@@ -2,8 +2,10 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.ArcType;
 
+import java.io.Serializable;
+
 //will return an arc component
-public class ArcComponent {
+public class ArcComponent implements Serializable {
 
         double centerX;
         double centerY;
@@ -11,7 +13,7 @@ public class ArcComponent {
         double radiusX;
         double startAngle;
         double length;
-        Color c;
+        transient Color c;
         double strokeWidth;
         public ArcComponent(double X, double Y, double rX, double rY, double start_angle, double l, Color C, double width)
         {

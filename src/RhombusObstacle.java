@@ -7,14 +7,15 @@ import javafx.scene.shape.Shape;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class RhombusObstacle extends Obstacle {
+public class RhombusObstacle extends Obstacle implements Serializable {
         double centerX;
         double centerY;
         double length;
         boolean isRotate;
-        ArrayList<Shape>shapes;
+        ArrayList<Shape> shapes;
         Line line1, line2, line3, line4;
         public RhombusObstacle(double cX, double cY, double l, boolean rot) {
                 shapes= new ArrayList<Shape>();

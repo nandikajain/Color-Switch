@@ -13,6 +13,8 @@ import javafx.scene.shape.Shape;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+import java.io.Serializable;
 import java.util.Timer;
 import java.util.ArrayList;
 import javafx.scene.paint.Color;
@@ -20,31 +22,31 @@ import javafx.scene.paint.Color;
 import static java.lang.Integer.valueOf;
 
 
-public class Game extends Application implements Screen{
-    AnchorPane gamePane;
-    Pane playfield;
+public class Game extends Application implements Screen, Serializable {
+    transient AnchorPane gamePane;
+    transient Pane playfield;
     int temp;
-    AnimationTimer gameLoop;
+    transient AnimationTimer gameLoop;
     int DynamicGeneration;
     boolean gameMoving;
     Ball ball;
-    Text gameScore;
+    transient Text gameScore;
     boolean mouseClick = false;
     boolean clickedOnce = false;
     private int noOfStars;
     public ArrayList<Obstacle> obstacles;
-    public ArrayList<Star> starList;
-    public ArrayList<ColorSwitcher> colorSwitchers;
+    transient public ArrayList<Star> starList;
+    transient public ArrayList<ColorSwitcher> colorSwitchers;
 
-    Scene scene;
-    Scene pausedScene;
-    Ball pausedBall;
+    transient Scene scene;
+    transient Scene pausedScene;
+    transient Ball pausedBall;
 
-    Stage stage;
+    transient Stage stage;
 
     boolean gamePause;
 
-    private Timer clock;
+    transient private Timer clock;
 
     public Game (Game prevGame){
 
