@@ -188,7 +188,7 @@ public class Game extends Application implements Screen, Serializable {
             @Override
             public void handle(long l) {
                 if(!gamePause) {
-                    playfield.setOnMouseClicked(e -> mouseClick = true);
+                    /*playfield.setOnMouseClicked(e -> mouseClick = true);
                     scene.setOnKeyPressed(e->{
                         if(e.getCode() == KeyCode.P){
                             try {
@@ -196,6 +196,18 @@ public class Game extends Application implements Screen, Serializable {
                             } catch (Exception exception) {
                                 exception.printStackTrace();
                             }
+                        }
+                    });*/
+                    scene.setOnKeyPressed(e->{
+                        if(e.getCode()==KeyCode.SPACE){
+                            mouseClick = true;
+                        }
+                    });
+                    playfield.setOnMouseClicked(e -> {
+                        try{
+                            pauseGame();
+                        } catch(Exception exception){
+                            exception.printStackTrace();
                         }
                     });
                     if (mouseClick) {
