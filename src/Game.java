@@ -1,4 +1,3 @@
-import com.sun.prism.shader.Solid_TextureYV12_AlphaTest_Loader;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -124,7 +123,6 @@ public class Game extends Application implements Screen, Serializable {
         obstacles.add(new RhombusObstacle(250,-1400,120, false));
         obstacles.add(new TwoAdjacentCircles(175, -1700, 75,80));
         obstacles.add(new StarObstacle(330, -1950, 90, false));
-        //  obstacles.add(new CircleObstacle(250, -2250,60,false));
 
         for(int i=0; i<obstacles.size(); i++)
         {
@@ -211,7 +209,7 @@ public class Game extends Application implements Screen, Serializable {
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
-                            //System.out.println("Collided");
+                            System.out.println("Collided");
                         }
                         collectStars();
                         switchColor();
@@ -231,7 +229,7 @@ public class Game extends Application implements Screen, Serializable {
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
-                            //System.out.println("Collided");
+                            System.out.println("Collided");
                         }
                         ball.checkBottom();
                         if (gameMoving) {
@@ -242,7 +240,7 @@ public class Game extends Application implements Screen, Serializable {
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
-                                //System.out.println("Collided");
+                                System.out.println("Collided");
                             }
                         }
 
@@ -279,11 +277,10 @@ public class Game extends Application implements Screen, Serializable {
     {
         for(int i=0; i<obstacles.size(); i++)
         {
-            System.out.println(i+ "\t Obstacle position Y: "+obstacles.get(i).getCenterY()+"\t Ball Position :"+ ball.getLocationCollision());
             if(obstacles.get(i).getCenterY()- ball.getLocationCollision() > 750)
             {    DynamicAddObstacles();
-//            i=i-1;
-//            continue;
+                i=i-1;
+                continue;
             }
             obstacles.get(i).userMove();
             obstacles.get(i).display();
@@ -367,92 +364,70 @@ public class Game extends Application implements Screen, Serializable {
         Obstacle obs;
 
         if(obstacles.get(0) instanceof CircleObstacle)
-       // if(temp% 9 ==0)
         {
             //CIRCLE -> Y last obstacle -=300, radius 60,
             obs= new CircleObstacle(250, newCenter-300,60, false );
             obstacles.add(obs);
             obstacles.remove(0);
-//            obstacles.set(0,obs);
             HandleDynamicObstacle(obs);
 
         }
         else if(obstacles.get(0) instanceof TwoAdjacentStars)
-//        else if(temp% 9 ==1)
         {
             //TWO ADJACENT STAR-> Y last obstacle -=250, len-> 75, x cord-> 175
             obs= new TwoAdjacentStars(175, newCenter-250,75);
             obstacles.add(obs);
             obstacles.remove(0);
-//            obstacles.set(1, obs);
             HandleDynamicObstacle(obs);
         }
         else if(obstacles.get(0) instanceof SquareObstacle)
-//        else if(temp % 9 ==2)
         {
             //SQUARE OBSTACLE-> Y last obstacle -=325,len ->120
             obs= new SquareObstacle(250, newCenter- 325, 120, false);
             obstacles.add(obs);
             obstacles.remove(0);
-//            obstacles.set(2, obs);
-
             HandleDynamicObstacle(obs);
 
         }
-//        else if(temp % 9 ==3)
         else if(obstacles.get(0) instanceof TwoEqualCircles)
         {
             //TWO EQUAL CIRCLE -> Y last obstacle-=310, r1->70, r2->82
             obs= new TwoEqualCircles(250, newCenter- 310, 70, 82);
             obstacles.add(obs);
             obstacles.remove(0);
-//            obstacles.set(3, obs);
-
             HandleDynamicObstacle(obs);
 
         }
         else if(obstacles.get(0) instanceof LineObstacle)
-//        else if(temp % 9 ==4)
         {
             //LINE OBSTACLE -> Y last obstacle-=225
             obs= new LineObstacle(newCenter-225);
             obstacles.add(obs);
             obstacles.remove(0);
-//            obstacles.set(4, obs);
-
             HandleDynamicObstacle(obs);
         }
-//        else if(temp % 9 ==5)
         else  if(obstacles.get(0) instanceof  TwoEqualCircles)
         {
             //THREE EQUAL CIRCLES -> Y last obstacle -=280, r1-> 70, r2-> 82, r3-> 94
             obs = new ThreeEqualCircles(250, newCenter- 280, 70, 82, 94);
             obstacles.add(obs);
             obstacles.remove(0);
-//            obstacles.set(5, obs);
-
             HandleDynamicObstacle(obs);
         }
-//        else  if (temp % 9 ==6)
         else if(obstacles.get(0) instanceof  RhombusObstacle)
         {
             //RHOMBUS OBSTACLE -> Y last obstacle-=350, len ->120
             obs= new RhombusObstacle(250, newCenter-350, 120, false);
             obstacles.add(obs);
             obstacles.remove(0);
-//            obstacles.set(6, obs);
-
             HandleDynamicObstacle(obs);
         }
-//        else if (temp % 9 ==7)
         else if (obstacles.get(0) instanceof  TwoAdjacentCircles)
         {
             //TWO ADJACENT CIRCLES -> Y last obstacle -=300, r1->75, r2-> 80, x cord-> 175
             obs= new TwoAdjacentCircles(175, newCenter-300,75, 80);
             obstacles.add(obs);
             obstacles.remove(0);
-//            obstacles.set(7, obs);
-
             HandleDynamicObstacle(obs);
         }
         else{
@@ -461,7 +436,6 @@ public class Game extends Application implements Screen, Serializable {
             obstacles.add(obs);
             obstacles.remove(0);
             obstacles.set(8, obs);
-
             HandleDynamicObstacle(obs);
         }
 
