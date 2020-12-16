@@ -4,14 +4,16 @@ import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
-public class Ball extends Region{
+import java.io.Serializable;
 
-    Circle circle;
+public class Ball extends Region implements Serializable {
+
+    transient Circle circle;
     double positionY;
     double velocity;
     double userVelocity;
     double acceleration;
-    Color ballColor;
+    transient Color ballColor;
     double width = 20;
     double height = width;
     double centerX = width / 2.0;
@@ -19,8 +21,8 @@ public class Ball extends Region{
     double radius = width / 2.0;
     double maxSpeed = 100;
 
-    Node view;
-    Pane layer = null;
+    transient Node view;
+    transient Pane layer = null;
 
     public Ball(Pane layer, double positionY, Color color){
         this.layer = layer;
@@ -91,6 +93,10 @@ public class Ball extends Region{
     public void setup(){
         circle.setCenterX(centerX);
         circle.setCenterY(centerY);
+    }
+
+    public double getPositionY() {
+        return positionY;
     }
 
 }

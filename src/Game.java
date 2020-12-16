@@ -6,6 +6,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Shape;
@@ -34,6 +35,14 @@ public class Game extends Application implements Screen{
     public ArrayList<Star> starList;
     public ArrayList<ColorSwitcher> colorSwitchers;
 
+    Scene scene;
+    Scene pausedScene;
+    Ball pausedBall;
+
+    Stage stage;
+
+    boolean gamePause;
+
     private Timer clock;
 
     public Game (Game prevGame){
@@ -43,17 +52,37 @@ public class Game extends Application implements Screen{
     public Game(){
         obstacles = new ArrayList<Obstacle>();
         starList = new ArrayList<Star>();
-        colorSwitchers= new ArrayList<ColorSwitcher>();
-        noOfStars=0;
-        gameMoving= false;
+        colorSwitchers = new ArrayList<ColorSwitcher>();
+        noOfStars = 0;
+        gameMoving = false;
+        gamePause = false;
     }
 
-    private void setupGame(){
-
+    public void resumeGame(Stage stage) throws Exception {
+        stage.setScene(pausedScene);
+        stage.show();
+        addBall(true);
+        startGame();
+        mouseClick = false;
+        clickedOnce = false;
+        gamePause = false;
     }
 
-    private void pauseGame(){
+    private void pauseGame() throws Exception {
+        gamePause = true;
+        pausedBall = ball;
+        //System.out.println("Ball at"+ball.getPositionY());
+        ball = null;
+        pausedScene = scene;
+        PauseMenu pm = new PauseMenu(this);
+        pm.start(stage);
+    }
 
+    private void endGame() throws Exception {
+        gamePause = true;
+        pausedScene = scene;
+        GameEndMenu gameEndMenu = new GameEndMenu(noOfStars,this);
+        gameEndMenu.start(stage);
     }
 
     public int getNoOfStars() {
@@ -63,6 +92,7 @@ public class Game extends Application implements Screen{
     public void setNoOfStars(int noOfStars){
         this.noOfStars = noOfStars;
     }
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -90,7 +120,7 @@ public class Game extends Application implements Screen{
         obstacles.add(new RhombusObstacle(250,-1400,120, false));
         obstacles.add(new TwoAdjacentCircles(175, -1700, 75,80));
         obstacles.add(new StarObstacle(330, -1950, 90, false));
-      //  obstacles.add(new CircleObstacle(250, -2250,60,false));
+        //  obstacles.add(new CircleObstacle(250, -2250,60,false));
 
         for(int i=0; i<obstacles.size(); i++)
         {
@@ -128,68 +158,96 @@ public class Game extends Application implements Screen{
         playfield = new Pane();
         playfield.setPrefSize(500,650);
         gamePane.getChildren().addAll(playfield);
-        primaryStage.setScene(new Scene(gamePane, 500, 650));
+        scene = new Scene(gamePane, 500, 650);
+        primaryStage.setScene(scene);
         primaryStage.show();
-        addBall();
+        addBall(false);
         startGame();
-
-
+        stage = primaryStage;
     }
-    public void addBall(){
+
+    public void addBall(boolean resuming){
         Pane layer = playfield;
-        double y = 500;
-        ball = new Ball(layer, y, Color.RED);
+        if(resuming){
+            double y = pausedBall.getPositionY();
+            ball = new Ball(layer,y,pausedBall.getBallColor());
+        }
+        else {
+            double y = 500;
+            ball = new Ball(layer, y, Color.RED);
+        }
     }
+
     public void startGame() throws Exception{
         gameLoop = new AnimationTimer() {
             long time = System.currentTimeMillis();
             @Override
             public void handle(long l) {
-                playfield.setOnMouseClicked(e -> mouseClick = true);
-                if(mouseClick){
-                    if(!clickedOnce) {
-                        time = System.currentTimeMillis();
-                        clickedOnce = true;
-                    }
-                    ball.userMove();
-                    boolean status=checkCollision();
-                    if(status)
-                    {
-                        System.out.println("Collided");
-                    }
-                    collectStars();
-                    switchColor();
-
-                    if(ball.getLocation()<300)
-                    {
-                        gameMoving= true;
-                        moveContentsDown();
-                        //move the contents of arraylist down
-                    }
-                }
-                else{
-                    ball.applyForce();
-                    ball.move();
-                    boolean status1 = checkCollision();
-                    if (status1) {
-                        System.out.println("Collided");
-                    }
-                    ball.checkBottom();
-                    if(gameMoving)
-                    {
-                        boolean status2= ball.isBottom();
-                        if(status2)
-                        {
-                            System.out.println("Collided");
+                if(!gamePause) {
+                    playfield.setOnMouseClicked(e -> mouseClick = true);
+                    scene.setOnKeyPressed(e->{
+                        if(e.getCode()== KeyCode.P){
+                            try {
+                                pauseGame();
+                            } catch (Exception exception) {
+                                exception.printStackTrace();
+                            }
                         }
+                    });
+                    if (mouseClick) {
+                        if (!clickedOnce) {
+                            time = System.currentTimeMillis();
+                            clickedOnce = true;
+                        }
+                        ball.userMove();
+                        boolean status = checkCollision();
+                        if (status) {
+                            try {
+                                endGame();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                            //System.out.println("Collided");
+                        }
+                        collectStars();
+                        switchColor();
+
+                        if (ball.getLocation() < 300) {
+                            gameMoving = true;
+                            moveContentsDown();
+                            //move the contents of arraylist down
+                        }
+                    } else {
+                        ball.applyForce();
+                        ball.move();
+                        boolean status1 = checkCollision();
+                        if (status1) {
+                            try {
+                                endGame();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                            //System.out.println("Collided");
+                        }
+                        ball.checkBottom();
+                        if (gameMoving) {
+                            boolean status2 = ball.isBottom();
+                            if (status2) {
+                                try {
+                                    endGame();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                                //System.out.println("Collided");
+                            }
+                        }
+
                     }
-
-                }
-
-                ball.display();
-                if(mouseClick && System.currentTimeMillis()-time>70) {
-                    mouseClick = false;
-                    clickedOnce = false;
+                    ball.display();
+                    if (mouseClick && System.currentTimeMillis() - time > 70) {
+                        mouseClick = false;
+                        clickedOnce = false;
+                    }
                 }
             }
         };

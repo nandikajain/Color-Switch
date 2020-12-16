@@ -23,25 +23,34 @@ import javafx.util.Duration;
 
 public class PauseMenu extends Application {
 
+    private static PauseMenu pauseMenu = null;
+    Game curPausedGame;
+    Stage stage;
 
     PauseMenu(Game curGame){
-
+        curPausedGame = curGame;
+        pauseMenu = this;
     }
 
     private void endGame(){
 
     }
 
-    private void restartGame(){
+    public void restartGame() throws Exception {
+        Game game = new Game();
+        game.start(stage);
+    }
+
+    public void resumeGame() throws Exception {
+        curPausedGame.resumeGame(stage);
+    }
+
+    public void saveGame(){
 
     }
 
-    private void resumeGame(Game curGame){
-
-    }
-
-    private void saveGame(Game curGame){
-
+    public static PauseMenu getInstance(){
+        return pauseMenu;
     }
 
    /* public static void main(String[] args) {
@@ -50,6 +59,7 @@ public class PauseMenu extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        stage = primaryStage;
         primaryStage.getIcons().add(new Image("file:./assets/logo.png"));
         primaryStage.setTitle("Color Switch");
         AnchorPane mainMenuPane = FXMLLoader.load(getClass().getResource("PauseMenu.fxml"));

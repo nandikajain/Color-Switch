@@ -1,9 +1,10 @@
 import javafx.scene.Group;
 import javafx.scene.shape.Shape;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public abstract class Obstacle {
+public abstract class Obstacle implements Serializable {
     double positionY;
     double velocity;
     double userVelocity;

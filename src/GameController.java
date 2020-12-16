@@ -6,6 +6,7 @@ import javafx.stage.Stage;
 
 public class GameController {
 
+    @FXML
     Circle gamePauseButton;
 
     //This will need to implement the Game data logic, saath mei serialization will be gogo

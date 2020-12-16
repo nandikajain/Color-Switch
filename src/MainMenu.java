@@ -19,7 +19,7 @@ public class MainMenu extends Application implements Serializable {
 
     private final static long serialVersionUID = 65621354;
 
-    int totalStars;
+    int totalStars = 5;
     transient ArrayList<Game> savedGames;
 
     transient private static MainMenu mainMenu;
@@ -71,6 +71,7 @@ public class MainMenu extends Application implements Serializable {
         primaryStage.setScene(new Scene(mainMenuPane,500, 650));
         backgroundSound = new Media(new File(backgroundSoundFile).toURI().toString());
         backgroundSoundPlayer = new MediaPlayer(backgroundSound);
+        backgroundSoundPlayer.setVolume(0.2);
         backgroundSoundPlayer.play();
         backgroundSoundPause = false;
         primaryStage.show();

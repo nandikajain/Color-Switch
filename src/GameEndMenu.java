@@ -5,28 +5,49 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class GameEndMenu extends Application {
 
+    private static GameEndMenu gameEndMenu = null;
+    Game prevGame;
+    int finalStars;
+    int totalStars;
+    Stage stage;
+
     GameEndMenu(int noOfStars, Game curGame){
-
+        prevGame = curGame;
+        finalStars = noOfStars;
+        totalStars = MainMenu.getInstance().getTotalStars();
+        gameEndMenu = this;
     }
 
-    private void displayGameStats(Game curGame){
-    
+    public static GameEndMenu getInstance(){
+        return gameEndMenu;
     }
 
-    private void gameContinue(Game curGame){
-
+    private void displayGameStats(){
+        GameEndMenuController.setLabels(finalStars,totalStars,420);
     }
 
-    public boolean checkEligible(){
-        return false;
+    public void gameContinue() throws Exception {
+        MainMenu.getInstance().setTotalStars(MainMenu.getInstance().getTotalStars()-100);
+        prevGame.resumeGame(stage);
     }
 
-    public void restartGame(){//basically start new game
+    public void checkEligible(){
+        if(totalStars>=100){
+            System.out.println("Kyu darta hai tu yaar daaw laga");
+        }
+        else{
+            GameEndMenuController.playAgainButton.setVisible(false);
+        }
+    }
 
+    public void restartGame() throws Exception {//basically start new game
+        Game game = new Game();
+        game.start(stage);
     }
 
     public void exitGame(){
@@ -39,11 +60,12 @@ public class GameEndMenu extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        stage = primaryStage;
         primaryStage.getIcons().add(new Image("file:./assets/logo.png"));
-
-        Parent root = FXMLLoader.load(getClass().getResource("GameEndMenu.fxml"));
-        primaryStage.setTitle("Color Switch");
-        primaryStage.setScene(new Scene(root, 500, 650));
+        GridPane gridPaneMenu = FXMLLoader.load(getClass().getResource("GameEndMenu.fxml"));
+        primaryStage.setScene(new Scene(gridPaneMenu, 500, 650));
+        displayGameStats();
+        checkEligible();
         primaryStage.show();
     }
 

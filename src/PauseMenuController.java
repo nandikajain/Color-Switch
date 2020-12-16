@@ -3,6 +3,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,23 +27,25 @@ public class PauseMenuController implements Initializable {
 
 
     @FXML
-    void onMenuClicked(MouseEvent event) {
-
+    void onMenuClicked(MouseEvent event) throws Exception {
+        Stage stage = (Stage) menuButton.getScene().getWindow();
+        MainMenu mainMenu = new MainMenu();
+        mainMenu.start(stage);
     }
 
     @FXML
-    void onRestartClicked(MouseEvent event) {
-
+    void onRestartClicked(MouseEvent event) throws Exception {
+        PauseMenu.getInstance().restartGame();
     }
 
     @FXML
-    void onResumeClicked(MouseEvent event) {
-
+    void onResumeClicked(MouseEvent event) throws Exception {
+        PauseMenu.getInstance().resumeGame();
     }
 
     @FXML
-    void onSaveGameClicked(MouseEvent event) {
-
+    void onSaveGameClicked(MouseEvent event) throws Exception{
+        PauseMenu.getInstance().saveGame();
     }
 
     @Override
