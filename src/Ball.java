@@ -60,7 +60,7 @@ public class Ball implements Serializable {
     }
 
     public void checkBottom(){
-        if (positionY >= layer.getHeight() - radius ) {
+        if (positionY > layer.getHeight() - radius ) {
             velocity *= 0;
             positionY = layer.getHeight() - radius;
         }
