@@ -68,11 +68,13 @@ public class Game extends Application implements Screen, Serializable {
         mouseClick = false;
         clickedOnce = false;
         gamePause = false;
-        startGame();
+        gameLoop.start();
+        //startGame();
     }
 
     private void pauseGame() throws Exception {
         gamePause = true;
+        gameLoop.stop();
         //pausedBall = ball;
         //System.out.println("Ball at"+ball.getPositionY());
         //ball = null;
@@ -185,7 +187,7 @@ public class Game extends Application implements Screen, Serializable {
             long time = System.currentTimeMillis();
             @Override
             public void handle(long l) {
-                if(!gamePause) {
+                //if(!gamePause) {
                     /*playfield.setOnMouseClicked(e -> mouseClick = true);
                     scene.setOnKeyPressed(e->{
                         if(e.getCode() == KeyCode.P){
@@ -269,7 +271,7 @@ public class Game extends Application implements Screen, Serializable {
                         mouseClick = false;
                         clickedOnce = false;
                     }
-                }
+                //}
             }
         };
         gameLoop.start();
