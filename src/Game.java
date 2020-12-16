@@ -94,46 +94,9 @@ public class Game extends Application implements Screen{
 
         for(int i=0; i<obstacles.size(); i++)
         {
-//            if(i<9) {
-                Group g = obstacles.get(i).generateObstacle();
-                gamePane.getChildren().add(g);
-//            }
-//            else{
-//                Obstacle obs;
-//                double newCenter= obstacles.get(obstacles.size()-1).getCenterY();
-//                //OFFSETS
-//                //CIRCLE -> Y last obstacle -=300, radius 60,
-//                //TWO ADJACENT STAR-> Y last obstacle -=250, len-> 75, x cord-> 175
-//                //SQUARE OBSTACLE-> Y last obstacle -=325,len ->120
-//                //TWO EQUAL CIRCLE -> Y last obstacle-=310, r1->70, r2->82
-//                //LINE OBSTACLE -> Y last obstacle-=225
-//                //THREE EQUAL CIRCLES -> Y last obstacle -=280, r1-> 70, r2-> 82, r3-> 94
-//                //RHOMBUS OBSTACLE -> Y last obstacle-=350, len ->120
-//                //TWO ADJACENT CIRCLES -> Y last obstacle -=300, r1->75, r2-> 80, x cord-> 175
-//                //STAR OBSTACLE -> Y last obstacle -=250, x cord-> 330, len->90
-//                if(i%9 ==0)
-//                    obs = new CircleObstacle(250, newCenter-300, 60, false);
-//                else if (i%9==1)
-//                    obs= new TwoAdjacentStars(175, newCenter-250, 75);
-//                else if (i%9 ==2)
-//                    obs= new SquareObstacle(250,newCenter -325,120, false);
-//                else if (i%9 ==3)
-//                    obs= new TwoEqualCircles(250, newCenter-310, 70, 82);
-//                else if (i%9==4)
-//                    obs= new LineObstacle(newCenter-225);
-//                else if (i%9 ==5)
-//                    obs= new ThreeEqualCircles(250, newCenter-280,70, 82, 94);
-//                else if (i%9 ==6)
-//                    obs= new RhombusObstacle(250, newCenter-350, 120, false);
-//                else if (i%9 ==7)
-//                    obs= new TwoAdjacentCircles(175,newCenter-300, 75,80);
-//                else
-//                    obs= new StarObstacle(330, newCenter-250, 90, false);
-//                obstacles.add(obs);
-//                Group g2 = obstacles.get(i).generateObstacle();
-//                gamePane.getChildren().add(g2);
-//
-//            }
+            Group g = obstacles.get(i).generateObstacle();
+            gamePane.getChildren().add(g);
+
             Image image = new Image("file:./assets/game-star.jpg");
             ImageView imageView = new ImageView(image);
             imageView.setX(240);
@@ -245,6 +208,11 @@ public class Game extends Application implements Screen{
                 int score= valueOf(gameScore.getText());
                 score++;
                 gameScore.setText(""+score);
+                if(DynamicGeneration==3)
+                {
+                    DynamicAddObstacles();
+                    DynamicGeneration--;
+                }
             }
         }
     }
@@ -293,92 +261,120 @@ public class Game extends Application implements Screen{
         return false;
     }
 
+    private void HandleDynamicObstacle(Obstacle obs)
+    {
+        Group dynamicGroup = obs.generateObstacle();
+        gamePane.getChildren().add(dynamicGroup);
+        Image imageDyn = new Image("file:./assets/game-star.jpg");
+        ImageView imageViewDyn = new ImageView(imageDyn);
+        imageViewDyn.setX(240);
+        imageViewDyn.setY(obs.getStarPositionY() -10);
+        imageViewDyn.setFitHeight(20);
+        imageViewDyn.setFitWidth(18);
+        imageViewDyn.setPreserveRatio(true);
 
-//    private void DynamicAddObstacles()
-//    {
-//        if(obstacles.get(0) instanceof CircleObstacle)
-//        {
-//            double newCenter= obstacles.get(obstacles.size()-1).getCenterY();
-//            Obstacle obs= new CircleObstacle(250, newCenter-250,60, false );
-//            System.out.println("new center"+ (newCenter-250)+ "star position"+ obs.getStarPositionY());
-//
-//            Group dynamicGroup = new Group();
-//            dynamicGroup = obs.generateObstacle();
-//            gamePane.getChildren().add(dynamicGroup);
-//            Image imageDyn = new Image("file:./assets/game-star.jpg");
-//            ImageView imageViewDyn = new ImageView(imageDyn);
-//            imageViewDyn.setX(240);
-//            imageViewDyn.setY(obs.getStarPositionY() -10);
-//            imageViewDyn.setFitHeight(20);
-//            imageViewDyn.setFitWidth(18);
-//            imageViewDyn.setPreserveRatio(true);
-//
-//            Star sDyn= new Star(obs.getStarPositionY(), imageViewDyn);
-//            starList.remove(0);
-//            starList.add(sDyn);
-//            Group imgDyn = new Group(imageViewDyn);
-//            gamePane.getChildren().add(imgDyn);
-//
-//            Image image2Dyn= new Image("file:./assets/game-color-switcher.jpg");
-//            ImageView imageView1Dyn = new ImageView(image2Dyn);
-//            imageView1Dyn.setX(240);
-//            imageView1Dyn.setY(obs.getColorSwitcherPositionY() -10);
-//            imageView1Dyn.setFitHeight(20);
-//            imageView1Dyn.setFitWidth(18);
-//            imageView1Dyn.setPreserveRatio(true);
-//
-//            ColorSwitcher csDyn= new ColorSwitcher(obs.getColorSwitcherPositionY(), imageView1Dyn);
-//            colorSwitchers.remove(0);
-//            colorSwitchers.add(csDyn);
-//            Group img2Dyn= new Group(imageView1Dyn);
-//            gamePane.getChildren().add(img2Dyn);
-//            obstacles.add(obs);
-//            obstacles.remove(0);
-//
-//        }
-//        else if(obstacles.get(0) instanceof TwoAdjacentStars)
-//        {
-//            double newCenter= obstacles.get(obstacles.size()-1).getCenterY();
-//            Obstacle obs= new TwoAdjacentStars(175, newCenter- 250,75);
-//            System.out.println("new center"+ (newCenter-250)+ "star position"+ obs.getStarPositionY());
-//
-//            Group dynamicGroup = new Group();
-//            dynamicGroup = obs.generateObstacle();
-//            gamePane.getChildren().add(dynamicGroup);
-//            Image imageDyn = new Image("file:./assets/game-star.jpg");
-//            ImageView imageViewDyn = new ImageView(imageDyn);
-//            imageViewDyn.setX(240);
-//            imageViewDyn.setY(obs.getStarPositionY() -10);
-//            imageViewDyn.setFitHeight(20);
-//            imageViewDyn.setFitWidth(18);
-//            imageViewDyn.setPreserveRatio(true);
-//
-//            Star sDyn= new Star(obs.getStarPositionY(), imageViewDyn);
-//            starList.remove(0);
-//            starList.add(sDyn);
-//            Group imgDyn = new Group(imageViewDyn);
-//            gamePane.getChildren().add(imgDyn);
-//
-//            Image image2Dyn= new Image("file:./assets/game-color-switcher.jpg");
-//            ImageView imageView1Dyn = new ImageView(image2Dyn);
-//            imageView1Dyn.setX(240);
-//            imageView1Dyn.setY(obs.getColorSwitcherPositionY() -10);
-//            imageView1Dyn.setFitHeight(20);
-//            imageView1Dyn.setFitWidth(18);
-//            imageView1Dyn.setPreserveRatio(true);
-//
-//            ColorSwitcher csDyn= new ColorSwitcher(obs.getColorSwitcherPositionY(), imageView1Dyn);
-//            colorSwitchers.remove(0);
-//            colorSwitchers.add(csDyn);
-//            Group img2Dyn= new Group(imageView1Dyn);
-//            gamePane.getChildren().add(img2Dyn);
-//            obstacles.add(obs);
-//            obstacles.remove(0);
-//
-//        }
-//
-//
-//    }
+        Star sDyn= new Star(obs.getStarPositionY(), imageViewDyn);
+        starList.remove(0);
+        starList.add(sDyn);
+        Group imgDyn = new Group(imageViewDyn);
+        gamePane.getChildren().add(imgDyn);
+
+        Image image2Dyn= new Image("file:./assets/game-color-switcher.jpg");
+        ImageView imageView1Dyn = new ImageView(image2Dyn);
+        imageView1Dyn.setX(240);
+        imageView1Dyn.setY(obs.getColorSwitcherPositionY() -10);
+        imageView1Dyn.setFitHeight(20);
+        imageView1Dyn.setFitWidth(18);
+        imageView1Dyn.setPreserveRatio(true);
+
+        ColorSwitcher csDyn= new ColorSwitcher(obs.getColorSwitcherPositionY(), imageView1Dyn);
+        colorSwitchers.remove(0);
+        colorSwitchers.add(csDyn);
+        Group img2Dyn= new Group(imageView1Dyn);
+        gamePane.getChildren().add(img2Dyn);
+
+    }
 
 
+    private void DynamicAddObstacles()
+    {
+        double newCenter= obstacles.get(obstacles.size()-1).getCenterY();
+        Obstacle obs;
+
+        if(obstacles.get(0) instanceof CircleObstacle)
+        {
+            //CIRCLE -> Y last obstacle -=300, radius 60,
+            obs= new CircleObstacle(250, newCenter-300,60, false );
+            obstacles.add(obs);
+            obstacles.remove(0);
+            HandleDynamicObstacle(obs);
+
+        }
+        else if(obstacles.get(0) instanceof TwoAdjacentStars)
+        {
+            //TWO ADJACENT STAR-> Y last obstacle -=250, len-> 75, x cord-> 175
+            obs= new TwoAdjacentStars(175, newCenter-250,75);
+            obstacles.add(obs);
+            obstacles.remove(0);
+            HandleDynamicObstacle(obs);
+        }
+        else if(obstacles.get(0) instanceof SquareObstacle)
+        {
+            //SQUARE OBSTACLE-> Y last obstacle -=325,len ->120
+            obs= new SquareObstacle(250, newCenter- 325, 120, false);
+            obstacles.add(obs);
+            obstacles.remove(0);
+            HandleDynamicObstacle(obs);
+
+        }
+        else if(obstacles.get(0) instanceof TwoEqualCircles)
+        {
+            //TWO EQUAL CIRCLE -> Y last obstacle-=310, r1->70, r2->82
+            obs= new TwoEqualCircles(250, newCenter- 310, 70, 82);
+            obstacles.add(obs);
+            obstacles.remove(0);
+            HandleDynamicObstacle(obs);
+
+        }
+        else if(obstacles.get(0) instanceof LineObstacle)
+        {
+            //LINE OBSTACLE -> Y last obstacle-=225
+            obs= new LineObstacle(newCenter);
+            obstacles.add(obs);
+            obstacles.remove(0);
+            HandleDynamicObstacle(obs);
+        }
+        else  if(obstacles.get(0) instanceof  TwoEqualCircles)
+        {
+            //THREE EQUAL CIRCLES -> Y last obstacle -=280, r1-> 70, r2-> 82, r3-> 94
+            obs = new ThreeEqualCircles(250, newCenter- 280, 70, 82, 94);
+            obstacles.add(obs);
+            obstacles.remove(0);
+            HandleDynamicObstacle(obs);
+        }
+        else if(obstacles.get(0) instanceof  RhombusObstacle)
+        {
+            //RHOMBUS OBSTACLE -> Y last obstacle-=350, len ->120
+            obs= new RhombusObstacle(250, newCenter-350, 120, false);
+            obstacles.add(obs);
+            obstacles.remove(0);
+            HandleDynamicObstacle(obs);
+        }
+        else if (obstacles.get(0) instanceof  TwoAdjacentCircles)
+        {
+            //TWO ADJACENT CIRCLES -> Y last obstacle -=300, r1->75, r2-> 80, x cord-> 175
+            obs= new TwoAdjacentCircles(175, newCenter-300,75, 80);
+            obstacles.add(obs);
+            obstacles.remove(0);
+            HandleDynamicObstacle(obs);
+        }
+        else{
+            //STAR OBSTACLE -> Y last obstacle -=250, x cord-> 330, len->90
+            obs= new StarObstacle(330, newCenter-250, 90, false);
+            obstacles.add(obs);
+            obstacles.remove(0);
+            HandleDynamicObstacle(obs);
+        }
+
+    }
 }
