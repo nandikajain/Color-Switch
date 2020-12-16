@@ -1,12 +1,8 @@
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class GameEndMenu extends Application {
@@ -63,7 +59,7 @@ public class GameEndMenu extends Application {
     public void start(Stage primaryStage) throws Exception{
         stage = primaryStage;
         primaryStage.getIcons().add(new Image("file:./assets/logo.png"));
-        AnchorPane anchorPaneMenu = FXMLLoader.load(getClass().getResource("GameEndMenu2.fxml"));
+        AnchorPane anchorPaneMenu = FXMLLoader.load(getClass().getResource("GameEndMenu.fxml"));
         primaryStage.setScene(new Scene(anchorPaneMenu, 500, 650));
         displayGameStats();
         checkEligible();

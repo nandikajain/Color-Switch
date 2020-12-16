@@ -25,7 +25,6 @@ public class Game extends Application implements Screen, Serializable {
     private final static long serialVersionUID = 650054;
     transient AnchorPane gamePane;
     transient Pane playfield;
-    int temp;
     transient AnimationTimer gameLoop;
     int DynamicGeneration;
     boolean gameMoving;
@@ -58,7 +57,6 @@ public class Game extends Application implements Screen, Serializable {
         colorSwitchers = new ArrayList<ColorSwitcher>();
         noOfStars = 0;
         gameMoving = false;
-        temp= 8;
         gamePause = false;
     }
 
@@ -227,11 +225,11 @@ public class Game extends Application implements Screen, Serializable {
                         boolean status = checkCollision();
                         if (status) {
                             try {
-                                //endGame();
+                                endGame();
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
-                            System.out.println("Collided");
+                            //System.out.println("Collided");
                         }
                         collectStars();
                         switchColor();
@@ -247,22 +245,22 @@ public class Game extends Application implements Screen, Serializable {
                         boolean status1 = checkCollision();
                         if (status1) {
                             try {
-                                //endGame();
+                                endGame();
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
-                            System.out.println("Collided");
+                           // System.out.println("Collided");
                         }
                         ball.checkBottom();
                         if (gameMoving) {
                             boolean status2 = ball.isBottom();
                             if (status2) {
                                 try {
-                                  //  endGame();
+                                    endGame();
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
-                                System.out.println("Collided");
+                             //   System.out.println("Collided");
                             }
                         }
 
@@ -289,7 +287,6 @@ public class Game extends Application implements Screen, Serializable {
                 DynamicGeneration++;
                 int score= valueOf(gameScore.getText());
                 score++;
-                temp++;
                 gameScore.setText(""+score);
             }
 
