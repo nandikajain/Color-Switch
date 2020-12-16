@@ -46,7 +46,16 @@ public class PauseMenu extends Application {
     }
 
     public void saveGame(){
-        MainMenu.getInstance().savedGames.add(curPausedGame);
+        int gameListSize = MainMenu.getInstance().savedGames.size();
+        if(gameListSize<4) {
+            MainMenu.getInstance().savedGames.add(curPausedGame);
+        }
+        else{
+            for(int i=1;i<=3;i++){
+                MainMenu.getInstance().savedGames.set(i-1,MainMenu.getInstance().savedGames.get(i));
+            }
+            MainMenu.getInstance().savedGames.set(3,curPausedGame);
+        }
         MainMenu.getInstance().saveState();
         System.out.println(MainMenu.getInstance().savedGames.size());
     }

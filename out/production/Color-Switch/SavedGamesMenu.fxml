@@ -28,19 +28,23 @@
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d508f00" height="81.0" layoutX="42.0" layoutY="236.0" stroke="#ffe521" strokeType="INSIDE" strokeWidth="5.0" width="418.0" />
+      <!--
       <Text fill="WHITE" layoutX="390.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="68" textAlignment="CENTER" wrappingWidth="40.80340576171875">
          <font>
             <Font name="Blissful Thinking" size="24.0" />
          </font>
       </Text>
+
       <Text fill="WHITE" layoutX="73.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GAME 0">
          <font>
             <Font name="Blissful Thinking" size="30.0" />
          </font>
       </Text>
+      -->
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d508f00" height="81.0" layoutX="43.0" layoutY="335.0" stroke="#ffe521" strokeType="INSIDE" strokeWidth="5.0" width="418.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d508f00" height="81.0" layoutX="43.0" layoutY="437.0" stroke="#ffe521" strokeType="INSIDE" strokeWidth="5.0" width="418.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d508f00" height="81.0" layoutX="41.0" layoutY="536.0" stroke="#ffe521" strokeType="INSIDE" strokeWidth="5.0" width="418.0" />
+      <!--
       <Text fill="WHITE" layoutX="73.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GAME 1">
          <font>
             <Font name="Blissful Thinking" size="30.0" />
@@ -61,6 +65,7 @@
             <Font name="Blissful Thinking" size="24.0" />
          </font>
       </Text>
+      -->
       <ImageView fitHeight="35.0" fitWidth="74.0" layoutX="373.0" layoutY="344.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="file:./assets/3stars.jpg" />
@@ -76,6 +81,7 @@
             <Image url="file:./assets/3stars.jpg" />
          </image>
       </ImageView>
+      <!--
       <Text fill="WHITE" layoutX="390.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0" text="7" textAlignment="CENTER" wrappingWidth="40.80340576171875">
          <font>
             <Font name="Blissful Thinking" size="24.0" />
@@ -86,6 +92,7 @@
             <Font name="Blissful Thinking" size="24.0" />
          </font>
       </Text>
+      -->
       <Circle fx:id="MenuButton" fill="#999999" layoutX="65.0" layoutY="100.0" onMouseClicked="#onMenuButtonClick" radius="38.0" stroke="TRANSPARENT" strokeType="INSIDE">
          <cursor>
             <Cursor fx:constant="HAND" />
