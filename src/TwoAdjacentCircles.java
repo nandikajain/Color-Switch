@@ -18,8 +18,8 @@ public class TwoAdjacentCircles extends Obstacle implements Serializable {
     double centerY;
     double radiusA;
     double radiusB;
-    ArrayList<Shape> shapes;
-    Arc arc1b, arc2b, arc3b, arc4b, arc1,arc2, arc3, arc4;
+    transient ArrayList<Shape> shapes;
+    transient Arc arc1b, arc2b, arc3b, arc4b, arc1,arc2, arc3, arc4;
     public TwoAdjacentCircles(double centerXa, double centerYa, double rA, double rB)
     {
         shapes = new ArrayList<Shape>();

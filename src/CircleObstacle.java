@@ -18,7 +18,7 @@ public class CircleObstacle extends Obstacle implements Serializable {
     double radius;
     boolean isRotate;
     ArrayList<Shape> shapes;
-    Arc arc1,arc2,arc3,arc4;
+    transient Arc arc1,arc2,arc3,arc4;
 
     //Change values here in order to get circle obstacles with different parameters
     public CircleObstacle(double X, double Y, double r, boolean rot )

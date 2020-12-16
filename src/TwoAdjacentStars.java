@@ -15,8 +15,8 @@ public class TwoAdjacentStars extends Obstacle implements Serializable {
     double centerY;
     double length;
     double centerXb;
-    ArrayList<Shape> shapes;
-    Line line1, line2, line3, line4, line1a, line1b, line1c, line1d;
+    transient ArrayList<Shape> shapes;
+    transient Line line1, line2, line3, line4, line1a, line1b, line1c, line1d;
     public TwoAdjacentStars(double Xa, double cY,  double len)
     {
         shapes= new ArrayList<Shape>();

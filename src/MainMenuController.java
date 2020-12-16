@@ -33,6 +33,7 @@ public class MainMenuController implements Initializable {
 
     @FXML
     public void onPlayButtonClicked(MouseEvent mouseEvent) throws Exception {
+        MainMenu.getInstance().backgroundSoundPause();
         Stage stage = (Stage) playButton.getScene().getWindow();
         Game game = new Game();
         game.start(stage);

@@ -20,7 +20,7 @@ public class MainMenu extends Application implements Serializable {
     private final static long serialVersionUID = 65621354;
 
     int totalStars = 5;
-    transient ArrayList<Game> savedGames;
+    ArrayList<Game> savedGames;
 
     transient private static MainMenu mainMenu;
 
@@ -32,8 +32,8 @@ public class MainMenu extends Application implements Serializable {
 
     MainMenu(){
         mainMenu = this;
+        savedGames = new ArrayList<>();
     }
-
 
     private void startNewGame(){
 
@@ -43,8 +43,8 @@ public class MainMenu extends Application implements Serializable {
 
     }
 
-    private void viewSavedGames(){
-
+    public ArrayList<Game> viewSavedGames(){
+        return savedGames;
     }
 
     public int getTotalStars() {
@@ -75,6 +75,7 @@ public class MainMenu extends Application implements Serializable {
         backgroundSoundPlayer.play();
         backgroundSoundPause = false;
         primaryStage.show();
+        loadState();
         /* This serialization is working fine
         loadState();
         System.out.println(getTotalStars());

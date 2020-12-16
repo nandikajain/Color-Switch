@@ -15,8 +15,8 @@ public class RhombusObstacle extends Obstacle implements Serializable {
         double centerY;
         double length;
         boolean isRotate;
-        ArrayList<Shape> shapes;
-        Line line1, line2, line3, line4;
+        transient ArrayList<Shape> shapes;
+        transient Line line1, line2, line3, line4;
         public RhombusObstacle(double cX, double cY, double l, boolean rot) {
                 shapes= new ArrayList<Shape>();
                 centerX = cX;

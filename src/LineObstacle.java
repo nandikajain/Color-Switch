@@ -10,8 +10,8 @@ import java.util.TimerTask;
 
 public class LineObstacle extends Obstacle implements Serializable {
     double centerY;
-    ArrayList<Shape> shapes;
-    Line line1, line2, line3, line4, line5;
+    transient ArrayList<Shape> shapes;
+    transient Line line1, line2, line3, line4, line5;
 
     //Change values here in order to get line obstacles with different parameters
     public LineObstacle(double cY)

@@ -1,9 +1,10 @@
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class ColorSwitcher {
+public class ColorSwitcher implements Serializable {
     double positionY;
     double velocity;
     double userVelocity;
@@ -15,8 +16,8 @@ public class ColorSwitcher {
     double radius = width / 2.0;
     double maxSpeed = 100;
     boolean hasCollected;
-    ImageView starImg;
-    Random random;
+    transient ImageView starImg;
+    transient Random random;
 
     public ColorSwitcher(double initPosition, ImageView img){
         userVelocity= 5;

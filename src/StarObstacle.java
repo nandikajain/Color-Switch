@@ -15,8 +15,8 @@ public class StarObstacle extends Obstacle implements Serializable {
     double centerY;
     double length;
     boolean isRotate;
-    ArrayList<Shape> shapes;
-    Line line1,line2,line3, line4;
+    transient ArrayList<Shape> shapes;
+    transient Line line1,line2,line3, line4;
 
     //Change values here in order to get star obstacles with different parameters
     public StarObstacle(double cX, double cY, double l, boolean isR)

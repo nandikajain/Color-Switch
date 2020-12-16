@@ -16,9 +16,9 @@ public class ThreeEqualCircles extends Obstacle implements Serializable {
     double r1;
     double r2;
     double r3;
-    ArrayList<Shape> shapes;
+    transient ArrayList<Shape> shapes;
 
-    Arc arc1, arc2, arc3, arc4, arc1b, arc2b,arc3b, arc4b, arc1q, arc2q, arc3q, arc4q;
+    transient Arc arc1, arc2, arc3, arc4, arc1b, arc2b,arc3b, arc4b, arc1q, arc2q, arc3q, arc4q;
 
     public ThreeEqualCircles(double cX, double cY, double radius1, double radius2, double radius3)
     {

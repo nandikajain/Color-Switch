@@ -46,7 +46,8 @@ public class PauseMenu extends Application {
     }
 
     public void saveGame(){
-
+        MainMenu.getInstance().viewSavedGames().add(curPausedGame);
+        MainMenu.getInstance().saveState();
     }
 
     public static PauseMenu getInstance(){
