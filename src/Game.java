@@ -115,13 +115,13 @@ public class Game extends Application implements Screen, Serializable {
         gameScore.setFont((new Font(50)));
         gamePane.getChildren().add(gameScore);
 
-        obstacles.add(new CircleObstacle(250, 340, 60, false));
+        obstacles.add(new CircleObstacle(250, 340, 70, false));
         obstacles.add(new TwoAdjacentStars(175, 90, 75));
         obstacles.add(new SquareObstacle(250,-235,120, false));
         obstacles.add(new TwoEqualCircles(250,-545,70,82));
         obstacles.add(new LineObstacle(-770));
         obstacles.add(new ThreeEqualCircles(250,-1050,70,82, 94 ));
-        obstacles.add(new RhombusObstacle(250,-1400,120, false));
+        obstacles.add(new RhombusObstacle(250,-1400,140, false));
         obstacles.add(new TwoAdjacentCircles(175, -1700, 75,80));
         obstacles.add(new StarObstacle(330, -1950, 90, false));
 
@@ -225,7 +225,7 @@ public class Game extends Application implements Screen, Serializable {
                         boolean status = checkCollision();
                         if (status) {
                             try {
-                                endGame();
+                                //endGame();
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -245,7 +245,7 @@ public class Game extends Application implements Screen, Serializable {
                         boolean status1 = checkCollision();
                         if (status1) {
                             try {
-                                endGame();
+                               // endGame();
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -256,7 +256,7 @@ public class Game extends Application implements Screen, Serializable {
                             boolean status2 = ball.isBottom();
                             if (status2) {
                                 try {
-                                    endGame();
+                             //       endGame();
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
@@ -385,7 +385,7 @@ public class Game extends Application implements Screen, Serializable {
         if(obstacles.get(0) instanceof CircleObstacle)
         {
             //CIRCLE -> Y last obstacle -=300, radius 60,
-            obs= new CircleObstacle(250, newCenter-300,60, false );
+            obs= new CircleObstacle(250, newCenter-300,70, false );
             obstacles.add(obs);
             obstacles.remove(0);
             HandleDynamicObstacle(obs);
@@ -436,7 +436,7 @@ public class Game extends Application implements Screen, Serializable {
         else if(obstacles.get(0) instanceof  RhombusObstacle)
         {
             //RHOMBUS OBSTACLE -> Y last obstacle-=350, len ->120
-            obs= new RhombusObstacle(250, newCenter-350, 120, false);
+            obs= new RhombusObstacle(250, newCenter-350, 140, false);
             obstacles.add(obs);
             obstacles.remove(0);
             HandleDynamicObstacle(obs);

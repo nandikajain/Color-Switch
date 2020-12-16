@@ -55,7 +55,7 @@ public class TwoAdjacentStars extends Obstacle implements Serializable {
         rot.setAxis(Rotate.Z_AXIS);
         rot.setByAngle(360);
         rot.setCycleCount(10000);
-        rot.setDuration(Duration.millis(3000));
+        rot.setDuration(Duration.millis(4000));
         rot.setInterpolator(Interpolator.LINEAR);
         rot.setNode(g1);
         rot.setAutoReverse(false);
@@ -84,7 +84,7 @@ public class TwoAdjacentStars extends Obstacle implements Serializable {
         rotate.setAxis(Rotate.Z_AXIS);
         rotate.setByAngle(360);
         rotate.setCycleCount(10000);
-        rotate.setDuration(Duration.millis(3000));
+        rotate.setDuration(Duration.millis(4000));
         rotate.setInterpolator(Interpolator.LINEAR);
         rotate.setNode(g2);
         rotate.setAutoReverse(false);

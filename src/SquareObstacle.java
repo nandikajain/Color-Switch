@@ -53,7 +53,7 @@ public class SquareObstacle extends Obstacle implements Serializable {
         rotate.setAxis(Rotate.Z_AXIS);
         rotate.setByAngle(360);
         rotate.setCycleCount(50000);
-        rotate.setDuration(Duration.millis(3000));
+        rotate.setDuration(Duration.millis(4000));
         rotate.setInterpolator(Interpolator.LINEAR);
         rotate.setNode(group);
         rotate.setAutoReverse(isRotate);
