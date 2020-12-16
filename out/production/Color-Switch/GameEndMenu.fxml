@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="500.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameEndMenu">
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="500.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameEndMenuController">
   <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="162.0" minWidth="10.0" prefWidth="30.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="162.0" minWidth="10.0" prefWidth="90.0" />
@@ -50,7 +50,7 @@
             <Font name="Blissful Thinking" size="43.0" />
          </font>
       </Text>
-      <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="84.0" prefWidth="85.0" style="-fx-background-radius: 100; -fx-background-color: #fff;" text="MENU" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <Button fx:id="menuButton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#menuButtonClicked" prefHeight="84.0" prefWidth="85.0" style="-fx-background-radius: 100; -fx-background-color: #fff;" text="MENU" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <font>
             <Font name="Blissful Thinking" size="17.0" />
          </font>
@@ -63,7 +63,7 @@
             <Image url="file:./assets/3stars.jpg" />
          </image>
       </ImageView>
-      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#playAgainClicked" prefHeight="79.0" prefWidth="280.0" style="-fx-background-color: #272727; -fx-border-color: #32dbf0; -fx-border-width: 4;" text="PLAY AGAIN" textAlignment="CENTER" textFill="#ff0181" GridPane.columnIndex="2" GridPane.rowIndex="9">
+      <Button fx:id="playAgainButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#playAgainClicked" onMouseClicked="#playAgainClicked" prefHeight="79.0" prefWidth="280.0" style="-fx-background-color: #272727; -fx-border-color: #32dbf0; -fx-border-width: 4;" text="PLAY AGAIN" textAlignment="CENTER" textFill="#ff0181" GridPane.columnIndex="2" GridPane.rowIndex="9">
          <font>
             <Font name="Blissful Thinking" size="40.0" />
          </font>
@@ -71,7 +71,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="27.0" prefWidth="288.0" style="-fx-background-color: #fae100;" text="PLAY THE COINS!" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="8">
+      <Button fx:id="playCoinsButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#playCoinsClicked" prefHeight="27.0" prefWidth="288.0" style="-fx-background-color: #fae100;" text="PLAY THE COINS!" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="8">
          <font>
             <Font name="Blissful Thinking" size="34.0" />
          </font>

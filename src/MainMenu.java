@@ -10,31 +10,30 @@ import javafx.scene.Scene;
 
 //import obstacles.ThreeEqualCircles;
 
-import java.io.File;
+import java.io.*;
 import java.util.ArrayList;
 
 //Will have to make 1) Main Java file 2) fxml file linked to scene builder 3) Controller file for event listeners for each page
 
-public class MainMenu extends Application {
+public class MainMenu extends Application implements Serializable {
 
-    static int totalStars;
-    ArrayList<Game> savedGames;
+    private final static long serialVersionUID = 65621354;
 
-    private static MainMenu mainMenu;
+    int totalStars;
+    transient ArrayList<Game> savedGames;
 
-    String backgroundSoundFile = "sounds/letithappen.wav";
-    Media backgroundSound;
-    MediaPlayer backgroundSoundPlayer;
+    transient private static MainMenu mainMenu;
 
-    boolean backgroundSoundPause;
+    transient String backgroundSoundFile = "sounds/letithappen.wav";
+    transient Media backgroundSound;
+    transient MediaPlayer backgroundSoundPlayer;
+
+    transient boolean backgroundSoundPause;
 
     MainMenu(){
         mainMenu = this;
     }
 
-    /*public static MainMenu getMenuInstance(){
-        return this;
-    }*/
 
     private void startNewGame(){
 
@@ -52,8 +51,8 @@ public class MainMenu extends Application {
         return totalStars;
     }
 
-    public void setTotalStars(int totalStars) {
-        this.totalStars = totalStars;
+    public void setTotalStars(int _totalStars) {
+        totalStars = _totalStars;
     }
 
     /*public static void main(String[] args) {
@@ -75,6 +74,12 @@ public class MainMenu extends Application {
         backgroundSoundPlayer.play();
         backgroundSoundPause = false;
         primaryStage.show();
+        /* This serialization is working fine
+        loadState();
+        System.out.println(getTotalStars());
+        setTotalStars(getTotalStars()+1);
+        saveState();
+         */
     }
 
     public boolean backgroundSoundPause(){
@@ -92,5 +97,36 @@ public class MainMenu extends Application {
 
     public static MainMenu getInstance(){
         return mainMenu;
+    }
+
+    public void saveState(){
+        //System.out.println(getTotalStars());
+        try{
+            FileOutputStream fileOutputStream = new FileOutputStream("main.txt");
+            ObjectOutputStream out = new ObjectOutputStream(fileOutputStream);
+            out.writeObject(this);
+            out.close();
+            fileOutputStream.close();
+            System.out.println("Serialized data is saved in main.txt");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadState(){
+        try{
+            FileInputStream fileInputStream = new FileInputStream("main.txt");
+            ObjectInputStream in = new ObjectInputStream(fileInputStream);
+            MainMenu x = (MainMenu) in.readObject();
+            in.close();
+            fileInputStream.close();
+            this.setTotalStars(x.getTotalStars());
+            //System.out.println(x.getTotalStars());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            System.out.println("Class not found F");
+            e.printStackTrace();
+        }
     }
 }
