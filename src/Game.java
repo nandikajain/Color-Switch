@@ -63,18 +63,18 @@ public class Game extends Application implements Screen{
     public void resumeGame(Stage stage) throws Exception {
         stage.setScene(pausedScene);
         stage.show();
-        addBall(true);
-        startGame();
+        //addBall(true);
         mouseClick = false;
         clickedOnce = false;
         gamePause = false;
+        startGame();
     }
 
     private void pauseGame() throws Exception {
         gamePause = true;
-        pausedBall = ball;
+        //pausedBall = ball;
         //System.out.println("Ball at"+ball.getPositionY());
-        ball = null;
+        //ball = null;
         pausedScene = scene;
         PauseMenu pm = new PauseMenu(this);
         pm.start(stage);
@@ -188,7 +188,7 @@ public class Game extends Application implements Screen{
                 if(!gamePause) {
                     playfield.setOnMouseClicked(e -> mouseClick = true);
                     scene.setOnKeyPressed(e->{
-                        if(e.getCode()== KeyCode.P){
+                        if(e.getCode() == KeyCode.P){
                             try {
                                 pauseGame();
                             } catch (Exception exception) {

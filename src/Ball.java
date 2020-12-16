@@ -6,7 +6,7 @@ import javafx.scene.shape.Circle;
 
 import java.io.Serializable;
 
-public class Ball extends Region implements Serializable {
+public class Ball implements Serializable {
 
     transient Circle circle;
     double positionY;
@@ -36,10 +36,9 @@ public class Ball extends Region implements Serializable {
         circle.setCenterX(centerX);
         circle.setCenterY(centerY);
         circle.setFill(ballColor);
+        circle.setLayoutX(240);
         this.view = circle;
-        getChildren().add(view);
-        layer.getChildren().add(this);
-
+        layer.getChildren().add(view);
     }
 
     public void applyForce() {
@@ -75,7 +74,7 @@ public class Ball extends Region implements Serializable {
     }
 
     public void display(){
-        relocate(240, positionY - centerY);
+        circle.setLayoutY(positionY);
     }
     public double getLocation(){
         return positionY-centerY;
@@ -87,9 +86,11 @@ public class Ball extends Region implements Serializable {
     public Color getBallColor() {
         return (Color) circle.getFill();
     }
+
     public void setBallColor(Color ballColor) {
         circle.setFill(ballColor);
     }
+
     public void setup(){
         circle.setCenterX(centerX);
         circle.setCenterY(centerY);
@@ -97,6 +98,10 @@ public class Ball extends Region implements Serializable {
 
     public double getPositionY() {
         return positionY;
+    }
+
+    public void makeInvisible() {
+        circle.setVisible(false);
     }
 
 }
