@@ -8,10 +8,11 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.awt.*;
 
 public class GameEndMenu extends Application {
     Text curScore;
+    Text highScoreText;
+    Text totalStarsText;
     private static GameEndMenu gameEndMenu = null;
     Game prevGame;
     int finalStars;
@@ -21,6 +22,7 @@ public class GameEndMenu extends Application {
     GameEndMenu(int noOfStars, Game curGame){
         prevGame = curGame;
         finalStars = noOfStars;
+        MainMenu.getInstance().setTotalStars(finalStars+ MainMenu.getInstance().getTotalStars());
         totalStars = MainMenu.getInstance().getTotalStars();
         gameEndMenu = this;
     }
@@ -29,12 +31,8 @@ public class GameEndMenu extends Application {
         return gameEndMenu;
     }
 
-    private void displayGameStats(){
-        //GameEndMenuController.setLabels(finalStars,totalStars,420);
-    }
-
     public void gameContinue() throws Exception {
-        MainMenu.getInstance().setTotalStars(MainMenu.getInstance().getTotalStars()-100);
+    //    MainMenu.getInstance().setTotalStars(MainMenu.getInstance().getTotalStars()-100);
         prevGame.resumeGame(stage);
     }
 
@@ -56,18 +54,12 @@ public class GameEndMenu extends Application {
 
     }
 
-    /*public static void main(String[] args) {
-        launch(args);
-    }*/
-
     @Override
     public void start(Stage primaryStage) throws Exception{
         stage = primaryStage;
         primaryStage.getIcons().add(new Image("file:./assets/logo.png"));
         AnchorPane anchorPaneMenu = FXMLLoader.load(getClass().getResource("GameEndMenu.fxml"));
         primaryStage.setScene(new Scene(anchorPaneMenu, 500, 650));
-        displayGameStats();
-        checkEligible();
         curScore = new Text();
         curScore.setText(""+ finalStars);
         curScore.setX(240);
@@ -76,6 +68,31 @@ public class GameEndMenu extends Application {
         curScore.setLayoutY(260);
         curScore.setFont(Font.font ("Blissful Thinking", 45));
         anchorPaneMenu.getChildren().add(curScore);
+
+        totalStarsText = new Text();
+        totalStarsText.setText(""+ totalStars);
+        //System.out.println("Total stars: "+ totalStars);
+        totalStarsText.setX(390);
+        totalStarsText.setStroke(javafx.scene.paint.Color.WHITE);
+        totalStarsText.setFill(Color.WHITE);
+        totalStarsText.setLayoutY(95);
+        totalStarsText.setFont(Font.font ("Blissful Thinking", 31));
+        anchorPaneMenu.getChildren().add(totalStarsText);
+
+        highScoreText = new Text();
+        if(MainMenu.getInstance().getHighScore() >= finalStars)
+            highScoreText.setText(""+ MainMenu.getInstance().getHighScore());
+        else{
+            highScoreText.setText(""+ finalStars);
+            MainMenu.getInstance().setHighScore(finalStars);
+        }
+        highScoreText.setX(208);
+        highScoreText.setStroke(javafx.scene.paint.Color.WHITE);
+        highScoreText.setFill(Color.WHITE);
+        highScoreText.setLayoutY(317);
+        highScoreText.setFont(Font.font ("Blissful Thinking", 45));
+        anchorPaneMenu.getChildren().add(highScoreText);
+
         primaryStage.show();
     }
 }
