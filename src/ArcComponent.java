@@ -7,6 +7,7 @@ import java.io.Serializable;
 //will return an arc component
 public class ArcComponent implements Serializable {
 
+        private final static long serialVersionUID = 656214;
         double centerX;
         double centerY;
         double radiusY;

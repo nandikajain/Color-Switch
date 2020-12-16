@@ -13,11 +13,12 @@ import java.util.ArrayList;
 
 public class CircleObstacle extends Obstacle implements Serializable {
     //returning the group
+    private final static long serialVersionUID = 3423424;
     double centerX;
     double centerY;
     double radius;
     boolean isRotate;
-    ArrayList<Shape> shapes;
+    transient ArrayList<Shape> shapes;
     transient Arc arc1,arc2,arc3,arc4;
 
     //Change values here in order to get circle obstacles with different parameters

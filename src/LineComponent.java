@@ -4,6 +4,7 @@ import javafx.scene.shape.Line;
 import java.io.Serializable;
 
 public class LineComponent implements Serializable {
+    private final static long serialVersionUID = 65174;
     double startX;
     double startY;
     double endY;

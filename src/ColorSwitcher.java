@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.util.Random;
 
 public class ColorSwitcher implements Serializable {
+    private final static long serialVersionUID = 6413344;
     double positionY;
     double velocity;
     double userVelocity;

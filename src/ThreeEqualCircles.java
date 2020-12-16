@@ -11,6 +11,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class ThreeEqualCircles extends Obstacle implements Serializable {
+    private final static long serialVersionUID = 3448354;
     double centerX;
     double centerY;
     double r1;

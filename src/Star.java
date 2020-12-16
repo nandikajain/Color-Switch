@@ -4,6 +4,7 @@ import javafx.scene.paint.Color;
 import java.io.Serializable;
 
 public class Star implements Serializable {
+    private final static long serialVersionUID = 656211;
     double positionY;
     double velocity;
     double userVelocity;

@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 //Change values here in order to get star obstacles with different parameters
 public class SquareObstacle extends Obstacle implements Serializable {
+    private final static long serialVersionUID = 657781354;
     double centerX;
     double centerY;
     double length;

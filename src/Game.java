@@ -22,6 +22,7 @@ import static java.lang.Integer.valueOf;
 
 
 public class Game extends Application implements Screen, Serializable {
+    private final static long serialVersionUID = 650054;
     transient AnchorPane gamePane;
     transient Pane playfield;
     int temp;

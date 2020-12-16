@@ -11,6 +11,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class TwoAdjacentStars extends Obstacle implements Serializable {
+    private final static long serialVersionUID = 6828392;
     double centerXa;
     double centerY;
     double length;

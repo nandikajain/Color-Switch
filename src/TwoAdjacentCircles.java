@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 public class TwoAdjacentCircles extends Obstacle implements Serializable {
     //center is the pt of tangency of the 2 circles and 10 is the stroke width
+    private final static long serialVersionUID = 234214;
     double centerX;
 
 

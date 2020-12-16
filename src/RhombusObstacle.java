@@ -11,6 +11,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class RhombusObstacle extends Obstacle implements Serializable {
+        private final static long serialVersionUID = 653192354;
         double centerX;
         double centerY;
         double length;

@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 
 public class TwoEqualCircles extends Obstacle implements Serializable {
+    private final static long serialVersionUID = 62323954;
     double centerX;
     double centerY;
     double r1;

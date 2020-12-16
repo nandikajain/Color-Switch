@@ -8,6 +8,7 @@ import java.io.Serializable;
 
 public class Ball implements Serializable {
 
+    private final static long serialVersionUID = 657;
     transient Circle circle;
     double positionY;
     double velocity;

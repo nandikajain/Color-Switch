@@ -9,6 +9,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class LineObstacle extends Obstacle implements Serializable {
+    private final static long serialVersionUID = 78393;
     double centerY;
     transient ArrayList<Shape> shapes;
     transient Line line1, line2, line3, line4, line5;
