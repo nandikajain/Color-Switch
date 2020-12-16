@@ -166,6 +166,7 @@ public class ThreeEqualCircles extends Obstacle {
         this.centerX = centerX;
     }
 
+    @Override
     public double getCenterY() {
         return centerY;
     }

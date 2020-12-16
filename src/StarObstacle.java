@@ -88,6 +88,7 @@ public class StarObstacle extends Obstacle {
         this.centerX = centerX;
     }
 
+    @Override
     public double getCenterY() {
         return centerY;
     }

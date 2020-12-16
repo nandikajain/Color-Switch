@@ -119,6 +119,7 @@ public class LineObstacle extends Obstacle {
         line5.setLayoutY(line5.getLayoutY()+ 5);
 
     }
+    @Override
     public double getCenterY() {
         return centerY;
     }

@@ -25,5 +25,6 @@ public abstract class Obstacle {
     }
     public abstract void display();
     public abstract ArrayList<Shape> getShapesList();
+    public abstract double getCenterY();
 
 }

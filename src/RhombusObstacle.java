@@ -84,6 +84,7 @@ public class RhombusObstacle extends Obstacle {
                 this.centerX = centerX;
         }
 
+        @Override
         public double getCenterY() {
                 return centerY;
         }

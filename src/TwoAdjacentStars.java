@@ -122,6 +122,7 @@ public class TwoAdjacentStars extends Obstacle {
     public void setCenterXa(double centerXa) {
         this.centerXa = centerXa;
     }
+    @Override
     public double getCenterY() {
         return centerY;
     }

@@ -12,6 +12,8 @@ import java.util.ArrayList;
 public class TwoAdjacentCircles extends Obstacle {
     //center is the pt of tangency of the 2 circles and 10 is the stroke width
     double centerX;
+
+
     double centerY;
     double radiusA;
     double radiusB;
@@ -122,4 +124,9 @@ public class TwoAdjacentCircles extends Obstacle {
         arc3b.setLayoutY(arc3b.getLayoutY()+5);
         arc4b.setLayoutY(arc4b.getLayoutY()+ 5);
     }
+    @Override
+    public double getCenterY() {
+        return centerY;
+    }
+
 }
