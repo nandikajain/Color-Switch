@@ -75,7 +75,11 @@ public class MainMenu extends Application implements Serializable {
         backgroundSoundPlayer.play();
         backgroundSoundPause = false;
         primaryStage.show();
+        System.out.println(savedGames.size());
         loadState();
+        System.out.println(savedGames.size());
+        System.out.println(savedGames.get(0).getNoOfStars());
+        //System.out.println(savedGames.get(1).getNoOfStars());
         /* This serialization is working fine
         loadState();
         System.out.println(getTotalStars());
@@ -123,6 +127,8 @@ public class MainMenu extends Application implements Serializable {
             in.close();
             fileInputStream.close();
             this.setTotalStars(x.getTotalStars());
+            this.savedGames = new ArrayList<>(x.savedGames);
+            //this.setTotalStars(x.getTotalStars());
             //System.out.println(x.getTotalStars());
         } catch (IOException e) {
             e.printStackTrace();

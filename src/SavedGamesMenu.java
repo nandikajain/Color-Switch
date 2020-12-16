@@ -9,11 +9,11 @@ import java.util.ArrayList;
 
 public class SavedGamesMenu extends Application {
 
-//    SavedGamesMenu(ArrayList<Game> savedGameList){
-//
-//    }
+    ArrayList<Game> savedGamesList;
 
-    SavedGamesMenu(){}
+    SavedGamesMenu(){
+        savedGamesList = new ArrayList<>(MainMenu.getInstance().savedGames);
+    }
 
     private void displaySavedGames(){
 
