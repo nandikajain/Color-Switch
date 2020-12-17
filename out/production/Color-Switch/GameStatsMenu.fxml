@@ -1,45 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-<?import javafx.scene.Cursor?>
 
-<AnchorPane prefHeight="650.0" prefWidth="500.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameStatsMenuController">
+<AnchorPane prefHeight="650.0" prefWidth="500.0" style="-fx-background-color: #272727; -fx-background-image: url('file:./assets/background.png');" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameStatsMenuController">
    <children>
-      <ImageView fitHeight="650.0" fitWidth="502.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="650.0" fitWidth="500.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:./assets/Game-Statistics.png" />
+            <Image url="file:./assets/background.png" />
          </image>
       </ImageView>
-      <Text layoutX="128.0" layoutY="399.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Highscore :">
+      <Text fill="WHITE" layoutX="149.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ALL TIME STATS" textAlignment="CENTER" wrappingWidth="201.65234375">
          <font>
-            <Font name="Calibri Bold" size="26.0" />
+            <Font name="Blissful Thinking" size="55.0" />
          </font>
       </Text>
-      <Text layoutX="128.0" layoutY="512.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Stars :">
+      <Text fill="#fae100" layoutX="46.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GAMES PLAYED:">
          <font>
-            <Font name="Calibri Bold" size="26.0" />
+            <Font name="Blissful Thinking" size="32.0" />
          </font>
       </Text>
-      <Text layoutX="128.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Games Played :" wrappingWidth="153.69061279296875">
+      <Text fill="#900dff" layoutX="85.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HIGH SCORE:">
          <font>
-            <Font name="Calibri Bold" size="26.0" />
+            <Font name="Blissful Thinking" size="32.0" />
          </font>
       </Text>
-
-      <Circle fill="#999999" fx:id="MenuButton" layoutX="64.0" layoutY="71.0" radius="43.0" onMouseClicked="#onMenuButtonClick" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" >
+      <Text fill="#ff0181" layoutX="70.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TOTAL STARS:">
+         <font>
+            <Font name="Blissful Thinking" size="32.0" />
+         </font>
+      </Text>
+      <Label layoutX="335.0" layoutY="256.0" text="453" textFill="WHITE">
+         <font>
+            <Font name="Blissful Thinking" size="35.0" />
+         </font>
+      </Label>
+      <Label layoutX="335.0" layoutY="306.0" text="453" textFill="WHITE">
+         <font>
+            <Font name="Blissful Thinking" size="35.0" />
+         </font>
+      </Label>
+      <Label layoutX="335.0" layoutY="360.0" text="453" textFill="WHITE">
+         <font>
+            <Font name="Blissful Thinking" size="35.0" />
+         </font>
+      </Label>
+      <Circle fx:id="MenuButton" fill="#555555" layoutX="70.0" layoutY="95.0" onMouseClicked="#onMenuButtonClick" radius="48.0" stroke="#555555" strokeType="INSIDE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Circle>
-      <Text layoutX="30.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MENU">
+      <Text fill="WHITE" layoutX="29.0" layoutY="106.0" onMouseClicked="#onMenuButtonClick" strokeType="OUTSIDE" strokeWidth="0.0" text="MENU">
          <font>
-            <Font name="Calibri" size="26.0" />
+            <Font name="Blissful Thinking" size="36.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Text>
    </children>
 </AnchorPane>

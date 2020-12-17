@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.Cursor?>
 
-<AnchorPane prefHeight="650.0" prefWidth="500.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameInstructionsMenuController">
+<AnchorPane prefHeight="650.0" prefWidth="500.0" style="-fx-background-image: url('file:./assets/background.png');" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameInstructionsMenuController">
    <children>
       <Circle fill="#999999" fx:id="InstructionsButton"  layoutX="69.0" layoutY="74.0" radius="44.0" onMouseClicked="#onInstructionsButtonClick" stroke="TRANSPARENT" strokeType="INSIDE" >
           <cursor>
