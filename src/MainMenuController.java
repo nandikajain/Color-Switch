@@ -16,6 +16,7 @@ public class MainMenuController implements Initializable {
 
     public ImageView playButton;
     public ImageView statsButton;
+    public ImageView instructionsButton;
     public Button savedGamesButton;
     public Button muteButton;
     public Button exitButton;
@@ -52,6 +53,14 @@ public class MainMenuController implements Initializable {
         GameStatsMenu statsMenu= new GameStatsMenu();
         statsMenu.start(stage);
     }
+    @FXML
+    public void onInstructionsButtonClicked(MouseEvent mouseEvent) throws Exception {
+        Stage stage = (Stage) instructionsButton.getScene().getWindow();
+        GameInstructionsMenu insMenu= new GameInstructionsMenu();
+        insMenu.start(stage);
+    }
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         savedGamesButton.setStyle(sg_IDLE_BUTTON_STYLE);
