@@ -101,6 +101,7 @@ public class Ball implements Serializable {
     public double getPositionY() {
         return positionY;
     }
+    public void setPositionY(double s){this.positionY = s;}
 
     public void makeInvisible() {
         circle.setVisible(false);

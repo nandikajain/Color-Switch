@@ -107,12 +107,18 @@ public class Game extends Application implements Screen, Serializable {
         stage.show();
         //addBall(true);
         if(extralife){
-            ball.positionY+=100;
+            ball.setPositionY(ball.getPositionY()+120);
+            ball.display();
         }
         mouseClick = false;
         clickedOnce = false;
         gamePause = false;
-        gameLoop.start();
+        scene.setOnKeyPressed(e->{
+            if(e.getCode()==KeyCode.UP) {
+                mouseClick = true;
+                gameLoop.start();
+            }
+        });
         //startGame();
     }
 
