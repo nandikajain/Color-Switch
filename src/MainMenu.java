@@ -156,7 +156,8 @@ public class MainMenu extends Application implements Serializable {
             //this.setTotalStars(x.getTotalStars());
             //System.out.println(x.getTotalStars());
         } catch (IOException e) {
-            e.printStackTrace();
+            saveState();
+            //e.printStackTrace();
         } catch (ClassNotFoundException e) {
             System.out.println("Class not found F");
             e.printStackTrace();
