@@ -26,7 +26,7 @@ public class PauseMenu extends Application {
     }
 
     public void resumeGame() throws Exception {
-        curPausedGame.resumeGame(stage);
+        curPausedGame.resumeGame(stage,false);
     }
 
     public void saveGame(){

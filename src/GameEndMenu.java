@@ -34,7 +34,7 @@ public class GameEndMenu extends Application {
 
     public void gameContinue() throws Exception {
     //    MainMenu.getInstance().setTotalStars(MainMenu.getInstance().getTotalStars()-100);
-        prevGame.resumeGame(stage);
+        prevGame.resumeGame(stage,true);
     }
 
     public boolean checkEligible(){

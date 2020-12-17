@@ -57,18 +57,21 @@ public class MainMenuController implements Initializable {
 
     @FXML
     public void onSavedGamesClick(ActionEvent actionEvent) throws Exception {
+        MainMenu.getInstance().backgroundSoundStop();
         Stage stage = (Stage) savedGamesButton.getScene().getWindow();
         SavedGamesMenu savedGamesMenu = new SavedGamesMenu();
         savedGamesMenu.start(stage);
     }
     @FXML
     public void onStatsButtonClicked(MouseEvent mouseEvent) throws Exception {
+        MainMenu.getInstance().backgroundSoundStop();
         Stage stage = (Stage) statsButton.getScene().getWindow();
         GameStatsMenu statsMenu= new GameStatsMenu();
         statsMenu.start(stage);
     }
     @FXML
     public void onInstructionsButtonClicked(MouseEvent mouseEvent) throws Exception {
+        MainMenu.getInstance().backgroundSoundStop();
         Stage stage = (Stage) instructionsButton.getScene().getWindow();
         GameInstructionsMenu insMenu= new GameInstructionsMenu();
         insMenu.start(stage);

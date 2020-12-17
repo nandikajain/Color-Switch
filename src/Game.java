@@ -91,10 +91,13 @@ public class Game extends Application implements Screen, Serializable {
         gamePause = false;
     }
 
-    public void resumeGame(Stage stage) throws Exception {
+    public void resumeGame(Stage stage,boolean extralife) throws Exception {
         stage.setScene(pausedScene);
         stage.show();
         //addBall(true);
+        if(extralife){
+            ball.positionY+=100;
+        }
         mouseClick = false;
         clickedOnce = false;
         gamePause = false;
