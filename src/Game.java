@@ -116,15 +116,15 @@ public class Game extends Application implements Screen, Serializable {
         gameScore.setFont((new Font(50)));
         gamePane.getChildren().add(gameScore);
 
-        obstacles.add(new CircleObstacle(250, 340, 70, false));
-        obstacles.add(new TwoAdjacentStars(175, 90, 75));
-        obstacles.add(new SquareObstacle(250,-235,120, false));
-        obstacles.add(new TwoEqualCircles(250,-545,70,82));
+        obstacles.add(new CircleObstacle(250, 340, 70, false, 4000));
+        obstacles.add(new TwoAdjacentStars(175, 90, 75, 4000));
+        obstacles.add(new SquareObstacle(250,-235,120, false, 4000));
+        obstacles.add(new TwoEqualCircles(250,-545,70,82,4000));
         obstacles.add(new LineObstacle(-770));
-        obstacles.add(new ThreeEqualCircles(250,-1050,70,82, 94 ));
-        obstacles.add(new RhombusObstacle(250,-1400,140, false));
-        obstacles.add(new TwoAdjacentCircles(175, -1700, 75,80));
-        obstacles.add(new StarObstacle(330, -1950, 90, false));
+        obstacles.add(new ThreeEqualCircles(250,-1050,70,82, 94, 4000 ));
+        obstacles.add(new RhombusObstacle(250,-1400,140, false, 4000));
+        obstacles.add(new TwoAdjacentCircles(175, -1700, 75,80, 11000));
+        obstacles.add(new StarObstacle(330, -1950, 90, false, 4000));
 
         for(int i=0; i<obstacles.size(); i++)
         {
@@ -437,7 +437,7 @@ public class Game extends Application implements Screen, Serializable {
         if(obstacles.get(0) instanceof CircleObstacle)
         {
             //CIRCLE -> Y last obstacle -=300, radius 60,
-            obs= new CircleObstacle(250, newCenter-300,70, false );
+            obs= new CircleObstacle(250, newCenter-300,70, false , 4000);
             obstacles.add(obs);
             obstacles.remove(0);
             HandleDynamicObstacle(obs, temp);
@@ -446,7 +446,7 @@ public class Game extends Application implements Screen, Serializable {
         else if(obstacles.get(0) instanceof TwoAdjacentStars)
         {
             //TWO ADJACENT STAR-> Y last obstacle -=250, len-> 75, x cord-> 175
-            obs= new TwoAdjacentStars(175, newCenter-250,75);
+            obs= new TwoAdjacentStars(175, newCenter-250,75, 4000);
             obstacles.add(obs);
             obstacles.remove(0);
             HandleDynamicObstacle(obs, temp);
@@ -454,7 +454,7 @@ public class Game extends Application implements Screen, Serializable {
         else if(obstacles.get(0) instanceof SquareObstacle)
         {
             //SQUARE OBSTACLE-> Y last obstacle -=325,len ->120
-            obs= new SquareObstacle(250, newCenter- 325, 120, false);
+            obs= new SquareObstacle(250, newCenter- 325, 120, false, 4000);
             obstacles.add(obs);
             obstacles.remove(0);
             HandleDynamicObstacle(obs, temp);
@@ -463,7 +463,7 @@ public class Game extends Application implements Screen, Serializable {
         else if(obstacles.get(0) instanceof TwoEqualCircles)
         {
             //TWO EQUAL CIRCLE -> Y last obstacle-=310, r1->70, r2->82
-            obs= new TwoEqualCircles(250, newCenter- 310, 70, 82);
+            obs= new TwoEqualCircles(250, newCenter- 310, 70, 82, 4000);
             obstacles.add(obs);
             obstacles.remove(0);
             HandleDynamicObstacle(obs, temp);
@@ -480,7 +480,7 @@ public class Game extends Application implements Screen, Serializable {
         else  if(obstacles.get(0) instanceof  TwoEqualCircles)
         {
             //THREE EQUAL CIRCLES -> Y last obstacle -=280, r1-> 70, r2-> 82, r3-> 94
-            obs = new ThreeEqualCircles(250, newCenter- 280, 70, 82, 94);
+            obs = new ThreeEqualCircles(250, newCenter- 280, 70, 82, 94, 4000);
             obstacles.add(obs);
             obstacles.remove(0);
             HandleDynamicObstacle(obs, temp);
@@ -488,7 +488,7 @@ public class Game extends Application implements Screen, Serializable {
         else if(obstacles.get(0) instanceof  RhombusObstacle)
         {
             //RHOMBUS OBSTACLE -> Y last obstacle-=350, len ->120
-            obs= new RhombusObstacle(250, newCenter-350, 140, false);
+            obs= new RhombusObstacle(250, newCenter-350, 140, false, 4000);
             obstacles.add(obs);
             obstacles.remove(0);
             HandleDynamicObstacle(obs, temp);
@@ -496,14 +496,14 @@ public class Game extends Application implements Screen, Serializable {
         else if (obstacles.get(0) instanceof  TwoAdjacentCircles)
         {
             //TWO ADJACENT CIRCLES -> Y last obstacle -=300, r1->75, r2-> 80, x cord-> 175
-            obs= new TwoAdjacentCircles(175, newCenter-300,75, 80);
+            obs= new TwoAdjacentCircles(175, newCenter-300,75, 80, 11000);
             obstacles.add(obs);
             obstacles.remove(0);
             HandleDynamicObstacle(obs, temp);
         }
         else{
             //STAR OBSTACLE -> Y last obstacle -=250, x cord-> 330, len->90
-            obs= new StarObstacle(330, newCenter-250, 90, false);
+            obs= new StarObstacle(330, newCenter-250, 90, false, 4000);
             obstacles.add(obs);
             obstacles.remove(0);
             obstacles.set(8, obs);

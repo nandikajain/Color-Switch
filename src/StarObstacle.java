@@ -17,17 +17,28 @@ public class StarObstacle extends Obstacle implements Serializable {
     double length;
     boolean isRotate;
     transient ArrayList<Shape> shapes;
+    double speed;
     transient Line line1,line2,line3, line4;
 
     //Change values here in order to get star obstacles with different parameters
-    public StarObstacle(double cX, double cY, double l, boolean isR)
+    public StarObstacle(double cX, double cY, double l, boolean isR, double s)
     {
+        speed= s;
         shapes = new ArrayList<Shape>();
         centerX = cX;
         centerY = cY;
         length = l;
         isRotate= isR;
     }
+
+    public double getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(double speed) {
+        this.speed = speed;
+    }
+
     @Override
     public Group generateObstacle()
     {
@@ -54,7 +65,7 @@ public class StarObstacle extends Obstacle implements Serializable {
         rotate.setAxis(Rotate.Z_AXIS);
         rotate.setByAngle(360);
         rotate.setCycleCount(50000);
-        rotate.setDuration(Duration.millis(4000));
+        rotate.setDuration(Duration.millis(speed));
         rotate.setInterpolator(Interpolator.LINEAR);
         rotate.setNode(group);
         rotate.setAutoReverse(isRotate);

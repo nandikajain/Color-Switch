@@ -16,13 +16,15 @@ public class ThreeEqualCircles extends Obstacle implements Serializable {
     double centerY;
     double r1;
     double r2;
+    double speed;
     double r3;
     transient ArrayList<Shape> shapes;
 
     transient Arc arc1, arc2, arc3, arc4, arc1b, arc2b,arc3b, arc4b, arc1q, arc2q, arc3q, arc4q;
 
-    public ThreeEqualCircles(double cX, double cY, double radius1, double radius2, double radius3)
+    public ThreeEqualCircles(double cX, double cY, double radius1, double radius2, double radius3, double s)
     {
+        speed =s;
         shapes= new ArrayList<Shape>();
         centerX=cX;
         centerY= cY;
@@ -30,6 +32,15 @@ public class ThreeEqualCircles extends Obstacle implements Serializable {
         r2= radius2;
         r3= radius3;
     }
+
+    public double getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(double speed) {
+        this.speed = speed;
+    }
+
     @Override
     public Group generateObstacle(){
         Group group= new Group();
@@ -57,7 +68,7 @@ public class ThreeEqualCircles extends Obstacle implements Serializable {
         rot.setAxis(Rotate.Z_AXIS);
         rot.setByAngle(360);
         rot.setCycleCount(50000);
-        rot.setDuration(Duration.millis(4000));
+        rot.setDuration(Duration.millis(speed));
         rot.setInterpolator(Interpolator.LINEAR);
         rot.setNode(g1);
         rot.setAutoReverse(false);
@@ -87,7 +98,7 @@ public class ThreeEqualCircles extends Obstacle implements Serializable {
         rotate.setAxis(Rotate.Z_AXIS);
         rotate.setByAngle(360);
         rotate.setCycleCount(50000);
-        rotate.setDuration(Duration.millis(4000));
+        rotate.setDuration(Duration.millis(speed));
         rotate.setInterpolator(Interpolator.LINEAR);
         rotate.setNode(g2);
         rotate.setAutoReverse(true);
@@ -121,7 +132,7 @@ public class ThreeEqualCircles extends Obstacle implements Serializable {
         rotate1.setAxis(Rotate.Z_AXIS);
         rotate1.setByAngle(360);
         rotate1.setCycleCount(50000);
-        rotate1.setDuration(Duration.millis(4000));
+        rotate1.setDuration(Duration.millis(speed));
         rotate1.setInterpolator(Interpolator.LINEAR);
         rotate1.setNode(g3);
         rotate1.setAutoReverse(false);

@@ -76,7 +76,7 @@ public class MainMenu extends Application implements Serializable {
         primaryStage.setTitle("Color Switch");
         AnchorPane mainMenuPane = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
       //Obstacle Creation
-        ThreeEqualCircles c1= new ThreeEqualCircles(250, 210, 60,71, 82);
+        ThreeEqualCircles c1= new ThreeEqualCircles(250, 210, 60,71, 82,4000);
         Group group = c1.generateObstacle();
         mainMenuPane.getChildren().add(group);
         primaryStage.setScene(new Scene(mainMenuPane,500, 650));

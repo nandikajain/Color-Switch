@@ -19,14 +19,25 @@ public class SquareObstacle extends Obstacle implements Serializable {
     boolean isRotate;
     transient ArrayList<Shape> shapes;
     transient Line line1,line2, line3, line4;
+    double speed;
 
-    public SquareObstacle(double cX, double cY, double l, boolean rot) {
+    public SquareObstacle(double cX, double cY, double l, boolean rot, double s) {
         shapes = new ArrayList<Shape>();
         centerX = cX;
         centerY = cY;
         length = l;
         isRotate = rot;
+        speed= s;
     }
+
+    public double getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(double speed) {
+        this.speed = speed;
+    }
+
     @Override
     public Group generateObstacle() {
         Group group= new Group();
@@ -53,7 +64,7 @@ public class SquareObstacle extends Obstacle implements Serializable {
         rotate.setAxis(Rotate.Z_AXIS);
         rotate.setByAngle(360);
         rotate.setCycleCount(50000);
-        rotate.setDuration(Duration.millis(4000));
+        rotate.setDuration(Duration.millis(speed));
         rotate.setInterpolator(Interpolator.LINEAR);
         rotate.setNode(group);
         rotate.setAutoReverse(isRotate);

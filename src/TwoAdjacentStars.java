@@ -15,17 +15,28 @@ public class TwoAdjacentStars extends Obstacle implements Serializable {
     double centerXa;
     double centerY;
     double length;
+    double speed;
     double centerXb;
     transient ArrayList<Shape> shapes;
     transient Line line1, line2, line3, line4, line1a, line1b, line1c, line1d;
-    public TwoAdjacentStars(double Xa, double cY,  double len)
+    public TwoAdjacentStars(double Xa, double cY,  double len, double s)
     {
+        speed = s;
         shapes= new ArrayList<Shape>();
         centerXa= Xa;
         centerXb= Xa+ 2*len;
         centerY= cY;
         length= len;
     }
+
+    public double getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(double speed) {
+        this.speed = speed;
+    }
+
     @Override
     public Group generateObstacle()
     {
@@ -55,7 +66,7 @@ public class TwoAdjacentStars extends Obstacle implements Serializable {
         rot.setAxis(Rotate.Z_AXIS);
         rot.setByAngle(360);
         rot.setCycleCount(10000);
-        rot.setDuration(Duration.millis(4000));
+        rot.setDuration(Duration.millis(speed));
         rot.setInterpolator(Interpolator.LINEAR);
         rot.setNode(g1);
         rot.setAutoReverse(false);
@@ -84,7 +95,7 @@ public class TwoAdjacentStars extends Obstacle implements Serializable {
         rotate.setAxis(Rotate.Z_AXIS);
         rotate.setByAngle(360);
         rotate.setCycleCount(10000);
-        rotate.setDuration(Duration.millis(4000));
+        rotate.setDuration(Duration.millis(speed));
         rotate.setInterpolator(Interpolator.LINEAR);
         rotate.setNode(g2);
         rotate.setAutoReverse(false);

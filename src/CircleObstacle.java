@@ -17,18 +17,29 @@ public class CircleObstacle extends Obstacle implements Serializable {
     double centerX;
     double centerY;
     double radius;
+    double speed;
     boolean isRotate;
     transient ArrayList<Shape> shapes;
     transient Arc arc1,arc2,arc3,arc4;
 
+
     //Change values here in order to get circle obstacles with different parameters
-    public CircleObstacle(double X, double Y, double r, boolean rot )
+    public CircleObstacle(double X, double Y, double r, boolean rot , double s)
     {
+        speed =s;
         shapes= new ArrayList<Shape>();
         centerX=X;
         centerY=Y;
         radius=r;
         isRotate=rot;
+    }
+
+    public double getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(double speed) {
+        this.speed = speed;
     }
     @Override
     public Group generateObstacle()
@@ -56,7 +67,7 @@ public class CircleObstacle extends Obstacle implements Serializable {
         rotate.setAxis(Rotate.Z_AXIS);
         rotate.setByAngle(360);
         rotate.setCycleCount(50000);
-        rotate.setDuration(Duration.millis(4000));
+        rotate.setDuration(Duration.millis(speed));
         rotate.setInterpolator(Interpolator.LINEAR);
         rotate.setNode(group);
         rotate.setAutoReverse(isRotate);

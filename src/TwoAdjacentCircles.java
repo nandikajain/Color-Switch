@@ -14,21 +14,30 @@ public class TwoAdjacentCircles extends Obstacle implements Serializable {
     //center is the pt of tangency of the 2 circles and 10 is the stroke width
     private final static long serialVersionUID = 234214;
     double centerX;
-
-
+    double speed;
     double centerY;
     double radiusA;
     double radiusB;
     transient ArrayList<Shape> shapes;
     transient Arc arc1b, arc2b, arc3b, arc4b, arc1,arc2, arc3, arc4;
-    public TwoAdjacentCircles(double centerXa, double centerYa, double rA, double rB)
+    public TwoAdjacentCircles(double centerXa, double centerYa, double rA, double rB, double s)
     {
+        speed = s;
         shapes = new ArrayList<Shape>();
         centerX = centerXa;
         centerY = centerYa;
         radiusA = rA;
         radiusB = rB;
     }
+
+    public double getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(double speed) {
+        this.speed = speed;
+    }
+
     @Override
     public Group generateObstacle()
     {
@@ -56,7 +65,7 @@ public class TwoAdjacentCircles extends Obstacle implements Serializable {
         rot.setAxis(Rotate.Z_AXIS);
         rot.setByAngle(360);
         rot.setCycleCount(50000);
-        rot.setDuration(Duration.millis(11000));
+        rot.setDuration(Duration.millis(speed));
         rot.setInterpolator(Interpolator.LINEAR);
         rot.setNode(g1);
         rot.setAutoReverse(false);
@@ -86,7 +95,7 @@ public class TwoAdjacentCircles extends Obstacle implements Serializable {
         rotate.setAxis(Rotate.Z_AXIS);
         rotate.setByAngle(360);
         rotate.setCycleCount(50000);
-        rotate.setDuration(Duration.millis(11000));
+        rotate.setDuration(Duration.millis(speed));
         rotate.setInterpolator(Interpolator.LINEAR);
         rotate.setNode(g2);
         rotate.setAutoReverse(false);
