@@ -116,9 +116,9 @@ public class TwoAdjacentCircles extends Obstacle implements Serializable {
     @Override
     public double getColorSwitcherPositionY(){
         if(radiusB<radiusA)
-            return centerY - radiusA - 60;
+            return centerY - radiusA - 80;
         else
-            return centerY - radiusB - 60;
+            return centerY - radiusB - 80;
     }
     @Override
     public ArrayList<Shape> getShapesList(){

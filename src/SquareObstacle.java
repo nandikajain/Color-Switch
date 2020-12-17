@@ -81,7 +81,7 @@ public class SquareObstacle extends Obstacle implements Serializable {
     }
     @Override
     public double getColorSwitcherPositionY(){
-        return centerY - length-30;
+        return centerY - length-65;
     }
     @Override
     public ArrayList<Shape> getShapesList(){

@@ -105,7 +105,7 @@ public class LineObstacle extends Obstacle implements Serializable {
     }
     @Override
     public double getColorSwitcherPositionY(){
-        return centerY - 100;
+        return centerY - 120;
     }
     @Override
     public ArrayList<Shape> getShapesList(){

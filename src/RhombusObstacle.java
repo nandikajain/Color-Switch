@@ -76,7 +76,7 @@ public class RhombusObstacle extends Obstacle implements Serializable {
         }
         @Override
         public double getColorSwitcherPositionY(){
-                return centerY - length-50;
+                return centerY - length-75;
         }
         @Override
         public ArrayList<Shape> getShapesList(){

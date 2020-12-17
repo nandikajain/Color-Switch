@@ -111,7 +111,7 @@ public class TwoAdjacentStars extends Obstacle implements Serializable {
     { return centerY-length;}
     @Override
     public double getColorSwitcherPositionY(){
-        return centerY - length - 80;
+        return centerY - length - 100;
     }
     @Override
     public ArrayList<Shape> getShapesList(){

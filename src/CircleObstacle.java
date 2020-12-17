@@ -83,7 +83,7 @@ public class CircleObstacle extends Obstacle implements Serializable {
     }
     @Override
     public double getColorSwitcherPositionY(){
-        return centerY - radius - 50;
+        return centerY - radius - 75;
     }
     @Override
     public ArrayList<Shape> getShapesList(){

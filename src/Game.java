@@ -154,14 +154,16 @@ public class Game extends Application implements Screen, Serializable {
 
         if(!savedGameContinue) {
             obstacles.add(new CircleObstacle(250, 340, 70, false, 4000));
-            obstacles.add(new TwoAdjacentStars(175, 90, 75, 4000));
-            obstacles.add(new SquareObstacle(250, -235, 120, false, 4000));
-            obstacles.add(new TwoEqualCircles(250, -545, 70, 82, 4000));
-            obstacles.add(new LineObstacle(-770));
-            obstacles.add(new ThreeEqualCircles(250, -1050, 70, 82, 94, 4000));
-            obstacles.add(new RhombusObstacle(250, -1400, 140, false, 4000));
-            obstacles.add(new TwoAdjacentCircles(175, -1700, 75, 80, 11000));
-            obstacles.add(new StarObstacle(330, -1950, 90, false, 4000));
+            obstacles.add(new TwoAdjacentStars(175, 20, 75, 4000));
+            obstacles.add(new SquareObstacle(250, -350, 120, false, 4000));
+            obstacles.add(new TwoEqualCircles(250, -745, 70, 82, 4000));
+            obstacles.add(new LineObstacle(-1050));
+            obstacles.add(new ThreeEqualCircles(250, -1380, 70, 82, 94, 4000));
+            obstacles.add(new RhombusObstacle(250, -1800, 140, false, 4000));
+            obstacles.add(new TwoAdjacentCircles(175, -2200, 75, 80, 11000));
+            obstacles.add(new StarObstacle(330, -2550, 90, false, 4000));
+            obstacles.add(new CircleObstacle(250, -2950, 70, false, 4000));
+
         }
 
         for(int i=0; i<obstacles.size(); i++)
