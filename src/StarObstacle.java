@@ -80,7 +80,7 @@ public class StarObstacle extends Obstacle implements Serializable {
     }
     @Override
     public double getColorSwitcherPositionY(){
-        return centerY - length - 100;
+        return centerY - length - 105;
     }
     @Override
     public ArrayList<Shape> getShapesList(){

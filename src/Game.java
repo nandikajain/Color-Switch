@@ -162,8 +162,6 @@ public class Game extends Application implements Screen, Serializable {
             obstacles.add(new RhombusObstacle(250, -1800, 140, false, 4000));
             obstacles.add(new TwoAdjacentCircles(175, -2200, 75, 80, 11000));
             obstacles.add(new StarObstacle(330, -2550, 90, false, 4000));
-            obstacles.add(new CircleObstacle(250, -2950, 70, false, 4000));
-
         }
 
         for(int i=0; i<obstacles.size(); i++)
@@ -488,7 +486,7 @@ public class Game extends Application implements Screen, Serializable {
         }
         if(obstacles.get(0) instanceof CircleObstacle)
         {
-            //CIRCLE -> Y last obstacle -=300, radius 60,
+            //CIRCLE -> Y last obstacle -=400, radius 60,
             double speed = ((CircleObstacle) obstacles.get(0)).getSpeed();
             if(speed>3000)
             {
@@ -498,7 +496,7 @@ public class Game extends Application implements Screen, Serializable {
             {
                 ((CircleObstacle) obstacles.get(0)).setSpeed(3000);
             }
-            obs= new CircleObstacle(250, newCenter-300,70, false ,((CircleObstacle) obstacles.get(0)).getSpeed());
+            obs= new CircleObstacle(250, newCenter-400,70, false ,((CircleObstacle) obstacles.get(0)).getSpeed());
             obstacles.add(obs);
             obstacles.remove(0);
             HandleDynamicObstacle(obs, temp);
@@ -506,7 +504,7 @@ public class Game extends Application implements Screen, Serializable {
         }
         else if(obstacles.get(0) instanceof TwoAdjacentStars)
         {
-            //TWO ADJACENT STAR-> Y last obstacle -=250, len-> 75, x cord-> 175
+            //TWO ADJACENT STAR-> Y last obstacle -=320, len-> 75, x cord-> 175
             double speed = ((TwoAdjacentStars) obstacles.get(0)).getSpeed();
             if(speed>3000)
             {
@@ -516,14 +514,14 @@ public class Game extends Application implements Screen, Serializable {
             {
                 ((TwoAdjacentStars) obstacles.get(0)).setSpeed(3000);
             }
-            obs= new TwoAdjacentStars(175, newCenter-250,75, ((TwoAdjacentStars) obstacles.get(0)).getSpeed());
+            obs= new TwoAdjacentStars(175, newCenter-320,75, ((TwoAdjacentStars) obstacles.get(0)).getSpeed());
             obstacles.add(obs);
             obstacles.remove(0);
             HandleDynamicObstacle(obs, temp);
         }
         else if(obstacles.get(0) instanceof SquareObstacle)
         {
-            //SQUARE OBSTACLE-> Y last obstacle -=325,len ->120
+            //SQUARE OBSTACLE-> Y last obstacle -=370,len ->120
             double speed = ((SquareObstacle) obstacles.get(0)).getSpeed();
             if(speed>3000)
             {
@@ -533,7 +531,7 @@ public class Game extends Application implements Screen, Serializable {
             {
                 ((SquareObstacle) obstacles.get(0)).setSpeed(3000);
             }
-            obs= new SquareObstacle(250, newCenter- 325, 120, false, ((SquareObstacle) obstacles.get(0)).getSpeed());
+            obs= new SquareObstacle(250, newCenter- 370, 120, false, ((SquareObstacle) obstacles.get(0)).getSpeed());
             obstacles.add(obs);
             obstacles.remove(0);
             HandleDynamicObstacle(obs, temp);
@@ -541,7 +539,7 @@ public class Game extends Application implements Screen, Serializable {
         }
         else if(obstacles.get(0) instanceof TwoEqualCircles)
         {
-            //TWO EQUAL CIRCLE -> Y last obstacle-=310, r1->70, r2->82
+            //TWO EQUAL CIRCLE -> Y last obstacle-=395, r1->70, r2->82
             double speed = ((TwoEqualCircles) obstacles.get(0)).getSpeed();
             if(speed>3000)
             {
@@ -551,7 +549,7 @@ public class Game extends Application implements Screen, Serializable {
             {
                 ((TwoEqualCircles) obstacles.get(0)).setSpeed(3000);
             }
-            obs= new TwoEqualCircles(250, newCenter- 310, 70, 82, ((TwoEqualCircles) obstacles.get(0)).getSpeed());
+            obs= new TwoEqualCircles(250, newCenter- 395, 70, 82, ((TwoEqualCircles) obstacles.get(0)).getSpeed());
             obstacles.add(obs);
             obstacles.remove(0);
             HandleDynamicObstacle(obs, temp);
@@ -559,15 +557,15 @@ public class Game extends Application implements Screen, Serializable {
         }
         else if(obstacles.get(0) instanceof LineObstacle)
         {
-            //LINE OBSTACLE -> Y last obstacle-=225
-            obs= new LineObstacle(newCenter-225);
+            //LINE OBSTACLE -> Y last obstacle-=305
+            obs= new LineObstacle(newCenter-305);
             obstacles.add(obs);
             obstacles.remove(0);
             HandleDynamicObstacle(obs, temp);
         }
         else  if(obstacles.get(0) instanceof  ThreeEqualCircles)
         {
-            //THREE EQUAL CIRCLES -> Y last obstacle -=280, r1-> 70, r2-> 82, r3-> 94
+            //THREE EQUAL CIRCLES -> Y last obstacle -=330, r1-> 70, r2-> 82, r3-> 94
             double speed = ((ThreeEqualCircles) obstacles.get(0)).getSpeed();
             if(speed>3000)
             {
@@ -577,14 +575,14 @@ public class Game extends Application implements Screen, Serializable {
             {
                 ((ThreeEqualCircles) obstacles.get(0)).setSpeed(3000);
             }
-            obs = new ThreeEqualCircles(250, newCenter- 280, 70, 82, 94, ((ThreeEqualCircles) obstacles.get(0)).getSpeed());
+            obs = new ThreeEqualCircles(250, newCenter- 330, 70, 82, 94, ((ThreeEqualCircles) obstacles.get(0)).getSpeed());
             obstacles.add(obs);
             obstacles.remove(0);
             HandleDynamicObstacle(obs, temp);
         }
         else if(obstacles.get(0) instanceof  RhombusObstacle)
         {
-            //RHOMBUS OBSTACLE -> Y last obstacle-=350, len ->120
+            //RHOMBUS OBSTACLE -> Y last obstacle-=420, len ->120
             double speed = ((RhombusObstacle) obstacles.get(0)).getSpeed();
             if(speed>3000)
             {
@@ -594,7 +592,7 @@ public class Game extends Application implements Screen, Serializable {
             {
                 ((RhombusObstacle) obstacles.get(0)).setSpeed(3000);
             }
-            obs= new RhombusObstacle(250, newCenter-350, 140, false, ((RhombusObstacle) obstacles.get(0)).getSpeed());
+            obs= new RhombusObstacle(250, newCenter-420, 140, false, ((RhombusObstacle) obstacles.get(0)).getSpeed());
             obstacles.add(obs);
             obstacles.remove(0);
             HandleDynamicObstacle(obs, temp);
@@ -610,14 +608,14 @@ public class Game extends Application implements Screen, Serializable {
             {
                 ((TwoAdjacentCircles) obstacles.get(0)).setSpeed(9000);
             }
-            //TWO ADJACENT CIRCLES -> Y last obstacle -=300, r1->75, r2-> 80, x cord-> 175
-            obs= new TwoAdjacentCircles(175, newCenter-300,75, 80, ((TwoAdjacentCircles) obstacles.get(0)).getSpeed());
+            //TWO ADJACENT CIRCLES -> Y last obstacle -=400, r1->75, r2-> 80, x cord-> 175
+            obs= new TwoAdjacentCircles(175, newCenter-400,75, 80, ((TwoAdjacentCircles) obstacles.get(0)).getSpeed());
             obstacles.add(obs);
             obstacles.remove(0);
             HandleDynamicObstacle(obs, temp);
         }
         else{
-            //STAR OBSTACLE -> Y last obstacle -=250, x cord-> 330, len->90
+            //STAR OBSTACLE -> Y last obstacle -=350, x cord-> 330, len->90
             double speed = ((StarObstacle) obstacles.get(0)).getSpeed();
             if(speed>3000)
             {
@@ -627,7 +625,7 @@ public class Game extends Application implements Screen, Serializable {
             {
                 ((StarObstacle) obstacles.get(0)).setSpeed(3000);
             }
-            obs= new StarObstacle(330, newCenter-250, 90, false, ((StarObstacle) obstacles.get(0)).getSpeed());
+            obs= new StarObstacle(330, newCenter-350, 90, false, ((StarObstacle) obstacles.get(0)).getSpeed());
             obstacles.add(obs);
             obstacles.remove(0);
             obstacles.set(8, obs);

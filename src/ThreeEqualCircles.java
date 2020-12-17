@@ -148,7 +148,7 @@ public class ThreeEqualCircles extends Obstacle implements Serializable {
     }
     @Override
     public double getColorSwitcherPositionY(){
-        return centerY - r3 - 90;
+        return centerY - r3 - 95;
     }
     @Override
     public ArrayList<Shape> getShapesList(){
