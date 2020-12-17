@@ -131,19 +131,27 @@ public class Game extends Application implements Screen, Serializable {
             Group g = obstacles.get(i).generateObstacle();
             gamePane.getChildren().add(g);
             Image image;
+            ImageView imageView;
             if(i==4)
             {
                 image = new Image("file:./assets/golden-star.PNG");
+                imageView = new ImageView(image);
+                imageView.setX(235);
+                imageView.setY(obstacles.get(i).getStarPositionY() -10);
+                imageView.setFitHeight(30);
+                imageView.setFitWidth(28);
+                imageView.setPreserveRatio(true);
             }
             else{
                 image = new Image("file:./assets/game-star.jpg");
+                imageView = new ImageView(image);
+                imageView.setX(240);
+                imageView.setY(obstacles.get(i).getStarPositionY() -10);
+                imageView.setFitHeight(20);
+                imageView.setFitWidth(18);
+                imageView.setPreserveRatio(true);
             }
-            ImageView imageView = new ImageView(image);
-            imageView.setX(240);
-            imageView.setY(obstacles.get(i).getStarPositionY() -10);
-            imageView.setFitHeight(20);
-            imageView.setFitWidth(18);
-            imageView.setPreserveRatio(true);
+
 
             Star s= new Star(obstacles.get(i).getStarPositionY(), imageView);
             starList.add(s);
@@ -232,7 +240,7 @@ public class Game extends Application implements Screen, Serializable {
                         boolean status = checkCollision();
                         if (status) {
                             try {
-                                endGame();
+//                                endGame();
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -252,7 +260,7 @@ public class Game extends Application implements Screen, Serializable {
                         boolean status1 = checkCollision();
                         if (status1) {
                             try {
-                                endGame();
+//                                endGame();
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -263,7 +271,7 @@ public class Game extends Application implements Screen, Serializable {
                             boolean status2 = ball.isBottom();
                             if (status2) {
                                 try {
-                                    endGame();
+//                                    endGame();
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
@@ -367,21 +375,29 @@ public class Game extends Application implements Screen, Serializable {
         Group dynamicGroup = obs.generateObstacle();
         gamePane.getChildren().add(dynamicGroup);
         Image imageDyn;
+        ImageView imageViewDyn;
         if(isGolden)
         {
             imageDyn = new Image("file:./assets/golden-star.PNG");
+            imageViewDyn = new ImageView(imageDyn);
+            imageViewDyn.setX(235);
+            imageViewDyn.setY(obs.getStarPositionY() -10);
+            imageViewDyn.setFitHeight(30);
+            imageViewDyn.setFitWidth(28);
+            imageViewDyn.setPreserveRatio(true);
 
         }
         else{
             imageDyn = new Image("file:./assets/game-star.jpg");
+            imageViewDyn = new ImageView(imageDyn);
+            imageViewDyn.setX(240);
+            imageViewDyn.setY(obs.getStarPositionY() -10);
+            imageViewDyn.setFitHeight(20);
+            imageViewDyn.setFitWidth(18);
+            imageViewDyn.setPreserveRatio(true);
 
         }
-        ImageView imageViewDyn = new ImageView(imageDyn);
-        imageViewDyn.setX(240);
-        imageViewDyn.setY(obs.getStarPositionY() -10);
-        imageViewDyn.setFitHeight(20);
-        imageViewDyn.setFitWidth(18);
-        imageViewDyn.setPreserveRatio(true);
+
 
         Star sDyn= new Star(obs.getStarPositionY(), imageViewDyn);
         starList.remove(0);
