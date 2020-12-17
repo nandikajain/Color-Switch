@@ -18,6 +18,7 @@ public class SavedGamesMenu extends Application {
     ArrayList<Label> scoreLabelArrayList;
 
     AnchorPane anchorPane;
+    Stage stage;
 
     SavedGamesMenu(){
         savedGamesList = new ArrayList<>(MainMenu.getInstance().savedGames);
@@ -45,8 +46,43 @@ public class SavedGamesMenu extends Application {
         }
     }
 
-    private void startSelectedGame(Game chosenGame){
-
+    private void startSelectedGame(){
+        gameLabelArrayList.get(0).setOnMouseClicked(e->{
+            /*Game game = new Game(savedGamesList.get(0));
+            try {
+                game.start(stage);
+            } catch (Exception exception) {
+                exception.printStackTrace();
+            }*/
+            System.out.println(1);
+        });
+        gameLabelArrayList.get(1).setOnMouseClicked(e->{
+            /*Game game = new Game(savedGamesList.get(1));
+            try {
+                game.start(stage);
+            } catch (Exception exception) {
+                exception.printStackTrace();
+            }*/
+            System.out.println(2);
+        });
+        gameLabelArrayList.get(2).setOnMouseClicked(e->{
+            /*Game game = new Game(savedGamesList.get(2));
+            try {
+                game.start(stage);
+            } catch (Exception exception) {
+                exception.printStackTrace();
+            }*/
+            System.out.println(3);
+        });
+        gameLabelArrayList.get(3).setOnMouseClicked(e->{
+            /*Game game = new Game(savedGamesList.get(3));
+            try {
+                game.start(stage);
+            } catch (Exception exception) {
+                exception.printStackTrace();
+            }*/
+            System.out.println(4);
+        });
     }
 
     private void exitScreen(){
@@ -54,6 +90,7 @@ public class SavedGamesMenu extends Application {
     }
 
     public void start(Stage primaryStage) throws Exception{
+        stage = primaryStage;
         primaryStage.getIcons().add(new Image("file:./assets/logo.png"));
         AnchorPane root = FXMLLoader.load(getClass().getResource("SavedGamesMenu.fxml"));
         primaryStage.setTitle("Color Switch");
@@ -61,5 +98,6 @@ public class SavedGamesMenu extends Application {
         anchorPane = root;
         displaySavedGames();
         primaryStage.show();
+        startSelectedGame();
     }
 }
