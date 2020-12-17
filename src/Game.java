@@ -71,6 +71,10 @@ public class Game extends Application implements Screen, Serializable {
     transient Media gsSound;
     transient MediaPlayer gsSoundPlayer;
 
+    transient String collisionSoundFile = "sounds/error.wav";
+    transient Media collisionSound;
+    transient MediaPlayer collisionSoundPlayer;
+
     public Game (Game prevGame){
         obstacles = new ArrayList<>(prevGame.obstacles);
         starList = new ArrayList<Star>();
@@ -107,7 +111,6 @@ public class Game extends Application implements Screen, Serializable {
         stage.setScene(pausedScene);
         stage.show();
         if(extralife){
-           // System.out.println(score);
             if(score% 9 == 0)
             {
                 ball.setPositionY(ball.getPositionY()+140);
@@ -337,6 +340,9 @@ public class Game extends Application implements Screen, Serializable {
                     boolean status = checkCollision();
                     if (status) {
                         try {
+                            collisionSound = new Media(new File(collisionSoundFile).toURI().toString());
+                            collisionSoundPlayer = new MediaPlayer(collisionSound);
+                            collisionSoundPlayer.play();
                                 endGame();
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -357,7 +363,10 @@ public class Game extends Application implements Screen, Serializable {
                     boolean status1 = checkCollision();
                     if (status1) {
                         try {
-                                endGame();
+                            collisionSound = new Media(new File(collisionSoundFile).toURI().toString());
+                            collisionSoundPlayer = new MediaPlayer(collisionSound);
+                            collisionSoundPlayer.play();
+                            endGame();
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -368,7 +377,10 @@ public class Game extends Application implements Screen, Serializable {
                         boolean status2 = ball.isBottom();
                         if (status2) {
                             try {
-                                  endGame();
+                                collisionSound = new Media(new File(collisionSoundFile).toURI().toString());
+                                collisionSoundPlayer = new MediaPlayer(collisionSound);
+                                collisionSoundPlayer.play();
+                                endGame();
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
