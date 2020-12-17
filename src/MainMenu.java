@@ -20,6 +20,17 @@ public class MainMenu extends Application implements Serializable {
     private final static long serialVersionUID = 65621354;
 
     int totalStars = 5;
+    int highScore = 0;
+
+
+    public int getHighScore() {
+        return highScore;
+    }
+
+    public void setHighScore(int highScore) {
+        this.highScore = highScore;
+    }
+
     ArrayList<Game> savedGames;
 
     transient private static MainMenu mainMenu;
