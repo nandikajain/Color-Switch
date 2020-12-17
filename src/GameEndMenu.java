@@ -72,20 +72,20 @@ public class GameEndMenu extends Application {
         primaryStage.setScene(new Scene(anchorPaneMenu, 500, 650));
         curScore = new Text();
         curScore.setText(""+ finalStars);
-        curScore.setX(240);
+        curScore.setX(235);
         curScore.setStroke(javafx.scene.paint.Color.WHITE);
         curScore.setFill(Color.WHITE);
-        curScore.setLayoutY(260);
+        curScore.setLayoutY(235);
         curScore.setFont(Font.font ("Blissful Thinking", 45));
         anchorPaneMenu.getChildren().add(curScore);
 
         totalStarsText = new Text();
         totalStarsText.setText(""+ totalStars);
         //System.out.println("Total stars: "+ totalStars);
-        totalStarsText.setX(390);
+        totalStarsText.setX(405);
         totalStarsText.setStroke(javafx.scene.paint.Color.WHITE);
         totalStarsText.setFill(Color.WHITE);
-        totalStarsText.setLayoutY(95);
+        totalStarsText.setLayoutY(105);
         totalStarsText.setFont(Font.font ("Blissful Thinking", 31));
         anchorPaneMenu.getChildren().add(totalStarsText);
 
@@ -96,13 +96,13 @@ public class GameEndMenu extends Application {
             highScoreText.setText(""+ finalStars);
             MainMenu.getInstance().setHighScore(finalStars);
         }
-        highScoreText.setX(208);
+        highScoreText.setX(230);
         highScoreText.setStroke(javafx.scene.paint.Color.WHITE);
         highScoreText.setFill(Color.WHITE);
-        highScoreText.setLayoutY(317);
+        highScoreText.setLayoutY(347);
         highScoreText.setFont(Font.font ("Blissful Thinking", 45));
         anchorPaneMenu.getChildren().add(highScoreText);
-
+        MainMenu.getInstance().saveState();
         primaryStage.show();
     }
 }

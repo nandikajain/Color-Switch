@@ -24,7 +24,7 @@ public class GameStatsMenu extends Application {
         noOfGamesPlayed.setX(335);
         noOfGamesPlayed.setStroke(Color.WHITE);
         noOfGamesPlayed.setFill(Color.WHITE);
-        noOfGamesPlayed.setLayoutY(256);
+        noOfGamesPlayed.setLayoutY(286);
         noOfGamesPlayed.setFont(Font.font ("Blissful Thinking", 35));
         root.getChildren().add(noOfGamesPlayed);
 
@@ -33,7 +33,7 @@ public class GameStatsMenu extends Application {
         HighScore.setX(335);
         HighScore.setStroke(Color.WHITE);
         HighScore.setFill(Color.WHITE);
-        HighScore.setLayoutY(306);
+        HighScore.setLayoutY(336);
         HighScore.setFont(Font.font ("Blissful Thinking", 35));
         root.getChildren().add(HighScore);
 
@@ -42,7 +42,7 @@ public class GameStatsMenu extends Application {
         TotalStars.setX(335);
         TotalStars.setStroke(Color.WHITE);
         TotalStars.setFill(Color.WHITE);
-        TotalStars.setLayoutY(356);
+        TotalStars.setLayoutY(386);
         TotalStars.setFont(Font.font ("Blissful Thinking", 35));
         root.getChildren().add(TotalStars);
 

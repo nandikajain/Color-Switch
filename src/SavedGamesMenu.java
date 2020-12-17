@@ -51,6 +51,7 @@ public class SavedGamesMenu extends Application {
         if(x==1) {
             gameLabelArrayList.get(0).setOnMouseClicked(e -> {
                 Game game = new Game(savedGamesList.get(0));
+                savedGamesList.remove(0);
                 try {
                     game.start(stage);
                 } catch (Exception exception) {
@@ -62,6 +63,7 @@ public class SavedGamesMenu extends Application {
         else if(x==2) {
             gameLabelArrayList.get(0).setOnMouseClicked(e -> {
                 Game game = new Game(savedGamesList.get(0));
+                savedGamesList.remove(0);
                 try {
                     game.start(stage);
                 } catch (Exception exception) {
@@ -71,6 +73,7 @@ public class SavedGamesMenu extends Application {
             });
             gameLabelArrayList.get(1).setOnMouseClicked(e -> {
                 Game game = new Game(savedGamesList.get(1));
+                savedGamesList.remove(1);
                 try {
                     game.start(stage);
                 } catch (Exception exception) {
@@ -82,6 +85,7 @@ public class SavedGamesMenu extends Application {
         else if(x==3) {
             gameLabelArrayList.get(0).setOnMouseClicked(e -> {
                 Game game = new Game(savedGamesList.get(0));
+                savedGamesList.remove(0);
                 try {
                     game.start(stage);
                 } catch (Exception exception) {
@@ -91,6 +95,7 @@ public class SavedGamesMenu extends Application {
             });
             gameLabelArrayList.get(1).setOnMouseClicked(e -> {
                 Game game = new Game(savedGamesList.get(1));
+                savedGamesList.remove(1);
                 try {
                     game.start(stage);
                 } catch (Exception exception) {
@@ -100,6 +105,7 @@ public class SavedGamesMenu extends Application {
             });
             gameLabelArrayList.get(2).setOnMouseClicked(e -> {
                 Game game = new Game(savedGamesList.get(2));
+                savedGamesList.remove(2);
                 try {
                     game.start(stage);
                 } catch (Exception exception) {
@@ -111,6 +117,7 @@ public class SavedGamesMenu extends Application {
         else if(x==4) {
             gameLabelArrayList.get(0).setOnMouseClicked(e -> {
                 Game game = new Game(savedGamesList.get(0));
+                savedGamesList.remove(0);
                 try {
                     game.start(stage);
                 } catch (Exception exception) {
@@ -120,6 +127,7 @@ public class SavedGamesMenu extends Application {
             });
             gameLabelArrayList.get(1).setOnMouseClicked(e -> {
                 Game game = new Game(savedGamesList.get(1));
+                savedGamesList.remove(1);
                 try {
                     game.start(stage);
                 } catch (Exception exception) {
@@ -129,6 +137,7 @@ public class SavedGamesMenu extends Application {
             });
             gameLabelArrayList.get(2).setOnMouseClicked(e -> {
                 Game game = new Game(savedGamesList.get(2));
+                savedGamesList.remove(2);
                 try {
                     game.start(stage);
                 } catch (Exception exception) {
@@ -138,6 +147,7 @@ public class SavedGamesMenu extends Application {
             });
             gameLabelArrayList.get(3).setOnMouseClicked(e -> {
                 Game game = new Game(savedGamesList.get(3));
+                savedGamesList.remove(3);
                 try {
                     game.start(stage);
                 } catch (Exception exception) {

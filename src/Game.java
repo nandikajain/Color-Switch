@@ -107,7 +107,7 @@ public class Game extends Application implements Screen, Serializable {
         stage.show();
         //addBall(true);
         if(extralife){
-            ball.positionY+=50;
+            ball.positionY+=100;
         }
         mouseClick = false;
         clickedOnce = false;
@@ -345,7 +345,11 @@ public class Game extends Application implements Screen, Serializable {
                 //}
             }
         };
-        gameLoop.start();
+        scene.setOnKeyPressed(e->{
+            if(e.getCode()==KeyCode.S){
+                gameLoop.start();
+            }
+        });
     }
     private void collectStars()
     {
