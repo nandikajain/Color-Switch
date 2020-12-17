@@ -5,13 +5,12 @@ import javafx.stage.Stage;
 
 public class GameInstructionsMenuController {
 
-    public Circle InstructionsButton;
+    public Circle MenuButton;
 
     @FXML
-    public void onInstructionsButtonClick(MouseEvent mouseEvent) throws Exception {
-        Stage stage = (Stage) InstructionsButton.getScene().getWindow();
+    public void onMenuButtonClick(MouseEvent mouseEvent) throws Exception {
+        Stage stage = (Stage) MenuButton.getScene().getWindow();
         MainMenu mainMenu = new MainMenu();
         mainMenu.start(stage);
     }
-
 }

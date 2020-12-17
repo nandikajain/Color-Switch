@@ -31,7 +31,7 @@
             <Font name="Blissful Thinking" size="32.0" />
          </font>
       </Text>
-      <Text fill="#ff0181" layoutX="70.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TOTAL STARS:">
+      <Text fill="#ff0181" layoutX="70.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TOTAL STARS:">
          <font>
             <Font name="Blissful Thinking" size="32.0" />
          </font>
@@ -46,7 +46,7 @@
             <Font name="Blissful Thinking" size="35.0" />
          </font>
       </Label>
-      <Label layoutX="335.0" layoutY="360.0" text="453" textFill="WHITE">
+      <Label layoutX="335.0" layoutY="356.0" text="453" textFill="WHITE">
          <font>
             <Font name="Blissful Thinking" size="35.0" />
          </font>
