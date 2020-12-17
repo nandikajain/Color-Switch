@@ -127,6 +127,8 @@ public class Game extends Application implements Screen, Serializable {
     }
 
     private void endGame() throws Exception {
+        long time = System.currentTimeMillis();
+        //while(System.currentTimeMillis()-time<1500);
         gamePause = true;
         gameLoop.stop();
         pausedScene = scene;
@@ -264,7 +266,7 @@ public class Game extends Application implements Screen, Serializable {
                         }
                     });*/
                 scene.setOnKeyPressed(e->{
-                    if(e.getCode()==KeyCode.SPACE){
+                    if(e.getCode()==KeyCode.UP){
                         mouseClick = true;
                     }
                     else if(e.getCode()==KeyCode.P){

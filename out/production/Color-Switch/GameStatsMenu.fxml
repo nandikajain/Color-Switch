@@ -36,21 +36,6 @@
             <Font name="Blissful Thinking" size="32.0" />
          </font>
       </Text>
-      <Label layoutX="335.0" layoutY="256.0" text="453" textFill="WHITE">
-         <font>
-            <Font name="Blissful Thinking" size="35.0" />
-         </font>
-      </Label>
-      <Label layoutX="335.0" layoutY="306.0" text="453" textFill="WHITE">
-         <font>
-            <Font name="Blissful Thinking" size="35.0" />
-         </font>
-      </Label>
-      <Label layoutX="335.0" layoutY="356.0" text="453" textFill="WHITE">
-         <font>
-            <Font name="Blissful Thinking" size="35.0" />
-         </font>
-      </Label>
       <Circle fx:id="MenuButton" fill="#555555" layoutX="70.0" layoutY="95.0" onMouseClicked="#onMenuButtonClick" radius="48.0" stroke="#555555" strokeType="INSIDE">
          <cursor>
             <Cursor fx:constant="HAND" />
