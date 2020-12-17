@@ -41,6 +41,7 @@ public class Ball implements Serializable {
         this.view = circle;
         layer.getChildren().add(view);
         circle.setLayoutY(positionY);
+        this.display();
     }
 
     public void applyForce() {

@@ -54,6 +54,7 @@ public class Game extends Application implements Screen, Serializable {
     transient boolean savedGameContinue = false;
     transient double savedBallPositionY;
     transient Color savedBallColor;
+    transient boolean zenMode = false;
 
     transient String jumpSoundFile = "sounds/jump.wav";
     transient Media jumpSound;
@@ -74,6 +75,10 @@ public class Game extends Application implements Screen, Serializable {
     transient String collisionSoundFile = "sounds/error.wav";
     transient Media collisionSound;
     transient MediaPlayer collisionSoundPlayer;
+
+    transient String zenSoundFile = "sounds/zen.wav";
+    transient Media zenSound;
+    transient MediaPlayer zenSoundPlayer;
 
     public Game (Game prevGame){
         obstacles = new ArrayList<>(prevGame.obstacles);
@@ -155,7 +160,6 @@ public class Game extends Application implements Screen, Serializable {
                 //tested
                 ball.setPositionY(ball.getPositionY()+155);
             }
-
             ball.display();
         }
         mouseClick = false;
@@ -209,6 +213,7 @@ public class Game extends Application implements Screen, Serializable {
         primaryStage.setTitle("Color Switch");
         gameScore = new Text();
         if(savedGameContinue){
+            noOfStars-=2;
             gameScore.setText(String.valueOf(noOfStars));
         }
         else {
@@ -302,6 +307,7 @@ public class Game extends Application implements Screen, Serializable {
             double y = 500;
             ball = new Ball(layer, y, Color.RED);
         }
+        ball.display();
     }
 
     public void startGame() throws Exception{
@@ -320,6 +326,12 @@ public class Game extends Application implements Screen, Serializable {
                             exception.printStackTrace();
                         }
                     }
+                    else if(e.getCode()==KeyCode.Q){
+                        zenMode = true;
+                        zenSound = new Media(new File(zenSoundFile).toURI().toString());
+                        zenSoundPlayer = new MediaPlayer(zenSound);
+                        zenSoundPlayer.play();
+                    }
                 });
                 playfield.setOnMouseClicked(e -> {
                     try{
@@ -332,18 +344,20 @@ public class Game extends Application implements Screen, Serializable {
                     if (!clickedOnce) {
                         time = System.currentTimeMillis();
                         clickedOnce = true;
-                        jumpSound = new Media(new File(jumpSoundFile).toURI().toString());
-                        jumpSoundPlayer = new MediaPlayer(jumpSound);
-                        jumpSoundPlayer.play();
+                        if(!zenMode) {
+                            jumpSound = new Media(new File(jumpSoundFile).toURI().toString());
+                            jumpSoundPlayer = new MediaPlayer(jumpSound);
+                            jumpSoundPlayer.play();
+                        }
                     }
                     ball.userMove();
                     boolean status = checkCollision();
-                    if (status) {
+                    if (status && !zenMode) {
                         try {
                             collisionSound = new Media(new File(collisionSoundFile).toURI().toString());
                             collisionSoundPlayer = new MediaPlayer(collisionSound);
                             collisionSoundPlayer.play();
-                                endGame();
+                            endGame();
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -361,7 +375,7 @@ public class Game extends Application implements Screen, Serializable {
                     ball.applyForce();
                     ball.move();
                     boolean status1 = checkCollision();
-                    if (status1) {
+                    if (status1 && !zenMode) {
                         try {
                             collisionSound = new Media(new File(collisionSoundFile).toURI().toString());
                             collisionSoundPlayer = new MediaPlayer(collisionSound);
@@ -375,7 +389,7 @@ public class Game extends Application implements Screen, Serializable {
                     ball.checkBottom();
                     if (gameMoving) {
                         boolean status2 = ball.isBottom();
-                        if (status2) {
+                        if (status2 && !zenMode) {
                             try {
                                 collisionSound = new Media(new File(collisionSoundFile).toURI().toString());
                                 collisionSoundPlayer = new MediaPlayer(collisionSound);
@@ -412,17 +426,21 @@ public class Game extends Application implements Screen, Serializable {
                 score++;
                 if(starList.get(j).getImagePath().equals("file:./assets/golden-star.PNG"))
                 {
-                    gsSound = new Media(new File(gsSoundFile).toURI().toString());
-                    gsSoundPlayer = new MediaPlayer(gsSound);
-                    gsSoundPlayer.play();
+                    if(!zenMode) {
+                        gsSound = new Media(new File(gsSoundFile).toURI().toString());
+                        gsSoundPlayer = new MediaPlayer(gsSound);
+                        gsSoundPlayer.play();
+                    }
                     starList.get(j).getStarImg().setImage(null);
                     starList.get(j).setHasCollected(true);
                     handleGoldenStars();
                 }
                 else{
-                    starSound = new Media(new File(starSoundFile).toURI().toString());
-                    starSoundPlayer = new MediaPlayer(starSound);
-                    starSoundPlayer.play();
+                    if(!zenMode) {
+                        starSound = new Media(new File(starSoundFile).toURI().toString());
+                        starSoundPlayer = new MediaPlayer(starSound);
+                        starSoundPlayer.play();
+                    }
                     starList.get(j).getStarImg().setImage(null);
                     starList.get(j).setHasCollected(true);
                     noOfStars++;
@@ -462,9 +480,11 @@ public class Game extends Application implements Screen, Serializable {
         {
             if(colorSwitchers.get(j).getLocation()>=ball.getLocationCollision() && !colorSwitchers.get(j).isHasCollected())
             {
-                csSound = new Media(new File(csSoundFile).toURI().toString());
-                csSoundPlayer = new MediaPlayer(csSound);
-                csSoundPlayer.play();
+                if(!zenMode) {
+                    csSound = new Media(new File(csSoundFile).toURI().toString());
+                    csSoundPlayer = new MediaPlayer(csSound);
+                    csSoundPlayer.play();
+                }
                 colorSwitchers.get(j).getStarImg().setImage(null);
                 colorSwitchers.get(j).setHasCollected(true);
                 colorSwitchers.get(j).changeColor(ball);
