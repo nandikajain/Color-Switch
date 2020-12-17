@@ -213,7 +213,12 @@ public class Game extends Application implements Screen, Serializable {
         primaryStage.setTitle("Color Switch");
         gameScore = new Text();
         if(savedGameContinue){
-            noOfStars-=2;
+            if(noOfStars<1){
+                noOfStars-=1;
+            }
+            else {
+                noOfStars -= 2;
+            }
             gameScore.setText(String.valueOf(noOfStars));
         }
         else {
