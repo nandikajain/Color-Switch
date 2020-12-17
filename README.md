@@ -1,5 +1,19 @@
-## Color Switch AP Project
+# Color Switch
 
-Implement the Endless Classic Mode of the hit mobile game Color Switch.
+**Created by:
+[Ansh Arora](https://github.com/arora-ansh) and [Nandika Jain](https://www.github.com/nandikajain)**
 
---module-path "C:\Users\Nandika\Desktop\openjfx-15.0.1_windows-x64_bin-sdk\javafx-sdk-15.0.1\lib" --add-modules javafx.controls,javafx.fxml --add-modules javafx.controls,javafx.media
+<description>
+
+### Dependencies
+
+### How to play
+
+### Features
+
+### Screenshots from the game
+
+### Working demo
+
+
+
