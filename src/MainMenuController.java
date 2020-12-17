@@ -15,6 +15,7 @@ import java.util.ResourceBundle;
 public class MainMenuController implements Initializable {
 
     public ImageView playButton;
+    public ImageView statsButton;
     public Button savedGamesButton;
     public Button muteButton;
     public Button exitButton;
@@ -45,7 +46,12 @@ public class MainMenuController implements Initializable {
         SavedGamesMenu savedGamesMenu = new SavedGamesMenu();
         savedGamesMenu.start(stage);
     }
-
+    @FXML
+    public void onStatsButtonClicked(MouseEvent mouseEvent) throws Exception {
+        Stage stage = (Stage) statsButton.getScene().getWindow();
+        GameStatsMenu statsMenu= new GameStatsMenu();
+        statsMenu.start(stage);
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         savedGamesButton.setStyle(sg_IDLE_BUTTON_STYLE);

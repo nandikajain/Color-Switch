@@ -49,5 +49,13 @@
             <Font name="Blissful Thinking" size="17.0" />
          </font>
       </Button>
+      <ImageView fx:id="statsButton" fitHeight="60.0" fitWidth="68.0" layoutX="419.0" layoutY="585.0" onMouseClicked="#onStatsButtonClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:./assets/game-stats-image.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
    </children>
 </AnchorPane>
