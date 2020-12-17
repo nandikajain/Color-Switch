@@ -5,10 +5,13 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
 import java.awt.*;
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -25,6 +28,14 @@ public class MainMenuController implements Initializable {
     private static final String e_IDLE_BUTTON_STYLE = "-fx-background-color: #272727; -fx-border-width: 4; -fx-border-color: #900dff;";
     private static final String e_HOVERED_BUTTON_STYLE = "-fx-background-color: #900dff; -fx-border-width: 4; -fx-border-color: #900dff;";
 
+    String buttonSoundFile = "sounds/button.wav";
+    Media buttonSound;
+    MediaPlayer buttonSoundPlayer;
+
+    String playButtonSoundFile = "sounds/start.wav";
+    Media playButtonSound;
+    MediaPlayer playButtonSoundPlayer;
+
     @FXML
     public void onExitClicked(){
         System.exit(1);
@@ -35,7 +46,10 @@ public class MainMenuController implements Initializable {
 
     @FXML
     public void onPlayButtonClicked(MouseEvent mouseEvent) throws Exception {
-        MainMenu.getInstance().backgroundSoundPause();
+        MainMenu.getInstance().backgroundSoundStop();
+        playButtonSound = new Media(new File(playButtonSoundFile).toURI().toString());
+        playButtonSoundPlayer = new MediaPlayer(playButtonSound);
+        playButtonSoundPlayer.play();
         Stage stage = (Stage) playButton.getScene().getWindow();
         Game game = new Game();
         game.start(stage);
@@ -64,10 +78,20 @@ public class MainMenuController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         savedGamesButton.setStyle(sg_IDLE_BUTTON_STYLE);
-        savedGamesButton.setOnMouseEntered(e -> savedGamesButton.setStyle(sg_HOVERED_BUTTON_STYLE));
+        savedGamesButton.setOnMouseEntered(e -> {
+            savedGamesButton.setStyle(sg_HOVERED_BUTTON_STYLE);
+            buttonSound = new Media(new File(buttonSoundFile).toURI().toString());
+            buttonSoundPlayer = new MediaPlayer(buttonSound);
+            buttonSoundPlayer.play();
+        });
         savedGamesButton.setOnMouseExited(e -> savedGamesButton.setStyle(sg_IDLE_BUTTON_STYLE));
         exitButton.setStyle(e_IDLE_BUTTON_STYLE);
-        exitButton.setOnMouseEntered(e -> exitButton.setStyle(e_HOVERED_BUTTON_STYLE));
+        exitButton.setOnMouseEntered(e -> {
+            exitButton.setStyle(e_HOVERED_BUTTON_STYLE);
+            buttonSound = new Media(new File(buttonSoundFile).toURI().toString());
+            buttonSoundPlayer = new MediaPlayer(buttonSound);
+            buttonSoundPlayer.play();
+        });
         exitButton.setOnMouseExited(e -> exitButton.setStyle(e_IDLE_BUTTON_STYLE));
     }
 

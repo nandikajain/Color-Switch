@@ -89,14 +89,15 @@ public class MainMenu extends Application implements Serializable {
         primaryStage.setScene(new Scene(mainMenuPane,500, 650));
         backgroundSound = new Media(new File(backgroundSoundFile).toURI().toString());
         backgroundSoundPlayer = new MediaPlayer(backgroundSound);
-        backgroundSoundPlayer.setVolume(0.2);
+        backgroundSoundPlayer.setVolume(0.05);
         backgroundSoundPlayer.play();
         backgroundSoundPause = false;
         primaryStage.show();
-        System.out.println(savedGames.size());
+        //saveState();
+        //System.out.println(savedGames.size());
         loadState();
-        System.out.println(savedGames.size());
-        System.out.println(savedGames.get(0).getNoOfStars());
+        //System.out.println(savedGames.size());
+        //System.out.println(savedGames.get(0).getNoOfStars());
         //System.out.println(savedGames.get(1).getNoOfStars());
         /* This serialization is working fine
         loadState();
@@ -117,6 +118,10 @@ public class MainMenu extends Application implements Serializable {
             backgroundSoundPause = false;
             return false;
         }
+    }
+
+    public void backgroundSoundStop(){
+        backgroundSoundPlayer.pause();
     }
 
     public static MainMenu getInstance(){

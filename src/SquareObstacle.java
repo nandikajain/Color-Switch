@@ -22,7 +22,7 @@ public class SquareObstacle extends Obstacle implements Serializable {
     double speed;
 
     public SquareObstacle(double cX, double cY, double l, boolean rot, double s) {
-        shapes = new ArrayList<Shape>();
+
         centerX = cX;
         centerY = cY;
         length = l;
@@ -40,6 +40,7 @@ public class SquareObstacle extends Obstacle implements Serializable {
 
     @Override
     public Group generateObstacle() {
+        shapes = new ArrayList<Shape>();
         Group group= new Group();
         //Square Obstacle Creation
         double temp = length/2;

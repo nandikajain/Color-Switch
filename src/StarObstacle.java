@@ -24,7 +24,7 @@ public class StarObstacle extends Obstacle implements Serializable {
     public StarObstacle(double cX, double cY, double l, boolean isR, double s)
     {
         speed= s;
-        shapes = new ArrayList<Shape>();
+
         centerX = cX;
         centerY = cY;
         length = l;
@@ -42,6 +42,7 @@ public class StarObstacle extends Obstacle implements Serializable {
     @Override
     public Group generateObstacle()
     {
+        shapes = new ArrayList<Shape>();
         Group group= new Group();
         //Star Obstacle Creation
         LineComponent l1 = new LineComponent(centerX, centerY, centerX, centerY-length,Color.CYAN, 17 );

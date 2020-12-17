@@ -23,7 +23,7 @@ public class TwoAdjacentCircles extends Obstacle implements Serializable {
     public TwoAdjacentCircles(double centerXa, double centerYa, double rA, double rB, double s)
     {
         speed = s;
-        shapes = new ArrayList<Shape>();
+
         centerX = centerXa;
         centerY = centerYa;
         radiusA = rA;
@@ -41,6 +41,7 @@ public class TwoAdjacentCircles extends Obstacle implements Serializable {
     @Override
     public Group generateObstacle()
     {
+        shapes = new ArrayList<Shape>();
         Group group = new Group();
         Group g1 = new Group();
         //Circle Obstacle Creation

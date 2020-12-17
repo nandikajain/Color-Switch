@@ -22,7 +22,7 @@ public class TwoAdjacentStars extends Obstacle implements Serializable {
     public TwoAdjacentStars(double Xa, double cY,  double len, double s)
     {
         speed = s;
-        shapes= new ArrayList<Shape>();
+
         centerXa= Xa;
         centerXb= Xa+ 2*len;
         centerY= cY;
@@ -40,6 +40,7 @@ public class TwoAdjacentStars extends Obstacle implements Serializable {
     @Override
     public Group generateObstacle()
     {
+        shapes= new ArrayList<Shape>();
         Group group = new Group();
        // StarObstacle s1= new StarObstacle(centerXa, centerY, length, false);
         //Group g1= s1.generateObstacle();

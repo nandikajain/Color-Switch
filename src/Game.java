@@ -8,11 +8,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.shape.Shape;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.Serializable;
 import java.util.Random;
 import java.util.Timer;
@@ -47,8 +50,36 @@ public class Game extends Application implements Screen, Serializable {
 
     transient private Timer clock;
 
-    public Game (Game prevGame){
+    transient boolean savedGameContinue = false;
+    transient double savedBallPositionY;
+    transient Color savedBallColor;
 
+    transient String jumpSoundFile = "sounds/jump.wav";
+    transient Media jumpSound;
+    transient MediaPlayer jumpSoundPlayer;
+
+    transient String starSoundFile = "sounds/star.wav";
+    transient Media starSound;
+    transient MediaPlayer starSoundPlayer;
+
+    transient String csSoundFile = "sounds/colorswitch.wav";
+    transient Media csSound;
+    transient MediaPlayer csSoundPlayer;
+
+    transient String gsSoundFile = "sounds/dead.wav";
+    transient Media gsSound;
+    transient MediaPlayer gsSoundPlayer;
+
+    public Game (Game prevGame){
+        obstacles = new ArrayList<>(prevGame.obstacles);
+        starList = new ArrayList<Star>();
+        colorSwitchers = new ArrayList<>();
+        noOfStars = prevGame.noOfStars;
+        savedBallPositionY = prevGame.ball.positionY;
+        savedBallColor = prevGame.ball.ballColor;
+        gameMoving = false;
+        gamePause = false;
+        savedGameContinue = true;
     }
 
     public Game(){
@@ -108,7 +139,12 @@ public class Game extends Application implements Screen, Serializable {
         gamePane = FXMLLoader.load(getClass().getResource("Game.fxml"));
         primaryStage.setTitle("Color Switch");
         gameScore = new Text();
-        gameScore.setText("0");
+        if(savedGameContinue){
+            gameScore.setText(String.valueOf(noOfStars));
+        }
+        else {
+            gameScore.setText("0");
+        }
         gameScore.setX(21);
         gameScore.setStroke(Color.WHITE);
         gameScore.setFill(Color.WHITE);
@@ -116,15 +152,17 @@ public class Game extends Application implements Screen, Serializable {
         gameScore.setFont((new Font(50)));
         gamePane.getChildren().add(gameScore);
 
-        obstacles.add(new CircleObstacle(250, 340, 70, false, 4000));
-        obstacles.add(new TwoAdjacentStars(175, 90, 75, 4000));
-        obstacles.add(new SquareObstacle(250,-235,120, false, 4000));
-        obstacles.add(new TwoEqualCircles(250,-545,70,82,4000));
-        obstacles.add(new LineObstacle(-770));
-        obstacles.add(new ThreeEqualCircles(250,-1050,70,82, 94, 4000 ));
-        obstacles.add(new RhombusObstacle(250,-1400,140, false, 4000));
-        obstacles.add(new TwoAdjacentCircles(175, -1700, 75,80, 11000));
-        obstacles.add(new StarObstacle(330, -1950, 90, false, 4000));
+        if(!savedGameContinue) {
+            obstacles.add(new CircleObstacle(250, 340, 70, false, 4000));
+            obstacles.add(new TwoAdjacentStars(175, 90, 75, 4000));
+            obstacles.add(new SquareObstacle(250, -235, 120, false, 4000));
+            obstacles.add(new TwoEqualCircles(250, -545, 70, 82, 4000));
+            obstacles.add(new LineObstacle(-770));
+            obstacles.add(new ThreeEqualCircles(250, -1050, 70, 82, 94, 4000));
+            obstacles.add(new RhombusObstacle(250, -1400, 140, false, 4000));
+            obstacles.add(new TwoAdjacentCircles(175, -1700, 75, 80, 11000));
+            obstacles.add(new StarObstacle(330, -1950, 90, false, 4000));
+        }
 
         for(int i=0; i<obstacles.size(); i++)
         {
@@ -179,7 +217,7 @@ public class Game extends Application implements Screen, Serializable {
         scene = new Scene(gamePane, 500, 650);
         primaryStage.setScene(scene);
         primaryStage.show();
-        addBall(false);
+        addBall(savedGameContinue);
         startGame();
         stage = primaryStage;
     }
@@ -187,8 +225,8 @@ public class Game extends Application implements Screen, Serializable {
     public void addBall(boolean resuming){
         Pane layer = playfield;
         if(resuming){
-            double y = pausedBall.getPositionY();
-            ball = new Ball(layer,y,pausedBall.getBallColor());
+            double y = savedBallPositionY;
+            ball = new Ball(layer,y,savedBallColor);
         }
         else {
             double y = 500;
@@ -212,79 +250,82 @@ public class Game extends Application implements Screen, Serializable {
                             }
                         }
                     });*/
-                    scene.setOnKeyPressed(e->{
-                        if(e.getCode()==KeyCode.SPACE){
-                            mouseClick = true;
-                        }
-                        else if(e.getCode()==KeyCode.P){
-                            try{
-                                pauseGame();
-                            } catch(Exception exception){
-                                exception.printStackTrace();
-                            }
-                        }
-                    });
-                    playfield.setOnMouseClicked(e -> {
+                scene.setOnKeyPressed(e->{
+                    if(e.getCode()==KeyCode.SPACE){
+                        mouseClick = true;
+                    }
+                    else if(e.getCode()==KeyCode.P){
                         try{
                             pauseGame();
                         } catch(Exception exception){
                             exception.printStackTrace();
                         }
-                    });
-                    if (mouseClick) {
-                        if (!clickedOnce) {
-                            time = System.currentTimeMillis();
-                            clickedOnce = true;
-                        }
-                        ball.userMove();
-                        boolean status = checkCollision();
-                        if (status) {
-                            try {
+                    }
+                });
+                playfield.setOnMouseClicked(e -> {
+                    try{
+                        pauseGame();
+                    } catch(Exception exception){
+                        exception.printStackTrace();
+                    }
+                });
+                if (mouseClick) {
+                    if (!clickedOnce) {
+                        time = System.currentTimeMillis();
+                        clickedOnce = true;
+                        jumpSound = new Media(new File(jumpSoundFile).toURI().toString());
+                        jumpSoundPlayer = new MediaPlayer(jumpSound);
+                        jumpSoundPlayer.play();
+                    }
+                    ball.userMove();
+                    boolean status = checkCollision();
+                    if (status) {
+                        try {
 //                                endGame();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        //System.out.println("Collided");
+                    }
+                    collectStars();
+                    switchColor();
+
+                    if (ball.getLocation() < 300) {
+                        gameMoving = true;
+                        moveContentsDown();
+                        //move the contents of arraylist down
+                    }
+                } else {
+                    ball.applyForce();
+                    ball.move();
+                    boolean status1 = checkCollision();
+                    if (status1) {
+                        try {
+//                                endGame();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        // System.out.println("Collided");
+                    }
+                    ball.checkBottom();
+                    if (gameMoving) {
+                        boolean status2 = ball.isBottom();
+                        if (status2) {
+                            try {
+//                                  endGame();
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
-                            //System.out.println("Collided");
+                            //   System.out.println("Collided");
                         }
-                        collectStars();
-                        switchColor();
-
-                        if (ball.getLocation() < 300) {
-                            gameMoving = true;
-                            moveContentsDown();
-                            //move the contents of arraylist down
-                        }
-                    } else {
-                        ball.applyForce();
-                        ball.move();
-                        boolean status1 = checkCollision();
-                        if (status1) {
-                            try {
-//                                endGame();
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                           // System.out.println("Collided");
-                        }
-                        ball.checkBottom();
-                        if (gameMoving) {
-                            boolean status2 = ball.isBottom();
-                            if (status2) {
-                                try {
-//                                    endGame();
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                             //   System.out.println("Collided");
-                            }
-                        }
-
                     }
-                    ball.display();
-                    if (mouseClick && System.currentTimeMillis() - time > 70) {
-                        mouseClick = false;
-                        clickedOnce = false;
-                    }
+
+                }
+                ball.display();
+                if (mouseClick && System.currentTimeMillis() - time > 70) {
+                    mouseClick = false;
+                    clickedOnce = false;
+                }
                 //}
             }
         };
@@ -298,11 +339,17 @@ public class Game extends Application implements Screen, Serializable {
             {
                 if(starList.get(j).getImagePath().equals("file:./assets/golden-star.PNG"))
                 {
+                    gsSound = new Media(new File(gsSoundFile).toURI().toString());
+                    gsSoundPlayer = new MediaPlayer(gsSound);
+                    gsSoundPlayer.play();
                     starList.get(j).getStarImg().setImage(null);
                     starList.get(j).setHasCollected(true);
                     handleGoldenStars();
                 }
                 else{
+                    starSound = new Media(new File(starSoundFile).toURI().toString());
+                    starSoundPlayer = new MediaPlayer(starSound);
+                    starSoundPlayer.play();
                     starList.get(j).getStarImg().setImage(null);
                     starList.get(j).setHasCollected(true);
                     noOfStars++;
@@ -316,7 +363,7 @@ public class Game extends Application implements Screen, Serializable {
     {
         Random random = new Random();
         int int_random = random.nextInt(3)+2;
-       // System.out.println(int_random);
+        // System.out.println(int_random);
         noOfStars+=int_random;
     }
 
@@ -343,6 +390,9 @@ public class Game extends Application implements Screen, Serializable {
         {
             if(colorSwitchers.get(j).getLocation()>=ball.getLocationCollision() && !colorSwitchers.get(j).isHasCollected())
             {
+                csSound = new Media(new File(csSoundFile).toURI().toString());
+                csSoundPlayer = new MediaPlayer(csSound);
+                csSoundPlayer.play();
                 colorSwitchers.get(j).getStarImg().setImage(null);
                 colorSwitchers.get(j).setHasCollected(true);
                 colorSwitchers.get(j).changeColor(ball);

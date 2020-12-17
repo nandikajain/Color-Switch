@@ -27,7 +27,7 @@ public class CircleObstacle extends Obstacle implements Serializable {
     public CircleObstacle(double X, double Y, double r, boolean rot , double s)
     {
         speed =s;
-        shapes= new ArrayList<Shape>();
+
         centerX=X;
         centerY=Y;
         radius=r;
@@ -44,6 +44,7 @@ public class CircleObstacle extends Obstacle implements Serializable {
     @Override
     public Group generateObstacle()
     {
+        shapes= new ArrayList<Shape>();
         Group group = new Group();
         //Circle Obstacle Creation
         ArcComponent a1= new ArcComponent(centerX, centerY, radius, radius, 0, 90, Color.YELLOW, 10);

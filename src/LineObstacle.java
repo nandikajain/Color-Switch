@@ -17,12 +17,12 @@ public class LineObstacle extends Obstacle implements Serializable {
     //Change values here in order to get line obstacles with different parameters
     public LineObstacle(double cY)
         {
-            shapes= new ArrayList<Shape>();
             centerY = cY;
         }
 
     @Override
     public Group generateObstacle() {
+        shapes= new ArrayList<Shape>();
         Group group = new Group();
         //Line Obstacle Creation
         LineComponent l1 = new LineComponent(0, centerY, 100, centerY, Color.CYAN, 15);

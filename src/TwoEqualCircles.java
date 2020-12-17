@@ -23,12 +23,11 @@ public class TwoEqualCircles extends Obstacle implements Serializable {
 
     public TwoEqualCircles(double cX, double cY, double radius1, double radius2, double s)
     {
-        speed = s;
-        shapes= new ArrayList<Shape>();
         centerX=cX;
         centerY= cY;
         r1= radius1;
         r2= radius2;
+        speed = s;
     }
 
     public double getSpeed() {
@@ -41,6 +40,7 @@ public class TwoEqualCircles extends Obstacle implements Serializable {
 
     @Override
     public Group generateObstacle(){
+        shapes= new ArrayList<Shape>();
         Group group= new Group();
 
         Group g1 = new Group();

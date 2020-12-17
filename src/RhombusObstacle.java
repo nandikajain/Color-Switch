@@ -20,7 +20,7 @@ public class RhombusObstacle extends Obstacle implements Serializable {
         transient ArrayList<Shape> shapes;
         transient Line line1, line2, line3, line4;
         public RhombusObstacle(double cX, double cY, double l, boolean rot , double s) {
-                shapes= new ArrayList<Shape>();
+
                 centerX = cX;
                 centerY = cY;
                 length = l;
@@ -38,6 +38,7 @@ public class RhombusObstacle extends Obstacle implements Serializable {
 
         @Override
         public Group generateObstacle() {
+                shapes= new ArrayList<Shape>();
                 Group group= new Group();
                 double temp1= (Math.sqrt(3) / (double) 2) * (double) length;
                 double temp2= length/2;
