@@ -41,6 +41,7 @@ public class GameEndMenu extends Application {
         System.out.println("Total stars"+ totalStars);
         if(totalStars>=50)
         {
+            MainMenu.getInstance().setTotalStars(totalStars - 50);
             return true;
         }
 
