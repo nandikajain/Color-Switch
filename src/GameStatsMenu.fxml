@@ -30,21 +30,7 @@
             <Font name="Calibri Bold" size="26.0" />
          </font>
       </Text>
-      <Text fill="#e50000" layoutX="216.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5">
-         <font>
-            <Font name="Calibri Bold" size="27.0" />
-         </font>
-      </Text>
-      <Text fill="#e50000" layoutX="252.0" layoutY="399.0" strokeType="OUTSIDE" strokeWidth="0.0" text="11">
-         <font>
-            <Font name="Calibri Bold" size="27.0" />
-         </font>
-      </Text>
-      <Text fill="#e50000" layoutX="260.0" layoutY="512.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25">
-         <font>
-            <Font name="Calibri Bold" size="27.0" />
-         </font>
-      </Text>
+
       <Circle fill="#999999" fx:id="MenuButton" layoutX="64.0" layoutY="71.0" radius="43.0" onMouseClicked="#onMenuButtonClick" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" >
          <cursor>
             <Cursor fx:constant="HAND" />

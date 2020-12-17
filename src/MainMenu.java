@@ -19,9 +19,9 @@ public class MainMenu extends Application implements Serializable {
 
     private final static long serialVersionUID = 65621354;
 
-    int totalStars = 5;
-    int highScore = 0;
-
+    int totalStars=0;
+    int highScore=0;
+    int noOfGamesPlayed=0;
 
     public int getHighScore() {
         return highScore;
@@ -31,6 +31,13 @@ public class MainMenu extends Application implements Serializable {
         this.highScore = highScore;
     }
 
+    public int getNoOfGamesPlayed() {
+        return noOfGamesPlayed;
+    }
+
+    public void setNoOfGamesPlayed(int noOfGamesPlayed) {
+        this.noOfGamesPlayed = noOfGamesPlayed;
+    }
     ArrayList<Game> savedGames;
 
     transient private static MainMenu mainMenu;
@@ -139,6 +146,8 @@ public class MainMenu extends Application implements Serializable {
             fileInputStream.close();
             this.setTotalStars(x.getTotalStars());
             this.savedGames = new ArrayList<>(x.savedGames);
+            this.setHighScore(x.getHighScore());
+            this.setNoOfGamesPlayed(x.getNoOfGamesPlayed());
             //this.setTotalStars(x.getTotalStars());
             //System.out.println(x.getTotalStars());
         } catch (IOException e) {
