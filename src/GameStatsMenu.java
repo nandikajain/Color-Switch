@@ -20,30 +20,30 @@ public class GameStatsMenu extends Application {
         AnchorPane root = FXMLLoader.load(getClass().getResource("GameStatsMenu.fxml"));
 
         noOfGamesPlayed = new Text();
-   //     noOfGamesPlayed.setText(""+ MainMenu.getInstance().getNoOfGamesPlayed());
-        noOfGamesPlayed.setX(216);
-        noOfGamesPlayed.setStroke(Paint.valueOf("#e50000"));
-        noOfGamesPlayed.setFill(Paint.valueOf("#e50000"));
-        noOfGamesPlayed.setLayoutY(302);
-        noOfGamesPlayed.setFont(Font.font ("Calibri Bold", 27));
+        noOfGamesPlayed.setText(""+ MainMenu.getInstance().getNoOfGamesPlayed());
+        noOfGamesPlayed.setX(335);
+        noOfGamesPlayed.setStroke(Color.WHITE);
+        noOfGamesPlayed.setFill(Color.WHITE);
+        noOfGamesPlayed.setLayoutY(256);
+        noOfGamesPlayed.setFont(Font.font ("Blissful Thinking", 35));
         root.getChildren().add(noOfGamesPlayed);
 
         HighScore = new Text();
-     //   HighScore.setText(""+ MainMenu.getInstance().getHighScore());
-        HighScore.setX(252);
-        HighScore.setStroke(Paint.valueOf("#e50000"));
-        HighScore.setFill(Paint.valueOf("#e50000"));
-        HighScore.setLayoutY(399);
-        HighScore.setFont(Font.font ("Calibri Bold", 27));
+        HighScore.setText(""+ MainMenu.getInstance().getHighScore());
+        HighScore.setX(335);
+        HighScore.setStroke(Color.WHITE);
+        HighScore.setFill(Color.WHITE);
+        HighScore.setLayoutY(306);
+        HighScore.setFont(Font.font ("Blissful Thinking", 35));
         root.getChildren().add(HighScore);
 
         TotalStars = new Text();
-       // TotalStars.setText(""+ MainMenu.getInstance().getTotalStars());
-        TotalStars.setX(260);
-        TotalStars.setStroke(Paint.valueOf("#e50000"));
-        TotalStars.setFill(Paint.valueOf("#e50000"));
-        TotalStars.setLayoutY(512);
-        TotalStars.setFont(Font.font ("Calibri Bold", 27));
+        TotalStars.setText(""+ MainMenu.getInstance().getTotalStars());
+        TotalStars.setX(335);
+        TotalStars.setStroke(Color.WHITE);
+        TotalStars.setFill(Color.WHITE);
+        TotalStars.setLayoutY(356);
+        TotalStars.setFont(Font.font ("Blissful Thinking", 35));
         root.getChildren().add(TotalStars);
 
         primaryStage.setTitle("Color Switch");
