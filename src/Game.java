@@ -92,6 +92,7 @@ public class Game extends Application implements Screen, Serializable {
     }
 
     public Game(){
+        MainMenu.getInstance().setNoOfGamesPlayed(MainMenu.getInstance().getNoOfGamesPlayed()+1);
         obstacles = new ArrayList<Obstacle>();
         starList = new ArrayList<Star>();
         colorSwitchers = new ArrayList<ColorSwitcher>();
