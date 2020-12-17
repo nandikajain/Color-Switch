@@ -17,6 +17,7 @@ public class Star implements Serializable {
     double maxSpeed = 100;
     boolean hasCollected;
     transient ImageView starImg;
+    String imagePath;
 
     public boolean isHasCollected() {
         return hasCollected;
@@ -31,6 +32,7 @@ public class Star implements Serializable {
         starImg = img;
         hasCollected= false;
         userVelocity=5;
+        imagePath= starImg.getImage().getUrl();
     }
 
     public void userMove() {
@@ -59,4 +61,11 @@ public class Star implements Serializable {
         return positionY;
     }
 
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
 }

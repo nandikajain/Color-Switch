@@ -14,6 +14,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.Serializable;
+import java.util.Random;
 import java.util.Timer;
 import java.util.ArrayList;
 import javafx.scene.paint.Color;
@@ -26,7 +27,6 @@ public class Game extends Application implements Screen, Serializable {
     transient AnchorPane gamePane;
     transient Pane playfield;
     transient AnimationTimer gameLoop;
-    int DynamicGeneration;
     boolean gameMoving;
     Ball ball;
     transient Text gameScore;
@@ -130,8 +130,14 @@ public class Game extends Application implements Screen, Serializable {
         {
             Group g = obstacles.get(i).generateObstacle();
             gamePane.getChildren().add(g);
-
-            Image image = new Image("file:./assets/game-star.jpg");
+            Image image;
+            if(i==4)
+            {
+                image = new Image("file:./assets/golden-star.PNG");
+            }
+            else{
+                image = new Image("file:./assets/game-star.jpg");
+            }
             ImageView imageView = new ImageView(image);
             imageView.setX(240);
             imageView.setY(obstacles.get(i).getStarPositionY() -10);
@@ -282,17 +288,30 @@ public class Game extends Application implements Screen, Serializable {
         {
             if(starList.get(j).getLocation()>=ball.getLocationCollision() && !starList.get(j).isHasCollected())
             {
-                starList.get(j).getStarImg().setImage(null);
-                starList.get(j).setHasCollected(true);
-                noOfStars++;
-                DynamicGeneration++;
-                int score= valueOf(gameScore.getText());
-                score++;
-                gameScore.setText(""+score);
+                if(starList.get(j).getImagePath().equals("file:./assets/golden-star.PNG"))
+                {
+                    starList.get(j).getStarImg().setImage(null);
+                    starList.get(j).setHasCollected(true);
+                    handleGoldenStars();
+                }
+                else{
+                    starList.get(j).getStarImg().setImage(null);
+                    starList.get(j).setHasCollected(true);
+                    noOfStars++;
+                }
+                gameScore.setText(""+noOfStars);
             }
 
         }
     }
+    private void handleGoldenStars()
+    {
+        Random random = new Random();
+        int int_random = random.nextInt(3)+2;
+       // System.out.println(int_random);
+        noOfStars+=int_random;
+    }
+
     private void moveContentsDown()
     {
         for(int i=0; i<obstacles.size(); i++)
@@ -343,11 +362,20 @@ public class Game extends Application implements Screen, Serializable {
         return false;
     }
 
-    private void HandleDynamicObstacle(Obstacle obs)
+    private void HandleDynamicObstacle(Obstacle obs, boolean isGolden)
     {
         Group dynamicGroup = obs.generateObstacle();
         gamePane.getChildren().add(dynamicGroup);
-        Image imageDyn = new Image("file:./assets/game-star.jpg");
+        Image imageDyn;
+        if(isGolden)
+        {
+            imageDyn = new Image("file:./assets/golden-star.PNG");
+
+        }
+        else{
+            imageDyn = new Image("file:./assets/game-star.jpg");
+
+        }
         ImageView imageViewDyn = new ImageView(imageDyn);
         imageViewDyn.setX(240);
         imageViewDyn.setY(obs.getStarPositionY() -10);
@@ -382,14 +410,21 @@ public class Game extends Application implements Screen, Serializable {
     {
         double newCenter= obstacles.get(obstacles.size()-1).getCenterY();
         Obstacle obs;
+        Random ran= new Random();
+        int randomInt= ran.nextInt(10);
+        boolean temp=false;
+        if(randomInt==9)
+        {
+            temp=true;
 
+        }
         if(obstacles.get(0) instanceof CircleObstacle)
         {
             //CIRCLE -> Y last obstacle -=300, radius 60,
             obs= new CircleObstacle(250, newCenter-300,70, false );
             obstacles.add(obs);
             obstacles.remove(0);
-            HandleDynamicObstacle(obs);
+            HandleDynamicObstacle(obs, temp);
 
         }
         else if(obstacles.get(0) instanceof TwoAdjacentStars)
@@ -398,7 +433,7 @@ public class Game extends Application implements Screen, Serializable {
             obs= new TwoAdjacentStars(175, newCenter-250,75);
             obstacles.add(obs);
             obstacles.remove(0);
-            HandleDynamicObstacle(obs);
+            HandleDynamicObstacle(obs, temp);
         }
         else if(obstacles.get(0) instanceof SquareObstacle)
         {
@@ -406,7 +441,7 @@ public class Game extends Application implements Screen, Serializable {
             obs= new SquareObstacle(250, newCenter- 325, 120, false);
             obstacles.add(obs);
             obstacles.remove(0);
-            HandleDynamicObstacle(obs);
+            HandleDynamicObstacle(obs, temp);
 
         }
         else if(obstacles.get(0) instanceof TwoEqualCircles)
@@ -415,7 +450,7 @@ public class Game extends Application implements Screen, Serializable {
             obs= new TwoEqualCircles(250, newCenter- 310, 70, 82);
             obstacles.add(obs);
             obstacles.remove(0);
-            HandleDynamicObstacle(obs);
+            HandleDynamicObstacle(obs, temp);
 
         }
         else if(obstacles.get(0) instanceof LineObstacle)
@@ -424,7 +459,7 @@ public class Game extends Application implements Screen, Serializable {
             obs= new LineObstacle(newCenter-225);
             obstacles.add(obs);
             obstacles.remove(0);
-            HandleDynamicObstacle(obs);
+            HandleDynamicObstacle(obs, temp);
         }
         else  if(obstacles.get(0) instanceof  TwoEqualCircles)
         {
@@ -432,7 +467,7 @@ public class Game extends Application implements Screen, Serializable {
             obs = new ThreeEqualCircles(250, newCenter- 280, 70, 82, 94);
             obstacles.add(obs);
             obstacles.remove(0);
-            HandleDynamicObstacle(obs);
+            HandleDynamicObstacle(obs, temp);
         }
         else if(obstacles.get(0) instanceof  RhombusObstacle)
         {
@@ -440,7 +475,7 @@ public class Game extends Application implements Screen, Serializable {
             obs= new RhombusObstacle(250, newCenter-350, 140, false);
             obstacles.add(obs);
             obstacles.remove(0);
-            HandleDynamicObstacle(obs);
+            HandleDynamicObstacle(obs, temp);
         }
         else if (obstacles.get(0) instanceof  TwoAdjacentCircles)
         {
@@ -448,7 +483,7 @@ public class Game extends Application implements Screen, Serializable {
             obs= new TwoAdjacentCircles(175, newCenter-300,75, 80);
             obstacles.add(obs);
             obstacles.remove(0);
-            HandleDynamicObstacle(obs);
+            HandleDynamicObstacle(obs, temp);
         }
         else{
             //STAR OBSTACLE -> Y last obstacle -=250, x cord-> 330, len->90
@@ -456,7 +491,7 @@ public class Game extends Application implements Screen, Serializable {
             obstacles.add(obs);
             obstacles.remove(0);
             obstacles.set(8, obs);
-            HandleDynamicObstacle(obs);
+            HandleDynamicObstacle(obs, temp);
         }
 
     }
