@@ -19,7 +19,7 @@ public class MainMenu extends Application implements Serializable {
 
     private final static long serialVersionUID = 65621354;
 
-    int totalStars=0;
+    int totalStars=1000;
     int highScore=0;
     int noOfGamesPlayed=0;
 

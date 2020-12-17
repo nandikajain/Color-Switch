@@ -34,7 +34,17 @@ public class GameEndMenuController implements Initializable {
 
     @FXML
     public void playCoinsClicked(ActionEvent actionEvent) throws Exception {
-        GameEndMenu.getInstance().gameContinue();
+        boolean temp= GameEndMenu.getInstance().checkEligible();
+        if(!temp)
+        {
+            Stage stage = (Stage) menuButton.getScene().getWindow();
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.start(stage);
+
+        }
+        else{
+            GameEndMenu.getInstance().gameContinue();
+        }
     }
 
     @Override

@@ -13,6 +13,7 @@ public class GameEndMenu extends Application {
     Text curScore;
     Text highScoreText;
     Text totalStarsText;
+
     private static GameEndMenu gameEndMenu = null;
     Game prevGame;
     int finalStars;
@@ -36,12 +37,15 @@ public class GameEndMenu extends Application {
         prevGame.resumeGame(stage);
     }
 
-    public void checkEligible(){
-        if(totalStars>=100){
-            System.out.println("Kyu darta hai tu yaar daaw laga");
+    public boolean checkEligible(){
+        System.out.println("Total stars"+ totalStars);
+        if(totalStars>=50)
+        {
+            return true;
         }
+
         else{
-            //GameEndMenuController.playAgainButton.setVisible(false);
+            return false;
         }
     }
 
