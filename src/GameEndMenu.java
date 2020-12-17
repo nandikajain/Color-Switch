@@ -41,6 +41,11 @@ public class GameEndMenu extends Application {
         System.out.println("Total stars"+ totalStars);
         if(totalStars>=50)
         {
+            if(prevGame.isHasRevived())
+            {
+                return false;
+            }
+            prevGame.setHasRevived(true);
             MainMenu.getInstance().setTotalStars(totalStars - 50);
             return true;
         }

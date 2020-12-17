@@ -32,7 +32,8 @@ public class Game extends Application implements Screen, Serializable {
     transient AnimationTimer gameLoop;
     boolean gameMoving;
     Ball ball;
-    transient Text gameScore;
+    boolean hasRevived;
+    private transient Text gameScore;
     boolean mouseClick = false;
     boolean clickedOnce = false;
     private int noOfStars;
@@ -82,6 +83,14 @@ public class Game extends Application implements Screen, Serializable {
         savedGameContinue = true;
     }
 
+    public boolean isHasRevived() {
+        return hasRevived;
+    }
+
+    public void setHasRevived(boolean hasRevived) {
+        this.hasRevived = hasRevived;
+    }
+
     public Game(){
         obstacles = new ArrayList<Obstacle>();
         starList = new ArrayList<Star>();
@@ -89,6 +98,7 @@ public class Game extends Application implements Screen, Serializable {
         noOfStars = 0;
         gameMoving = false;
         gamePause = false;
+        hasRevived= false;
     }
 
     public void resumeGame(Stage stage,boolean extralife) throws Exception {
@@ -96,7 +106,7 @@ public class Game extends Application implements Screen, Serializable {
         stage.show();
         //addBall(true);
         if(extralife){
-            ball.positionY+=100;
+            ball.positionY+=50;
         }
         mouseClick = false;
         clickedOnce = false;
