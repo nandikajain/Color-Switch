@@ -24,8 +24,8 @@ public class TwoAdjacentCircles extends Obstacle implements Serializable {
     {
         speed = s;
 
-        centerX = centerXa;
-        centerY = centerYa;
+        centerX = centerXa-5;
+        centerY = centerYa+5;
         radiusA = rA;
         radiusB = rB;
     }

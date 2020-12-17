@@ -22,7 +22,6 @@ import java.util.Timer;
 import java.util.ArrayList;
 import javafx.scene.paint.Color;
 
-import static java.lang.Integer.valueOf;
 
 
 public class Game extends Application implements Screen, Serializable {
@@ -38,6 +37,7 @@ public class Game extends Application implements Screen, Serializable {
     boolean clickedOnce = false;
     private int noOfStars;
     public ArrayList<Obstacle> obstacles;
+    int score;
     transient public ArrayList<Star> starList;
     transient public ArrayList<ColorSwitcher> colorSwitchers;
 
@@ -100,14 +100,59 @@ public class Game extends Application implements Screen, Serializable {
         gameMoving = false;
         gamePause = false;
         hasRevived= false;
+        score=0;
     }
 
     public void resumeGame(Stage stage,boolean extralife) throws Exception {
         stage.setScene(pausedScene);
         stage.show();
-        //addBall(true);
         if(extralife){
-            ball.setPositionY(ball.getPositionY()+120);
+           // System.out.println(score);
+            if(score% 9 == 0)
+            {
+                ball.setPositionY(ball.getPositionY()+140);
+            }
+            else if(score% 9 == 1)
+            {
+                //tested
+                ball.setPositionY(ball.getPositionY()+155);
+            }
+            else if(score% 9 == 2)
+            {
+                //tested
+                ball.setPositionY(ball.getPositionY()+155);
+            }
+            else if(score% 9 == 3)
+            {
+                //tested
+                ball.setPositionY(ball.getPositionY()+175);
+            }
+            else if(score% 9 == 4)
+            {
+                //tested
+                ball.setPositionY(ball.getPositionY()+190);
+            }
+            else if(score% 9 == 5)
+            {
+                //tested
+                ball.setPositionY(ball.getPositionY()+50);
+            }
+            else if(score% 9 == 6)
+            {
+                //tested
+                ball.setPositionY(ball.getPositionY()+180);
+            }
+            else if(score% 9 == 7)
+            {
+                //tested
+                ball.setPositionY(ball.getPositionY()+205);
+            }
+            else if(score% 9 == 8)
+            {
+                //tested
+                ball.setPositionY(ball.getPositionY()+155);
+            }
+
             ball.display();
         }
         mouseClick = false;
@@ -119,7 +164,6 @@ public class Game extends Application implements Screen, Serializable {
                 gameLoop.start();
             }
         });
-        //startGame();
     }
 
     private void pauseGame() throws Exception {
@@ -182,8 +226,9 @@ public class Game extends Application implements Screen, Serializable {
             obstacles.add(new LineObstacle(-1050));
             obstacles.add(new ThreeEqualCircles(250, -1380, 70, 82, 94, 4000));
             obstacles.add(new RhombusObstacle(250, -1800, 140, false, 4000));
-            obstacles.add(new TwoAdjacentCircles(175, -2200, 75, 80, 11000));
+            obstacles.add(new TwoAdjacentCircles(170, -2200, 80, 80, 16000));
             obstacles.add(new StarObstacle(330, -2550, 90, false, 4000));
+
         }
 
         for(int i=0; i<obstacles.size(); i++)
@@ -261,17 +306,6 @@ public class Game extends Application implements Screen, Serializable {
             long time = System.currentTimeMillis();
             @Override
             public void handle(long l) {
-                //if(!gamePause) {
-                    /*playfield.setOnMouseClicked(e -> mouseClick = true);
-                    scene.setOnKeyPressed(e->{
-                        if(e.getCode() == KeyCode.P){
-                            try {
-                                pauseGame();
-                            } catch (Exception exception) {
-                                exception.printStackTrace();
-                            }
-                        }
-                    });*/
                 scene.setOnKeyPressed(e->{
                     if(e.getCode()==KeyCode.UP){
                         mouseClick = true;
@@ -363,6 +397,7 @@ public class Game extends Application implements Screen, Serializable {
         {
             if(starList.get(j).getLocation()>=ball.getLocationCollision() && !starList.get(j).isHasCollected())
             {
+                score++;
                 if(starList.get(j).getImagePath().equals("file:./assets/golden-star.PNG"))
                 {
                     gsSound = new Media(new File(gsSoundFile).toURI().toString());
@@ -389,7 +424,6 @@ public class Game extends Application implements Screen, Serializable {
     {
         Random random = new Random();
         int int_random = random.nextInt(3)+2;
-        // System.out.println(int_random);
         noOfStars+=int_random;
     }
 
@@ -626,16 +660,16 @@ public class Game extends Application implements Screen, Serializable {
         else if (obstacles.get(0) instanceof  TwoAdjacentCircles)
         {
             double speed = ((TwoAdjacentCircles) obstacles.get(0)).getSpeed();
-            if(speed>9000)
+            if(speed>13000)
             {
                 ((TwoAdjacentCircles)obstacles.get(0)).setSpeed(speed- 200);
             }
-            if(speed<=9000)
+            if(speed<=13000)
             {
                 ((TwoAdjacentCircles) obstacles.get(0)).setSpeed(9000);
             }
-            //TWO ADJACENT CIRCLES -> Y last obstacle -=400, r1->75, r2-> 80, x cord-> 175
-            obs= new TwoAdjacentCircles(175, newCenter-400,75, 80, ((TwoAdjacentCircles) obstacles.get(0)).getSpeed());
+            //TWO ADJACENT CIRCLES -> Y last obstacle -=400, r1->80, r2-> 80, x cord-> 175
+            obs= new TwoAdjacentCircles(175, newCenter-400,80, 80, ((TwoAdjacentCircles) obstacles.get(0)).getSpeed());
             obstacles.add(obs);
             obstacles.remove(0);
             HandleDynamicObstacle(obs, temp);
