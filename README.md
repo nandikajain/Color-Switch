@@ -10,6 +10,10 @@ Made as a part of project in Advanced Programming course at IIIT-Delhi.
 Working demo of the game can be viewed [here](https://drive.google.com/file/d/12Lwa55EDFVIAmRXExNT1yo-yd0lqNvwv/view?usp=sharing).
 
 ### How to Play
+1. Clone this repository using the command: `git clone https://github.com/nandikajain/Color-Switch.git`
+2. [Run the application](https://openjfx.io/openjfx-docs/#install-javafx) with JavaFX. 
+> ***_NOTE:_***  
+javafx.controls,javafx.fxml,javafx.media modules should be added for running the application.
 
 ### Dependencies
 
