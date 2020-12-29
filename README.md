@@ -3,17 +3,29 @@
 **Created by:
 [Ansh Arora](https://github.com/arora-ansh) and [Nandika Jain](https://www.github.com/nandikajain)**
 
-<description>
+**Color Switch** is an obstacle-based gaming app. The objective of the app is to play through levels of increasing difficulty, by tapping a small ball of a certain color through shapes of a matching color.
+
+Made as a part of project in Advanced Programming course at IIIT-Delhi.
+
+Working demo of the game can be viewed [here](https://drive.google.com/file/d/12Lwa55EDFVIAmRXExNT1yo-yd0lqNvwv/view?usp=sharing).
+
+### How to Play
 
 ### Dependencies
 
-### How to play
+The game is implemented using Java and JavaFX.
 
-### Features
+1. [JavaFX](https://gluonhq.com/products/javafx/)
+2. [Blissful Thinking](https://www.1001freefonts.com/blissful-thinking.font) (font)
 
 ### Screenshots from the game
 
-### Working demo
+<img src="/Final_Screenshots/MainMenu.png" alt="Main Menu"/>
 
+<img src="/Final_Screenshots/Game2.png" alt="GamePlay"/>
 
+<img src="/Final_Screenshots/GameEnd.png" alt="GameEnd Menu"/>
 
+<img src="/Final_Screenshots/SavedGamesMenu.png" alt="Saved Games Menu"/>
+
+<img src="/Final_Screenshots/StatsScreen.png" alt="GameStats"/>
