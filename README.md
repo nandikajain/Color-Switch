@@ -20,12 +20,14 @@ The game is implemented using Java and JavaFX.
 
 ### Screenshots from the game
 
-<img src="/Final_Screenshots/MainMenu.png" alt="Main Menu"/>
+<img src="/Final_Screenshots/MainMenu.png" alt="Main Menu" width="300"/>
 
-<img src="/Final_Screenshots/Game2.png" alt="GamePlay"/>
+<img src="/Final_Screenshots/Game2.png" alt="GamePlay" width="300" />
 
-<img src="/Final_Screenshots/GameEnd.png" alt="GameEnd Menu"/>
+<img src="/Final_Screenshots/GameEnd.png" alt="GameEnd Menu" width="300" />
 
-<img src="/Final_Screenshots/SavedGamesMenu.png" alt="Saved Games Menu"/>
+<img src="/Final_Screenshots/SavedGamesMenu.png" alt="Saved Games Menu" width="300" />
 
-<img src="/Final_Screenshots/StatsScreen.png" alt="GameStats"/>
+<img src="/Final_Screenshots/PauseMenu.png" alt="Pause Menu" width="300" />
+
+<img src="/Final_Screenshots/StatsScreen.png" alt="GameStats" width="300" />
